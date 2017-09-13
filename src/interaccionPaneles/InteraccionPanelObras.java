@@ -7,7 +7,8 @@ package interaccionPaneles;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.MenuPrincipal;
+
+import vista.PanelMenuPrincipal;
 import vista.PanelObras;
 
 /**
@@ -16,10 +17,11 @@ import vista.PanelObras;
  */
 public class InteraccionPanelObras implements ActionListener {
 
-    private final MenuPrincipal menuPrincipal;
-
-    public InteraccionPanelObras(MenuPrincipal menuPrincipal) {
-        this.menuPrincipal = menuPrincipal;
+	private PanelObras panelObras;
+	private PanelMenuPrincipal panelMenuPrincipal;
+	
+    public InteraccionPanelObras(PanelMenuPrincipal panelMenuPrincipal) {
+        this.panelObras = panelMenuPrincipal.getPanelObras();
         initComponents();
     }
 
@@ -43,5 +45,9 @@ public class InteraccionPanelObras implements ActionListener {
 
                 break;
         }
+    }
+    
+    public void setPanelMenuPrincipal(PanelMenuPrincipal panelMenuPrincipal) {
+    	this.panelMenuPrincipal = panelMenuPrincipal;
     }
 }

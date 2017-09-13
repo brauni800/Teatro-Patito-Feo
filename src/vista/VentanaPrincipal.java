@@ -4,6 +4,11 @@ package vista;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author brauni800
+ *
+ */
 public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
@@ -21,8 +26,5 @@ public class VentanaPrincipal extends JFrame {
 	private void panelMenuPrincipal() {
 		contentPane = new PanelMenuPrincipal();
 		setContentPane(contentPane);
-	}
-	public static void main(String[] args) {
-		new VentanaPrincipal();
 	}
 }

@@ -7,29 +7,31 @@ package interaccionPaneles;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.MenuPrincipal;
+
+import javax.swing.JPanel;
+
 import vista.PanelMenuPrincipal;
 import vista.PanelObras;
-
 /**
+ * 
+ * @author brauni800
  *
- * @author b1796
  */
 public class InteraccionPanelMenuPrincipal implements ActionListener {
 
-    private MenuPrincipal menuPrincipal;
+    private JPanel panelMenuPrincipal;
 
-    public InteraccionPanelMenuPrincipal(MenuPrincipal menuPrincipal) {
-        this.menuPrincipal = menuPrincipal;
+    public InteraccionPanelMenuPrincipal(JPanel panelMenuPrincipal) {
+        this.panelMenuPrincipal = panelMenuPrincipal;
         initComponents();
     }
 
     private void initComponents() {
-        this.menuPrincipal.getPanelMenuPrincipal().getObras().addActionListener(this);
-        this.menuPrincipal.getPanelMenuPrincipal().getObras().setActionCommand("OBRAS");
+        ((PanelMenuPrincipal) this.panelMenuPrincipal).getBtnObras().addActionListener(this);
+        this.panelMenuPrincipal.getBtnObras().setActionCommand("OBRAS");
         
-        this.menuPrincipal.getPanelMenuPrincipal().getVenderBoletos().addActionListener(this);
-        this.menuPrincipal.getPanelMenuPrincipal().getVenderBoletos().setActionCommand("VENDER_BOLETOS");
+        this.panelMenuPrincipal.getBtnVenderBoletos().addActionListener(this);
+        this.panelMenuPrincipal.getBtnVenderBoletos().setActionCommand("VENDER_BOLETOS");
     }
 
     @Override
@@ -37,7 +39,11 @@ public class InteraccionPanelMenuPrincipal implements ActionListener {
         String comando = ae.getActionCommand();
         switch (comando) {
             case "OBRAS":
-                this.menuPrincipal.getPanelMenuPrincipal().setVisible(false);
+                this.panelMenuPrincipal.setPanelObras(new PanelObras(this.panelMenuPrincipal));
+                this.panelMenuPrincipal.add(this.panelMenuPrincipal.getPanelObras());
+                this.panelMenuPrincipal.getBtnObras().setVisible(false);
+                this.panelMenuPrincipal.getBtnVenderBoletos().setVisible(false);
+                this.panelMenuPrincipal.repaint();
                 break;
             case "VENDER_BOLETOS":
                 break;

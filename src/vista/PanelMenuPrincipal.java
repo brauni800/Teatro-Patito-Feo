@@ -5,9 +5,18 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import interaccionPaneles.InteraccionPanelMenuPrincipal;
+
+/**
+ * 
+ * @author brauni800
+ *
+ */
 public class PanelMenuPrincipal extends JPanel {
 
 	private JButton btnObras, btnVenderBoletos;
+	private JPanel panelObras;
+	InteraccionPanelMenuPrincipal interaccionPanelMenuPrincipal;
 	
 	/**
 	 * Create the panel.
@@ -19,6 +28,7 @@ public class PanelMenuPrincipal extends JPanel {
         setLayout(null);
         
         initCompponents();
+        initEvents();
 	}
 
 	private void initCompponents() {
@@ -29,5 +39,29 @@ public class PanelMenuPrincipal extends JPanel {
         btnVenderBoletos = new JButton("Vender Boletos");
         btnVenderBoletos.setBounds(50, 100, 150, 23);
         add(btnVenderBoletos);
+        
+        initEvents();
     }
+	
+	private void initEvents() {
+		interaccionPanelMenuPrincipal = new InteraccionPanelMenuPrincipal(this);
+	}
+	public JButton getBtnObras() {
+		return btnObras;
+	}
+	public JButton getBtnVenderBoletos() {
+		return btnVenderBoletos;
+	}
+	public JPanel getPanelObras() {
+		return panelObras;
+	}
+	public void setPanelObras(JPanel panelObras) {
+		this.panelObras = panelObras;
+	}
+	public void setBtnObras(JButton btnObras) {
+		this.btnObras = btnObras;
+	}
+	public void setBtnVenderBoletos(JButton btnVenderBoletos) {
+		this.btnVenderBoletos = btnVenderBoletos;
+	}
 }
