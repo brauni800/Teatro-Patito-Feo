@@ -20,7 +20,8 @@ public abstract class PanelFactory extends JPanel {
 	public static final String CREAR_OBRA = "CREAR_OBRA";
 	public static final String ELIMINAR_OBRA = "ELIMINAR_OBRA";
 	public static final String EDITAR_OBRA = "EDITAR_OBRA";
-	public static final String CREAR = "CREAR";
+	public static final String CREAR_EDITAR = "CREAR_EDITAR";
+	public static final String ELIMINAR = "ELIMINAR";
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;

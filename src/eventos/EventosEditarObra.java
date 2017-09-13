@@ -5,14 +5,9 @@ import java.awt.event.ActionEvent;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-/**
- * 
- * @author b1796
- *
- */
-public class EventosCrearObra extends EventosFactory {
+public class EventosEditarObra extends EventosFactory {
 
-	public EventosCrearObra(VentanaPrincipal ventanaPrincipal) {
+	public EventosEditarObra(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
 
@@ -31,5 +26,4 @@ public class EventosCrearObra extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.CREAR_EDITAR).addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.CREAR_EDITAR).setActionCommand(PanelFactory.CREAR_EDITAR);
 	}
-
 }
