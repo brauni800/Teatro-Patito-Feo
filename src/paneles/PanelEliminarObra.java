@@ -33,9 +33,9 @@ public class PanelEliminarObra extends PanelFactory {
 		table = new tablaObras();
 		scrollPane.setViewportView(table);
 		
-		lblSeleccion = new JLabel("Seleccion:");
-		lblSeleccion.setBounds(70, 424, 84, 14);
-		add(lblSeleccion);
+		lbl1 = new JLabel("Seleccion:");
+		lbl1.setBounds(70, 424, 84, 14);
+		add(lbl1);
 		
 		txtFieldSeleccion = new JTextField();
 		txtFieldSeleccion.setBounds(164, 421, 202, 20);

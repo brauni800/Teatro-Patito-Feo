@@ -6,11 +6,14 @@ import vista.VentanaPrincipal;
 
 public class ElementoCrearObra extends ElementoFactory {
 
-	public ElementoCrearObra(VentanaPrincipal ventana) {
+	private String emailRepresentante;
+	
+	public ElementoCrearObra(VentanaPrincipal ventana, String emailRepresentante) {
 		super(ventana);
+		this.emailRepresentante = emailRepresentante;
 		super.panel = new PanelCrearObra();
 		ventana.getPanelDinamico().setPanelDinamico(super.panel);
-		super.eventos = new EventosCrearObra(ventana);
+		super.eventos = new EventosCrearObra(ventana, emailRepresentante);
 	}
 
 }

@@ -21,15 +21,29 @@ public class AdministradorObras {
 
 	private PanelFactory panel;
 	private Obra obra;
+	private String emailRepresentante;
 
 	public AdministradorObras(PanelFactory panel) {
 		super();
 		this.panel = panel;
 	}
 
-	public void crearObra() throws SQLException {
-		crearEntidadObra();
-		insertarObraBD();
+	public boolean crearObra() throws SQLException {
+		boolean creado = false;
+		if (!hayCamposVacios()) {
+			crearEntidadObra();
+			insertarObraBD();
+			creado = true;
+		}
+		return creado;
+	}
+
+	public String getEmailRepresentante() {
+		return emailRepresentante;
+	}
+
+	public void setEmailRepresentante(String emailRepresentante) {
+		this.emailRepresentante = emailRepresentante;
 	}
 
 	// ****************************************************************************************
@@ -57,7 +71,7 @@ public class AdministradorObras {
 	private void crearEntidadObra() throws SQLException {
 		this.obra = new Obra();
 		this.obra.setIdRepresentante(buscarIdRepresentante());
-		this.obra.setNombre(panel.getTxtFieldNombreObra().getText());
+		this.obra.setNombre(panel.getTxtFieldNombre().getText());
 		this.obra.setPrecio(Double.parseDouble(panel.getTxtFieldPrecio().getText()));
 		this.obra.setDuracion(calcularDuracion());
 		this.obra.setDescripcion(this.panel.getTextAreaDescripcion().getText());
@@ -65,18 +79,7 @@ public class AdministradorObras {
 	}
 
 	private int buscarIdRepresentante() throws SQLException {
-		int idRepresentante = -1;
-		String nombreCompletoRepresentante = this.panel.getCmBoxRepresentantes().getSelectedItem().toString();
-		String[] nombreRepresentante = nombreCompletoRepresentante.split(" ");
-		String what = "\"" + nombreRepresentante[0] + "\"";
-		Object[][] buscar = new DAO().buscarConFiltro("idRepresentante, nombre, apellido", DAO.REPRESENTANTE, "nombre", what);
-		for (int i = 0; i < buscar.length; i++) {
-			String nombreCompletoEncontrado = buscar[i][1].toString() + " " + buscar[i][2].toString();
-			if (nombreCompletoRepresentante.equals(nombreCompletoEncontrado)) {
-				idRepresentante = (Integer) buscar[i][0];
-			}
-		}
-		return idRepresentante;
+		return new AdministradorRepresentante(emailRepresentante).buscarIDRepresentante();
 	}
 
 	private Time calcularDuracion() {
@@ -88,5 +91,18 @@ public class AdministradorObras {
 
 	private long getMilisegundos(int hor, int min) {
 		return (hor * 3600000) + (min * 60000);
+	}
+	
+	private boolean hayCamposVacios() {
+		boolean hayCamposVacios = true;
+		String fieldNombre = this.panel.getTxtFieldNombre().getText();
+		String fieldPrecio = this.panel.getTxtFieldPrecio().getText();
+		String fieldHoras = this.panel.getCmBoxHoras().getSelectedItem().toString();
+		String fieldDescripcion = this.panel.getTextAreaDescripcion().getText();
+		
+		if((!fieldNombre.equals("")) && (!fieldPrecio.equals("")) && (!fieldHoras.equals("0")) && (!fieldDescripcion.equals(""))) {
+			hayCamposVacios = false;
+		}
+		return hayCamposVacios;
 	}
 }

@@ -14,43 +14,43 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initLabels() {
-		lblNombreObra = new JLabel("Nombre de la obra:");
-		lblNombreObra.setBounds(116, 86, 153, 14);
-		lblNombreObra.setEnabled(false);
-		add(lblNombreObra);
+		lbl1 = new JLabel("Nombre de la obra:");
+		lbl1.setBounds(116, 86, 153, 14);
+		lbl1.setEnabled(false);
+		add(lbl1);
 
-		lblPrecio = new JLabel("Precio (Asiento Diamante):");
-		lblPrecio.setBounds(116, 146, 153, 14);
-		lblPrecio.setEnabled(false);
-		add(lblPrecio);
+		lbl2 = new JLabel("Precio (Asiento Diamante):");
+		lbl2.setBounds(116, 146, 153, 14);
+		lbl2.setEnabled(false);
+		add(lbl2);
 
-		lblDuracion = new JLabel("Duracion (horas:min):");
-		lblDuracion.setBounds(116, 206, 153, 14);
-		lblDuracion.setEnabled(false);
-		add(lblDuracion);
+		lbl3 = new JLabel("Duracion (horas:min):");
+		lbl3.setBounds(116, 206, 153, 14);
+		lbl3.setEnabled(false);
+		add(lbl3);
 
-		lblRepresentante = new JLabel("Representante:");
-		lblRepresentante.setBounds(116, 266, 153, 14);
-		lblRepresentante.setEnabled(false);
-		add(lblRepresentante);
+		lbl4 = new JLabel("Representante:");
+		lbl4.setBounds(116, 266, 153, 14);
+		lbl4.setEnabled(false);
+		add(lbl4);
 
-		lblDescripcion = new JLabel("Descripcion de la obra:");
-		lblDescripcion.setBounds(116, 318, 153, 14);
-		lblDescripcion.setEnabled(false);
-		add(lblDescripcion);
+		lbl5 = new JLabel("Descripcion de la obra:");
+		lbl5.setBounds(116, 318, 153, 14);
+		lbl5.setEnabled(false);
+		add(lbl5);
 		
-		lblSeleccionarObra = new JLabel("Seleccionar obra:");
-		lblSeleccionarObra.setBounds(93, 39, 106, 14);
-		lblSeleccionarObra.setVisible(true);
-		add(lblSeleccionarObra);
+		lbl6 = new JLabel("Seleccionar obra:");
+		lbl6.setBounds(93, 39, 106, 14);
+		lbl6.setVisible(true);
+		add(lbl6);
 	}
 
 	@Override
 	protected void initTextFields() {
-		txtFieldNombreObra = new JTextField();
-		txtFieldNombreObra.setBounds(304, 83, 200, 20);
-		txtFieldNombreObra.setEnabled(false);
-		add(txtFieldNombreObra);
+		txtFieldNombre = new JTextField();
+		txtFieldNombre.setBounds(304, 83, 200, 20);
+		txtFieldNombre.setEnabled(false);
+		add(txtFieldNombre);
 
 		txtFieldPrecio = new JTextField();
 		txtFieldPrecio.setBounds(304, 143, 200, 20);
@@ -79,10 +79,10 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		cmBoxRepresentantes.setEnabled(false);
 		add(cmBoxRepresentantes);
 		
-		cmBoxSeleccionarObra = new JComboBox<String>();
-		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
-		cmBoxSeleccionarObra.setVisible(true);
-		add(cmBoxSeleccionarObra);
+		cmBoxSeleccionar = new JComboBox<String>();
+		cmBoxSeleccionar.setBounds(231, 36, 311, 20);
+		cmBoxSeleccionar.setVisible(true);
+		add(cmBoxSeleccionar);
 	}
 
 	@Override

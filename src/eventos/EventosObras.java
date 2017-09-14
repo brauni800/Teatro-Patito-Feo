@@ -2,7 +2,7 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 
-import elementos.ElementoCrearObra;
+import elementos.ElementoAgregarRepresentante;
 import elementos.ElementoEditarObra;
 import elementos.ElementoEliminarObra;
 import elementos.ElementoMenuPrincipal;
@@ -33,7 +33,7 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
 				break;
 			case PanelFactory.ELIMINAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
@@ -54,7 +54,7 @@ public class EventosObras extends EventosFactory {
 		} catch (NullPointerException ex) {
 			switch (comando) {
 			case PanelFactory.CREAR_OBRA:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
 				break;
 			case PanelFactory.ELIMINAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));

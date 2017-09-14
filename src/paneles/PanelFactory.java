@@ -28,17 +28,20 @@ public abstract class PanelFactory extends JPanel {
 	public static final String EDITAR_OBRA = "EDITAR_OBRA";
 	public static final String CREAR_EDITAR = "CREAR_EDITAR";
 	public static final String ELIMINAR = "ELIMINAR";
+	public static final String SIGUIENTE = "SIGUIENTE";
+	public static final String ANTERIOR = "ANTERIOR";
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos;
-	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
-	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior;
+	protected JTextField txtFieldNombre, txtFieldApellido, txtFieldPrecio, txtFieldSeleccion, txtFieldTelefono1, txtFieldTelefono2, txtFieldCorreoElectronico;
+	protected JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
-	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
+	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionar;
 	protected JTextArea textAreaDescripcion;
 	protected JTable table;
 	protected JScrollPane scrollPane;
+	protected String email;
 
 	public PanelFactory() {
 		super();
@@ -71,6 +74,14 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setElementoDinamico(ElementoFactory elementoDinamico) {
 		this.elementoDinamico = elementoDinamico;
+	}
+
+	public JButton getBtnAnterior() {
+		return btnAnterior;
+	}
+
+	public void setBtnAnterior(JButton btnAnterior) {
+		this.btnAnterior = btnAnterior;
 	}
 
 	public JButton getBtnCrear() {
@@ -129,12 +140,12 @@ public abstract class PanelFactory extends JPanel {
 		this.btnVenderBoletos = btnVenderBoletos;
 	}
 
-	public JTextField getTxtFieldNombreObra() {
-		return txtFieldNombreObra;
+	public JTextField getTxtFieldNombre() {
+		return txtFieldNombre;
 	}
 
-	public void setTxtFieldNombreObra(JTextField txtFieldNombreObra) {
-		this.txtFieldNombreObra = txtFieldNombreObra;
+	public void setTxtFieldNombre(JTextField txtFieldNombre) {
+		this.txtFieldNombre = txtFieldNombre;
 	}
 
 	public JTextField getTxtFieldPrecio() {
@@ -153,60 +164,52 @@ public abstract class PanelFactory extends JPanel {
 		this.txtFieldSeleccion = txtFieldSeleccion;
 	}
 
-	public JLabel getLblNombreObra() {
-		return lblNombreObra;
+	public JLabel getLbl1() {
+		return lbl1;
 	}
 
-	public void setLblNombreObra(JLabel lblNombreObra) {
-		this.lblNombreObra = lblNombreObra;
+	public void setLbl1(JLabel lbl1) {
+		this.lbl1 = lbl1;
 	}
 
-	public JLabel getLblPrecio() {
-		return lblPrecio;
+	public JLabel getLbl2() {
+		return lbl2;
 	}
 
-	public void setLblPrecio(JLabel lblPrecio) {
-		this.lblPrecio = lblPrecio;
+	public void setLbl2(JLabel lbl2) {
+		this.lbl2 = lbl2;
 	}
 
-	public JLabel getLblDuracion() {
-		return lblDuracion;
+	public JLabel getLbl3() {
+		return lbl3;
 	}
 
-	public void setLblDuracion(JLabel lblDuracion) {
-		this.lblDuracion = lblDuracion;
+	public void setLbl3(JLabel lbl3) {
+		this.lbl3 = lbl3;
 	}
 
-	public JLabel getLblRepresentante() {
-		return lblRepresentante;
+	public JLabel getLbl4() {
+		return lbl4;
 	}
 
-	public void setLblRepresentante(JLabel lblRepresentante) {
-		this.lblRepresentante = lblRepresentante;
+	public void setLbl4(JLabel lbl4) {
+		this.lbl4 = lbl4;
 	}
 
-	public JLabel getLblDescripcion() {
-		return lblDescripcion;
+	public JLabel getLbl5() {
+		return lbl5;
 	}
 
-	public void setLblDescripcion(JLabel lblDescripcion) {
-		this.lblDescripcion = lblDescripcion;
+	public void setLbl5(JLabel lbl5) {
+		this.lbl5 = lbl5;
 	}
 
-	public JLabel getLblSeleccionarObra() {
-		return lblSeleccionarObra;
+	public JLabel getLbl6() {
+		return lbl6;
 	}
 
-	public void setLblSeleccionarObra(JLabel lblSeleccionarObra) {
-		this.lblSeleccionarObra = lblSeleccionarObra;
-	}
-
-	public JLabel getLblSeleccion() {
-		return lblSeleccion;
-	}
-
-	public void setLblSeleccion(JLabel lblSeleccion) {
-		this.lblSeleccion = lblSeleccion;
+	public void setLbl6(JLabel lbl6) {
+		this.lbl6 = lbl6;
 	}
 
 	public JComboBox<Integer> getCmBoxHoras() {
@@ -233,12 +236,12 @@ public abstract class PanelFactory extends JPanel {
 		this.cmBoxRepresentantes = cmBoxRepresentantes;
 	}
 
-	public JComboBox<String> getCmBoxSeleccionarObra() {
-		return cmBoxSeleccionarObra;
+	public JComboBox<String> getCmBoxSeleccionar() {
+		return cmBoxSeleccionar;
 	}
 
-	public void setCmBoxSeleccionarObra(JComboBox<String> cmBoxSeleccionarObra) {
-		this.cmBoxSeleccionarObra = cmBoxSeleccionarObra;
+	public void setCmBoxSeleccionar(JComboBox<String> cmBoxSeleccionar) {
+		this.cmBoxSeleccionar = cmBoxSeleccionar;
 	}
 
 	public JTextArea getTextAreaDescripcion() {
@@ -263,6 +266,46 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
+	}
+
+	public JButton getBtnSiguiente() {
+		return btnSiguiente;
+	}
+
+	public void setBtnSiguiente(JButton btnSiguiente) {
+		this.btnSiguiente = btnSiguiente;
+	}
+
+	public JTextField getTxtFieldApellido() {
+		return txtFieldApellido;
+	}
+
+	public void setTxtFieldApellido(JTextField txtFieldApellido) {
+		this.txtFieldApellido = txtFieldApellido;
+	}
+
+	public JTextField getTxtFieldTelefono1() {
+		return txtFieldTelefono1;
+	}
+
+	public void setTxtFieldTelefono1(JTextField txtFieldTelefono1) {
+		this.txtFieldTelefono1 = txtFieldTelefono1;
+	}
+
+	public JTextField getTxtFieldTelefono2() {
+		return txtFieldTelefono2;
+	}
+
+	public void setTxtFieldTelefono2(JTextField txtFieldTelefono2) {
+		this.txtFieldTelefono2 = txtFieldTelefono2;
+	}
+
+	public JTextField getTxtFieldCorreoElectronico() {
+		return txtFieldCorreoElectronico;
+	}
+
+	public void setTxtFieldCorreoElectronico(JTextField txtFieldCorreoElectronico) {
+		this.txtFieldCorreoElectronico = txtFieldCorreoElectronico;
 	}
 	
 }
