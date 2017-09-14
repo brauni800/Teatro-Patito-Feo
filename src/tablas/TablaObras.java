@@ -1,27 +1,34 @@
 package tablas;
 
+import java.sql.SQLException;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import administradores.AdministrarTablas;
 
 /**
  * 
  * @author b1796
  *
  */
-public class tablaObras extends JTable {
+public class TablaObras extends JTable {
 
-	public tablaObras() {
+	public TablaObras() {
 		super();
 		setModel(createModel());
 		setSize(500, 340);
 	}
-	
-	private DefaultTableModel createModel() {
+
+	public DefaultTableModel createModel() {
+		
 		DefaultTableModel modelo = new DefaultTableModel();
-		modelo.addColumn("ID Obra");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Duración");
+		modelo.addColumn("Descripción");
+		modelo.addColumn("Representante");	
+		
 		return modelo;
 	}
-	
+
 }
