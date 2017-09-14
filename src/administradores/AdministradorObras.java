@@ -21,29 +21,20 @@ public class AdministradorObras {
 
 	private PanelFactory panel;
 	private Obra obra;
-	private String emailRepresentante;
 
 	public AdministradorObras(PanelFactory panel) {
 		super();
 		this.panel = panel;
 	}
 
-	public boolean crearObra() throws SQLException {
+	public boolean crearObra(String email) throws SQLException {
 		boolean creado = false;
 		if (!hayCamposVacios()) {
-			crearEntidadObra();
+			crearEntidadObra(email);
 			insertarObraBD();
 			creado = true;
 		}
 		return creado;
-	}
-
-	public String getEmailRepresentante() {
-		return emailRepresentante;
-	}
-
-	public void setEmailRepresentante(String emailRepresentante) {
-		this.emailRepresentante = emailRepresentante;
 	}
 
 	// ****************************************************************************************
@@ -61,16 +52,16 @@ public class AdministradorObras {
 		insertar.insertarTime(4, this.obra.getDuracion());
 		insertar.insertarString(5, this.obra.getDescripcion());
 		insertar.insertarString(6, this.obra.getEstado());
-		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		int reply = JOptionPane.showConfirmDialog(null, "Esta seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (reply == JOptionPane.YES_OPTION) {
             insertar.confirmar();
             JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
         }
 	}
 
-	private void crearEntidadObra() throws SQLException {
+	private void crearEntidadObra(String email) throws SQLException {
 		this.obra = new Obra();
-		this.obra.setIdRepresentante(buscarIdRepresentante());
+		this.obra.setIdRepresentante(buscarIdRepresentante(email));
 		this.obra.setNombre(panel.getTxtFieldNombre().getText());
 		this.obra.setPrecio(Double.parseDouble(panel.getTxtFieldPrecio().getText()));
 		this.obra.setDuracion(calcularDuracion());
@@ -78,8 +69,8 @@ public class AdministradorObras {
 		this.obra.setEstado(AdministradorObras.ESTADO_ACTIVO);
 	}
 
-	private int buscarIdRepresentante() throws SQLException {
-		return new AdministradorRepresentante(emailRepresentante).buscarIDRepresentante();
+	private int buscarIdRepresentante(String email) throws SQLException {
+		return new AdministradorRepresentante().buscarIDRepresentante(email);
 	}
 
 	private Time calcularDuracion() {

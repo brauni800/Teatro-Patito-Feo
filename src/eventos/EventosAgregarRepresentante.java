@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import administradores.AdministradorRepresentante;
 import elementos.ElementoCrearObra;
+import entidades.Representante;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -19,23 +20,19 @@ public class EventosAgregarRepresentante extends EventosFactory {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
-		try {
-			switch (comando) {
-			case PanelFactory.SIGUIENTE:
-				boolean representanteCreado = new AdministradorRepresentante(super.ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearRepresentante();
-				if (representanteCreado) {
-					String email = "\"" + super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getTxtFieldCorreoElectronico().getText() + "\"";
-					super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-					super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal, email));
-				} else {
-					JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
-				}
 
-				break;
+		switch (comando) {
+		case PanelFactory.SIGUIENTE:
+			Representante representante = new AdministradorRepresentante(super.ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearEntidadRepresentante();
+			if (representante != null) {
+				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal, representante));
+			} else {
+				JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
 			}
-		} catch (SQLException e1) {
-			e1.printStackTrace();
+			break;
 		}
+
 	}
 
 	@Override

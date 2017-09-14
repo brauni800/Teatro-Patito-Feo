@@ -9,6 +9,7 @@ import administradores.AdministradorObras;
 import administradores.AdministradorRepresentante;
 import elementos.ElementoAgregarRepresentante;
 import elementos.ElementoCrearObra;
+import entidades.Representante;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -19,11 +20,11 @@ import vista.VentanaPrincipal;
  */
 public class EventosCrearObra extends EventosFactory {
 
-	private String emailRepresentante;
+	private Representante representante;
 
-	public EventosCrearObra(VentanaPrincipal ventanaPrincipal, String emailRepresentante) {
+	public EventosCrearObra(VentanaPrincipal ventanaPrincipal, Representante representante) {
 		super(ventanaPrincipal);
-		this.emailRepresentante = emailRepresentante;
+		this.representante = representante;
 	}
 
 	@Override
@@ -32,18 +33,19 @@ public class EventosCrearObra extends EventosFactory {
 		try {
 			switch (comando) {
 			case PanelFactory.CREAR_OBRA:
+				AdministradorRepresentante representante = new AdministradorRepresentante(this.representante);
+				representante.insertarRepresentanteBD();
 				AdministradorObras admin = new AdministradorObras(ventanaPrincipal.getPanelDinamico().getPanelDinamico());
-				admin.setEmailRepresentante(this.emailRepresentante);
-				boolean obraCreada = admin.crearObra();
+				boolean obraCreada = admin.crearObra(this.representante.getEmail());
 				if (obraCreada) {
 					super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 					super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
 				} else {
+					representante.eliminarRepresentante(this.representante.getEmail());
 					JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
 				}
 				break;
 			case PanelFactory.ANTERIOR:
-				new AdministradorRepresentante(emailRepresentante).eliminarRepresentante();
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
 				break;

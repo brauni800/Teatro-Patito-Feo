@@ -10,46 +10,37 @@ public class AdministradorRepresentante {
 
 	private PanelFactory panel;
 	private Representante representante;
-	private String email;
-	
-	public AdministradorRepresentante(String email) {
-		this.email = email;
-	}
 
+	public AdministradorRepresentante() {
+		
+	}
+	
+	public AdministradorRepresentante(Representante representante) {
+		this.representante = representante;
+	}
+	
 	public AdministradorRepresentante(PanelFactory panel) {
 		super();
 		this.panel = panel;
 	}
-	
-	public boolean crearRepresentante() throws SQLException {
-		boolean creado = false;
-		if (!hayCamposVacios()) {
-			crearEntidadRepresentante();
-			insertarRepresentanteBD();
-			creado = true;
-		}
-		return creado;
-	}
-	
-	public void eliminarRepresentante() throws SQLException {
+
+	public void eliminarRepresentante(String email) throws SQLException {
+		String formatoCorrectoEmail = "\"" + email + "\"";
 		DAO eliminar = new DAO();
-		eliminar.crearEstructuraParaEliminar(DAO.REPRESENTANTE, "correoElectronico", email);
+		eliminar.crearEstructuraParaEliminar(DAO.REPRESENTANTE, "correoElectronico", formatoCorrectoEmail);
 		eliminar.confirmar();
 	}
 
-	public int buscarIDRepresentante() throws SQLException {
-		Object[][] buscar = new DAO().buscarConFiltro("idRepresentante", DAO.REPRESENTANTE, "correoElectronico", this.email);
+	public int buscarIDRepresentante(String email) throws SQLException {
+		String formatoCorrectoEmail = "\"" + email + "\"";
+		Object[][] buscar = new DAO().buscarConFiltro("idRepresentante", DAO.REPRESENTANTE, "correoElectronico", formatoCorrectoEmail);
 		return Integer.parseInt(buscar[0][0].toString());
 	}
 
-	//***********************************************
-	//***********************************************
-	//***********************************************
-	//***********************************************
-
-	private void insertarRepresentanteBD() throws SQLException {
+	public void insertarRepresentanteBD() throws SQLException {
 		DAO insertar = new DAO();
-		insertar.crearEstructuraParaInsertar(DAO.REPRESENTANTE, "nombre, apellido, telefono, telefonoAlternativo, correoElectronico");
+		insertar.crearEstructuraParaInsertar(DAO.REPRESENTANTE,
+				"nombre, apellido, telefono, telefonoAlternativo, correoElectronico");
 		insertar.insertarString(1, this.representante.getNombre());
 		insertar.insertarString(2, this.representante.getApellido());
 		insertar.insertarString(3, this.representante.getTelefono());
@@ -58,14 +49,22 @@ public class AdministradorRepresentante {
 		insertar.confirmar();
 	}
 
-	private void crearEntidadRepresentante() {
-		this.representante = new Representante();
-		this.representante.setNombre(this.panel.getTxtFieldNombre().getText());
-		this.representante.setApellido(this.panel.getTxtFieldApellido().getText());
-		this.representante.setTelefono(this.panel.getTxtFieldTelefono1().getText());
-		this.representante.setTelefonoAlternativo(this.panel.getTxtFieldTelefono2().getText());
-		this.representante.setEmail(this.panel.getTxtFieldCorreoElectronico().getText());
+	public Representante crearEntidadRepresentante() {
+		if (!hayCamposVacios()) {
+			this.representante = new Representante();
+			this.representante.setNombre(this.panel.getTxtFieldNombre().getText());
+			this.representante.setApellido(this.panel.getTxtFieldApellido().getText());
+			this.representante.setTelefono(this.panel.getTxtFieldTelefono1().getText());
+			this.representante.setTelefonoAlternativo(this.panel.getTxtFieldTelefono2().getText());
+			this.representante.setEmail(this.panel.getTxtFieldCorreoElectronico().getText());
+		}
+		return this.representante;
 	}
+
+	// ***********************************************
+	// ***********************************************
+	// ***********************************************
+	// ***********************************************
 	
 	private boolean hayCamposVacios() {
 		boolean hayCamposVacios = true;
@@ -73,8 +72,9 @@ public class AdministradorRepresentante {
 		String fieldApellido = this.panel.getTxtFieldApellido().getText();
 		String fieldTelefono1 = this.panel.getTxtFieldTelefono1().getText();
 		String fieldEmail = this.panel.getTxtFieldCorreoElectronico().getText();
-		
-		if((!fieldNombre.equals("")) && (!fieldApellido.equals("")) && (!fieldTelefono1.equals("")) && (!fieldEmail.equals(""))) {
+
+		if ((!fieldNombre.equals("")) && (!fieldApellido.equals("")) && (!fieldTelefono1.equals(""))
+				&& (!fieldEmail.equals(""))) {
 			hayCamposVacios = false;
 		}
 		return hayCamposVacios;
