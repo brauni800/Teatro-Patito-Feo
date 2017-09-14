@@ -29,8 +29,10 @@ CREATE TABLE `representante` (
   `telefono` varchar(15) NOT NULL,
   `telefonoAlternativo` varchar(15) DEFAULT NULL,
   `correoElectronico` varchar(80) NOT NULL,
-  PRIMARY KEY (`idRepresentante`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`idRepresentante`),
+  UNIQUE KEY `telefono_UNIQUE` (`telefono`),
+  UNIQUE KEY `correoElectronico_UNIQUE` (`correoElectronico`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +41,7 @@ CREATE TABLE `representante` (
 
 LOCK TABLES `representante` WRITE;
 /*!40000 ALTER TABLE `representante` DISABLE KEYS */;
-INSERT INTO `representante` VALUES (1,'Rogelio','Campos','123456789','987654321','qweqwe@qweqwe.com'),(2,'Ricardo','Perez','112233445','556677889','asdasd@asdasd.com');
+INSERT INTO `representante` VALUES (1,'Rogelio','Campos','123456789','987654321','qweqwe@qweqwe.com'),(2,'Ricardo','Perez','112233445','556677889','asdasd@asdasd.com'),(3,'Victor','Serrano','654789321','','qwerasdf@qwerasdf'),(6,'Pancho','Villa','78612459731','','hubnet@net.com'),(7,'Pancha','Voladora','564987513','','sgijbdi@unbuybr.com'),(9,'45uyeryi','utywruwr6','56413','','wryujetyi');
 /*!40000 ALTER TABLE `representante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-14  1:50:47
+-- Dump completed on 2017-09-14 14:10:56

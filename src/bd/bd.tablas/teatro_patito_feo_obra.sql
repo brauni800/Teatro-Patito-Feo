@@ -31,9 +31,11 @@ CREATE TABLE `obra` (
   `descripcionObra` varchar(500) NOT NULL,
   `estado` varchar(45) NOT NULL,
   PRIMARY KEY (`idObra`),
+  UNIQUE KEY `idObra_UNIQUE` (`idObra`),
+  UNIQUE KEY `nombreObra_UNIQUE` (`nombreObra`),
   KEY `idRepresentante_idx` (`idRepresentante`),
   CONSTRAINT `idRepresentante` FOREIGN KEY (`idRepresentante`) REFERENCES `representante` (`idRepresentante`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +44,7 @@ CREATE TABLE `obra` (
 
 LOCK TABLES `obra` WRITE;
 /*!40000 ALTER TABLE `obra` DISABLE KEYS */;
-INSERT INTO `obra` VALUES (1,1,'Pepa Pig',500,'21:30:00','La mejor obra del mundo :D','ESTADO_ACTIVO');
+INSERT INTO `obra` VALUES (1,1,'Pepa Pig',500,'21:30:00','La mejor obra del mundo :D','ESTADO_ACTIVO'),(2,7,'El chorrito',1500,'21:10:00','Se hacia grandote y se hacia chiquito.','ESTADO_ACTIVO');
 /*!40000 ALTER TABLE `obra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-14  1:50:47
+-- Dump completed on 2017-09-14 14:10:56
