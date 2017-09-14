@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -29,11 +31,13 @@ public abstract class PanelFactory extends JPanel {
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton crear, eliminar, editar, regresar, agregarResponsable, obras, venderBoletos;
-	protected JTextField txtFieldNombreObra, txtFieldPrecio;
-	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos;
+	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
+	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
 	protected JComboBox<String> cmBoxHoras, cmBoxMinutos, cmBoxRepresentantes, cmBoxSeleccionarObra;
 	protected JTextArea textAreaDescripcion;
+	protected JTable table;
+	protected JScrollPane scrollPane;
 
 	public PanelFactory() {
 		super();
@@ -54,98 +58,210 @@ public abstract class PanelFactory extends JPanel {
 		return this.panelDinamico;
 	}
 	
-	public void setElementoDinamico(ElementoFactory elementoDinamico) {
-		this.elementoDinamico = elementoDinamico;
-	}
-	
 	public void setPanelDinamico(PanelFactory panelDinamico) {
 		this.panelDinamico = panelDinamico;
 		add(panelDinamico);
 		repaint();
 	}
-
+	
 	public ElementoFactory getElementoDinamico() {
 		return elementoDinamico;
 	}
 
-	public JButton getCrear() {
-		return crear;
+	public void setElementoDinamico(ElementoFactory elementoDinamico) {
+		this.elementoDinamico = elementoDinamico;
 	}
 
-	public JButton getEliminar() {
-		return eliminar;
+	public JButton getBtnCrear() {
+		return btnCrear;
 	}
 
-	public JButton getEditar() {
-		return editar;
+	public void setBtnCrear(JButton btnCrear) {
+		this.btnCrear = btnCrear;
 	}
 
-	public JButton getRegresar() {
-		return regresar;
+	public JButton getBtnEliminar() {
+		return btnEliminar;
 	}
 
-	public JButton getAgregarResponsable() {
-		return agregarResponsable;
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
 	}
 
-	public JButton getObras() {
-		return obras;
+	public JButton getBtnEditar() {
+		return btnEditar;
 	}
 
-	public JButton getVenderBoletos() {
-		return venderBoletos;
+	public void setBtnEditar(JButton btnEditar) {
+		this.btnEditar = btnEditar;
+	}
+
+	public JButton getBtnRegresar() {
+		return btnRegresar;
+	}
+
+	public void setBtnRegresar(JButton btnRegresar) {
+		this.btnRegresar = btnRegresar;
+	}
+
+	public JButton getBtnAgregarResponsable() {
+		return btnAgregarResponsable;
+	}
+
+	public void setBtnAgregarResponsable(JButton btnAgregarResponsable) {
+		this.btnAgregarResponsable = btnAgregarResponsable;
+	}
+
+	public JButton getBtnObras() {
+		return btnObras;
+	}
+
+	public void setBtnObras(JButton btnObras) {
+		this.btnObras = btnObras;
+	}
+
+	public JButton getBtnVenderBoletos() {
+		return btnVenderBoletos;
+	}
+
+	public void setBtnVenderBoletos(JButton btnVenderBoletos) {
+		this.btnVenderBoletos = btnVenderBoletos;
 	}
 
 	public JTextField getTxtFieldNombreObra() {
 		return txtFieldNombreObra;
 	}
 
+	public void setTxtFieldNombreObra(JTextField txtFieldNombreObra) {
+		this.txtFieldNombreObra = txtFieldNombreObra;
+	}
+
 	public JTextField getTxtFieldPrecio() {
 		return txtFieldPrecio;
+	}
+
+	public void setTxtFieldPrecio(JTextField txtFieldPrecio) {
+		this.txtFieldPrecio = txtFieldPrecio;
+	}
+
+	public JTextField getTxtFieldSeleccion() {
+		return txtFieldSeleccion;
+	}
+
+	public void setTxtFieldSeleccion(JTextField txtFieldSeleccion) {
+		this.txtFieldSeleccion = txtFieldSeleccion;
 	}
 
 	public JLabel getLblNombreObra() {
 		return lblNombreObra;
 	}
 
+	public void setLblNombreObra(JLabel lblNombreObra) {
+		this.lblNombreObra = lblNombreObra;
+	}
+
 	public JLabel getLblPrecio() {
 		return lblPrecio;
+	}
+
+	public void setLblPrecio(JLabel lblPrecio) {
+		this.lblPrecio = lblPrecio;
 	}
 
 	public JLabel getLblDuracion() {
 		return lblDuracion;
 	}
 
+	public void setLblDuracion(JLabel lblDuracion) {
+		this.lblDuracion = lblDuracion;
+	}
+
 	public JLabel getLblRepresentante() {
 		return lblRepresentante;
+	}
+
+	public void setLblRepresentante(JLabel lblRepresentante) {
+		this.lblRepresentante = lblRepresentante;
 	}
 
 	public JLabel getLblDescripcion() {
 		return lblDescripcion;
 	}
 
+	public void setLblDescripcion(JLabel lblDescripcion) {
+		this.lblDescripcion = lblDescripcion;
+	}
+
 	public JLabel getLblSeleccionarObra() {
 		return lblSeleccionarObra;
+	}
+
+	public void setLblSeleccionarObra(JLabel lblSeleccionarObra) {
+		this.lblSeleccionarObra = lblSeleccionarObra;
+	}
+
+	public JLabel getLblSeleccion() {
+		return lblSeleccion;
+	}
+
+	public void setLblSeleccion(JLabel lblSeleccion) {
+		this.lblSeleccion = lblSeleccion;
 	}
 
 	public JComboBox<String> getCmBoxHoras() {
 		return cmBoxHoras;
 	}
 
+	public void setCmBoxHoras(JComboBox<String> cmBoxHoras) {
+		this.cmBoxHoras = cmBoxHoras;
+	}
+
 	public JComboBox<String> getCmBoxMinutos() {
 		return cmBoxMinutos;
+	}
+
+	public void setCmBoxMinutos(JComboBox<String> cmBoxMinutos) {
+		this.cmBoxMinutos = cmBoxMinutos;
 	}
 
 	public JComboBox<String> getCmBoxRepresentantes() {
 		return cmBoxRepresentantes;
 	}
 
+	public void setCmBoxRepresentantes(JComboBox<String> cmBoxRepresentantes) {
+		this.cmBoxRepresentantes = cmBoxRepresentantes;
+	}
+
 	public JComboBox<String> getCmBoxSeleccionarObra() {
 		return cmBoxSeleccionarObra;
 	}
 
+	public void setCmBoxSeleccionarObra(JComboBox<String> cmBoxSeleccionarObra) {
+		this.cmBoxSeleccionarObra = cmBoxSeleccionarObra;
+	}
+
 	public JTextArea getTextAreaDescripcion() {
 		return textAreaDescripcion;
+	}
+
+	public void setTextAreaDescripcion(JTextArea textAreaDescripcion) {
+		this.textAreaDescripcion = textAreaDescripcion;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
 	}
 	
 }

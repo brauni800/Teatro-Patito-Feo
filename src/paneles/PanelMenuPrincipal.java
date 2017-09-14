@@ -18,12 +18,12 @@ public class PanelMenuPrincipal extends PanelFactory {
 
 	@Override
 	protected void initComponents() {
-		obras = new JButton("Obras");
-		obras.setBounds(50, 50, 150, 23);
-		add(obras);
+		btnObras = new JButton("Obras");
+		btnObras.setBounds(50, 50, 150, 23);
+		add(btnObras);
 		
-		venderBoletos = new JButton("Vender Boletos");
-		venderBoletos.setBounds(50, 100, 150, 23);
-        add(venderBoletos);
+		btnVenderBoletos = new JButton("Vender Boletos");
+		btnVenderBoletos.setBounds(50, 100, 150, 23);
+        add(btnVenderBoletos);
 	}
 }

@@ -29,24 +29,24 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.setElementoDinamico(new ElementoMenuPrincipal(ventanaPrincipal));
 				break;
 			case PanelFactory.CREAR_OBRA:
-				super.ventanaPrincipal.getPanelDinamico().getCrear().setEnabled(false);
-				super.ventanaPrincipal.getPanelDinamico().getEliminar().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getEditar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(false);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
 				break;
 			case PanelFactory.ELIMINAR_OBRA:
-				super.ventanaPrincipal.getPanelDinamico().getCrear().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getEliminar().setEnabled(false);
-				super.ventanaPrincipal.getPanelDinamico().getEditar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(false);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico()
 						.setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
 				break;
 			case PanelFactory.EDITAR_OBRA:
-				super.ventanaPrincipal.getPanelDinamico().getCrear().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getEliminar().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getEditar().setEnabled(false);
+				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 				break;
@@ -68,17 +68,17 @@ public class EventosObras extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getRegresar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getRegresar().setActionCommand(PanelFactory.REGRESAR);
+		super.ventanaPrincipal.getPanelDinamico().getBtnRegresar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnRegresar().setActionCommand(PanelFactory.REGRESAR);
 
-		super.ventanaPrincipal.getPanelDinamico().getCrear().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getCrear().setActionCommand(PanelFactory.CREAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getBtnCrear().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setActionCommand(PanelFactory.CREAR_OBRA);
 
-		super.ventanaPrincipal.getPanelDinamico().getEliminar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getEliminar().setActionCommand(PanelFactory.ELIMINAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setActionCommand(PanelFactory.ELIMINAR_OBRA);
 
-		super.ventanaPrincipal.getPanelDinamico().getEditar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getEditar().setActionCommand(PanelFactory.EDITAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.EDITAR_OBRA);
 	}
 
 }

@@ -28,8 +28,8 @@ public class EventosCrearObra extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCrear().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCrear().setActionCommand(PanelFactory.CREAR_EDITAR);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrear().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrear().setActionCommand(PanelFactory.CREAR_EDITAR);
 	}
 
 }

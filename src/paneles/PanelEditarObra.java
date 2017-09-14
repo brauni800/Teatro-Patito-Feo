@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class PanelEditarObra extends PanelCrearEditarObra {
+	
 	public PanelEditarObra() {
 	}
 
@@ -94,10 +95,10 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initButtons() {
-		editar = new JButton("Actualizar");
-		editar.setBounds(263, 445, 100, 23);
-		editar.setEnabled(false);
-		add(editar);
+		btnEditar = new JButton("Actualizar");
+		btnEditar.setBounds(263, 445, 100, 23);
+		btnEditar.setEnabled(false);
+		add(btnEditar);
 	}
 
 }

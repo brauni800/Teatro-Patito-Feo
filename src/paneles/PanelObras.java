@@ -18,26 +18,26 @@ public class PanelObras extends PanelFactory {
 
 	@Override
 	protected void initComponents() {
-		regresar = new JButton("Regresar");
-        regresar.setBounds(5, 5, 100, 23);
-        regresar.setVisible(true);
-        add(regresar);
+		btnRegresar = new JButton("Regresar");
+		btnRegresar.setBounds(5, 5, 100, 23);
+		btnRegresar.setVisible(true);
+        add(btnRegresar);
         
-        crear = new JButton("Crear Obra");
-        crear.setBounds(66, 100, 190, 23);
-        add(crear);
+        btnCrear = new JButton("Crear Obra");
+        btnCrear.setBounds(66, 100, 190, 23);
+        add(btnCrear);
         
-        eliminar = new JButton("Eliminar Obra");
-        eliminar.setBounds(66, 150, 190, 23);
-        add(eliminar);
+        btnEliminar = new JButton("Eliminar Obra");
+        btnEliminar.setBounds(66, 150, 190, 23);
+        add(btnEliminar);
         
-        editar = new JButton("Editar Obra");
-        editar.setBounds(66, 200, 190, 23);
-        add(editar);
+        btnEditar = new JButton("Editar Obra");
+        btnEditar.setBounds(66, 200, 190, 23);
+        add(btnEditar);
         
-        agregarResponsable = new JButton("Agregar Responsable");
-        agregarResponsable.setBounds(66, 250, 190, 23);
-        add(agregarResponsable);
+        btnAgregarResponsable = new JButton("Agregar Responsable");
+        btnAgregarResponsable.setBounds(66, 250, 190, 23);
+        add(btnAgregarResponsable);
 	}
 
 }

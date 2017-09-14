@@ -1,7 +1,6 @@
 package paneles;
 
 import java.awt.Color;
-import javax.swing.JTable;
 
 import tablas.tablaObras;
 
@@ -16,11 +15,6 @@ import javax.swing.JButton;
  *
  */
 public class PanelEliminarObra extends PanelFactory {
-	private JTable table;
-	private JScrollPane scrollPane;
-	private JTextField txtFieldSeleccion;
-	private JLabel lblSeleccion;
-	private JButton btnEliminar;
 
 	/**
 	 * Create the panel.
@@ -48,8 +42,8 @@ public class PanelEliminarObra extends PanelFactory {
 		txtFieldSeleccion.setEnabled(false);
 		add(txtFieldSeleccion);
 		
-		eliminar = new JButton("Eliminar");
-		eliminar.setBounds(441, 420, 89, 23);
-		add(eliminar);
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(441, 420, 89, 23);
+		add(btnEliminar);
 	}
 }

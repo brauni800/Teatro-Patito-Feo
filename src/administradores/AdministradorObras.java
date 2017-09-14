@@ -25,6 +25,8 @@ public class AdministradorObras {
 	
 	private void crearEntidad() {
 		this.obra = new Obra();
-		//this.obra.setNombre();
+		this.obra.setNombre(panel.getTxtFieldNombreObra().getText());
+		this.obra.setPrecio(Double.parseDouble(panel.getTxtFieldPrecio().getText()));
+		
 	}
 }
