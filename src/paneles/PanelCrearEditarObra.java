@@ -11,12 +11,6 @@ import javax.swing.JButton;
 
 public abstract class PanelCrearEditarObra extends PanelFactory {
 
-	protected JTextField txtFieldNombreObra, txtFieldPrecio;
-	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra;
-	protected JComboBox<String> cmBoxHoras, cmBoxMinutos, cmBoxRepresentantes, cmBoxSeleccionarObra;
-	protected JTextArea textAreaDescripcion;
-	protected JButton btnCrearEditar;
-
 	/**
 	 * Create the panel.
 	 */
@@ -32,17 +26,6 @@ public abstract class PanelCrearEditarObra extends PanelFactory {
 		initComboBox();
 		initTextArea();
 		initButtons();
-	}
-
-	@Override
-	public JButton getBoton(String s) {
-		JButton boton = null;
-		switch(s) {
-		case PanelFactory.CREAR_EDITAR:
-			boton = this.btnCrearEditar;
-			break;
-		}
-		return boton;
 	}
 
 	protected abstract void initLabels();

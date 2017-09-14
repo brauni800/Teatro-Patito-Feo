@@ -31,8 +31,8 @@ public class EventosMenuPrincipal extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getBoton(PanelFactory.OBRAS).addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBoton(PanelFactory.OBRAS).setActionCommand(PanelFactory.OBRAS);
+		super.ventanaPrincipal.getPanelDinamico().getObras().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getObras().setActionCommand(PanelFactory.OBRAS);
 	}
 
 }

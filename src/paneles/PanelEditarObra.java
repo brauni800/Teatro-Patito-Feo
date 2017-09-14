@@ -94,10 +94,10 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initButtons() {
-		btnCrearEditar = new JButton("Actualizar");
-		btnCrearEditar.setBounds(263, 445, 100, 23);
-		btnCrearEditar.setEnabled(false);
-		add(btnCrearEditar);
+		editar = new JButton("Actualizar");
+		editar.setBounds(263, 445, 100, 23);
+		editar.setEnabled(false);
+		add(editar);
 	}
 
 }

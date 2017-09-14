@@ -23,7 +23,7 @@ public class EventosEditarObra extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.CREAR_EDITAR).addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.CREAR_EDITAR).setActionCommand(PanelFactory.CREAR_EDITAR);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getEditar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getEditar().setActionCommand(PanelFactory.CREAR_EDITAR);
 	}
 }

@@ -3,7 +3,11 @@ package paneles;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import elementos.ElementoFactory;
 
@@ -25,6 +29,11 @@ public abstract class PanelFactory extends JPanel {
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
+	protected JButton crear, eliminar, editar, regresar, agregarResponsable, obras, venderBoletos;
+	protected JTextField txtFieldNombreObra, txtFieldPrecio;
+	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra;
+	protected JComboBox<String> cmBoxHoras, cmBoxMinutos, cmBoxRepresentantes, cmBoxSeleccionarObra;
+	protected JTextArea textAreaDescripcion;
 
 	public PanelFactory() {
 		super();
@@ -36,14 +45,11 @@ public abstract class PanelFactory extends JPanel {
 	}
 
 	protected abstract void initComponents();
-
-	/**
-	 * Regresa el boton que sea indicado. Si el boton indicado no es encontrado, se regresa null.
-	 * @param s  - El boton que se desea.
-	 * @return JButton - El boton pedido.
-	 */
-	public JButton getBoton(String s) {return null;}
 	
+	/**
+	 * El panel dinamico que contiene este panel. Si no existe un panel regresa null.
+	 * @return PanelFactory - el panel dinamico.
+	 */
 	public PanelFactory getPanelDinamico() {
 		return this.panelDinamico;
 	}
@@ -56,6 +62,90 @@ public abstract class PanelFactory extends JPanel {
 		this.panelDinamico = panelDinamico;
 		add(panelDinamico);
 		repaint();
+	}
+
+	public ElementoFactory getElementoDinamico() {
+		return elementoDinamico;
+	}
+
+	public JButton getCrear() {
+		return crear;
+	}
+
+	public JButton getEliminar() {
+		return eliminar;
+	}
+
+	public JButton getEditar() {
+		return editar;
+	}
+
+	public JButton getRegresar() {
+		return regresar;
+	}
+
+	public JButton getAgregarResponsable() {
+		return agregarResponsable;
+	}
+
+	public JButton getObras() {
+		return obras;
+	}
+
+	public JButton getVenderBoletos() {
+		return venderBoletos;
+	}
+
+	public JTextField getTxtFieldNombreObra() {
+		return txtFieldNombreObra;
+	}
+
+	public JTextField getTxtFieldPrecio() {
+		return txtFieldPrecio;
+	}
+
+	public JLabel getLblNombreObra() {
+		return lblNombreObra;
+	}
+
+	public JLabel getLblPrecio() {
+		return lblPrecio;
+	}
+
+	public JLabel getLblDuracion() {
+		return lblDuracion;
+	}
+
+	public JLabel getLblRepresentante() {
+		return lblRepresentante;
+	}
+
+	public JLabel getLblDescripcion() {
+		return lblDescripcion;
+	}
+
+	public JLabel getLblSeleccionarObra() {
+		return lblSeleccionarObra;
+	}
+
+	public JComboBox<String> getCmBoxHoras() {
+		return cmBoxHoras;
+	}
+
+	public JComboBox<String> getCmBoxMinutos() {
+		return cmBoxMinutos;
+	}
+
+	public JComboBox<String> getCmBoxRepresentantes() {
+		return cmBoxRepresentantes;
+	}
+
+	public JComboBox<String> getCmBoxSeleccionarObra() {
+		return cmBoxSeleccionarObra;
+	}
+
+	public JTextArea getTextAreaDescripcion() {
+		return textAreaDescripcion;
 	}
 	
 }

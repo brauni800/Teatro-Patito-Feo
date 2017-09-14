@@ -9,8 +9,6 @@ import javax.swing.JButton;
  */
 public class PanelObras extends PanelFactory {
 	
-	private JButton crearObra, eliminarObra, editarObra, regresar;
-	
 	/**
 	 * Create the panel.
 	 */
@@ -20,42 +18,26 @@ public class PanelObras extends PanelFactory {
 
 	@Override
 	protected void initComponents() {
-		this.regresar = new JButton("Regresar");
-        this.regresar.setBounds(5, 5, 100, 23);
-        this.regresar.setVisible(true);
-        add(this.regresar);
+		regresar = new JButton("Regresar");
+        regresar.setBounds(5, 5, 100, 23);
+        regresar.setVisible(true);
+        add(regresar);
         
-        this.crearObra = new JButton("Crear Obra");
-        this.crearObra.setBounds(100, 100, 150, 23);
-        add(this.crearObra);
+        crear = new JButton("Crear Obra");
+        crear.setBounds(66, 100, 190, 23);
+        add(crear);
         
-        this.eliminarObra = new JButton("Eliminar Obra");
-        this.eliminarObra.setBounds(100, 150, 150, 23);
-        add(this.eliminarObra);
+        eliminar = new JButton("Eliminar Obra");
+        eliminar.setBounds(66, 150, 190, 23);
+        add(eliminar);
         
-        this.editarObra = new JButton("Editar Obra");
-        this.editarObra.setBounds(100, 200, 150, 23);
-        add(this.editarObra);
-	}
-
-	@Override
-	public JButton getBoton(String s) {
-		JButton boton = null;
-		switch(s) {
-		case PanelFactory.REGRESAR:
-			boton = regresar;
-			break;
-		case PanelFactory.CREAR_OBRA:
-			boton = crearObra;
-			break;
-		case PanelFactory.ELIMINAR_OBRA:
-			boton = eliminarObra;
-			break;
-		case PanelFactory.EDITAR_OBRA:
-			boton = editarObra;
-			break;
-		}
-		return boton;
+        editar = new JButton("Editar Obra");
+        editar.setBounds(66, 200, 190, 23);
+        add(editar);
+        
+        agregarResponsable = new JButton("Agregar Responsable");
+        agregarResponsable.setBounds(66, 250, 190, 23);
+        add(agregarResponsable);
 	}
 
 }

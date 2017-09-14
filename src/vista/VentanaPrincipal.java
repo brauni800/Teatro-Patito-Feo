@@ -26,17 +26,37 @@ public class VentanaPrincipal extends JFrame {
 		setLayout(null);
 		setVisible(true);
 	}
+
+	/**
+	 * Regresa el elemento dinamico que contiene la ventana principal del programa.
+	 * @return ElementoFcatory - el elemento dinamico.
+	 */
 	public ElementoFactory getElementoDinamico() {
 		return elementoDinamico;
 	}
+	
+	/**
+	 * Insertar el elemento dinamico que contendrá la ventana.
+	 * @param elementoDinamico - el elemento dinamico.
+	 */
 	public void setElementoDinamico(ElementoFactory elementoDinamico) {
 		this.elementoDinamico = elementoDinamico;
 	}
+	
+	/**
+	 * Insertar el panel dinamico que contendrá la ventana.
+	 * @param panelDinamico - el panel dinamico.
+	 */
 	public void setPanelDinamico(PanelFactory panelDinamico) {
 		this.panelDinamico = panelDinamico;
 		setContentPane(this.panelDinamico);
 		repaint();
 	}
+	
+	/**
+	 * Regresa el panel dinamico que contiene la ventana principal del programa.
+	 * @return - Panel Factory - el panel dinamico.
+	 */
 	public PanelFactory getPanelDinamico() {
 		return panelDinamico;
 	}

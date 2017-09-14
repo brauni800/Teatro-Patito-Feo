@@ -48,19 +48,8 @@ public class PanelEliminarObra extends PanelFactory {
 		txtFieldSeleccion.setEnabled(false);
 		add(txtFieldSeleccion);
 		
-		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(441, 420, 89, 23);
-		add(btnEliminar);
-	}
-
-	@Override
-	public JButton getBoton(String s) {
-		JButton boton = null;
-		switch(s) {
-		case PanelFactory.ELIMINAR:
-			boton = this.btnEliminar;
-			break;
-		}
-		return boton;
+		eliminar = new JButton("Eliminar");
+		eliminar.setBounds(441, 420, 89, 23);
+		add(eliminar);
 	}
 }

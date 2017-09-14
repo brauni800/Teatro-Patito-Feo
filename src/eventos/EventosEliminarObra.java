@@ -28,8 +28,8 @@ public class EventosEliminarObra extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.ELIMINAR).addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBoton(PanelFactory.ELIMINAR).setActionCommand(PanelFactory.ELIMINAR);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getEliminar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getEliminar().setActionCommand(PanelFactory.ELIMINAR);
 	}
 
 }

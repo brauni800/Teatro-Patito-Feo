@@ -9,7 +9,6 @@ import javax.swing.JButton;
  */
 public class PanelMenuPrincipal extends PanelFactory {
 	
-	private JButton btnObras, btnVenderBoletos;
 	/**
 	 * Create the panel.
 	 */
@@ -19,26 +18,12 @@ public class PanelMenuPrincipal extends PanelFactory {
 
 	@Override
 	protected void initComponents() {
-		this.btnObras = new JButton("Obras");
-		this.btnObras.setBounds(50, 50, 150, 23);
-		add(this.btnObras);
+		obras = new JButton("Obras");
+		obras.setBounds(50, 50, 150, 23);
+		add(obras);
 		
-		this.btnVenderBoletos = new JButton("Vender Boletos");
-		this.btnVenderBoletos.setBounds(50, 100, 150, 23);
-        add(this.btnVenderBoletos);
-	}
-
-	@Override
-	public JButton getBoton(String s) {
-		JButton boton = null;
-		switch(s) {
-		case PanelFactory.OBRAS:
-			boton = btnObras;
-			break;
-		case PanelFactory.VENDER_BOLETOS:
-			boton = btnVenderBoletos;
-			break;
-		}
-		return boton;
+		venderBoletos = new JButton("Vender Boletos");
+		venderBoletos.setBounds(50, 100, 150, 23);
+        add(venderBoletos);
 	}
 }
