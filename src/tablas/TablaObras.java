@@ -23,10 +23,19 @@ public class TablaObras extends JTable {
 	public DefaultTableModel createModel() {
 		
 		DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("idObra");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Duración");
 		modelo.addColumn("Descripción");
 		modelo.addColumn("Representante");	
+		AdministrarTablas ad = new AdministrarTablas();
+		try {
+			ad.cargarBaseDatosObras(modelo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return modelo;
 	}

@@ -26,11 +26,20 @@ public class AdministrarTablas extends MouseAdapter {
 		this.jTextField = null;
 	}
 
-	public Object[][] cargarBaseDatosObras() throws SQLException {
+	public void cargarBaseDatosObras(DefaultTableModel modelo) throws SQLException {
 		
-		DAO buscar = new DAO();	
+		String[] datos = new String[5];
 		
-		return buscar.buscar("idRepresentante, nombreObra, duracionObra, descripcionObra", DAO.FUNCION);
+		Object[][] buscar = new DAO().buscar("idObra,nombreObra,duracionObra,descripcionObra,idRepresentante", DAO.OBRA);	
+		
+		for (int i = 0; i < buscar.length; i++) {
+			datos[0] = buscar[i][0].toString();
+			datos[1] = buscar[i][1].toString();
+			datos[2] = buscar[i][2].toString();
+			datos[3] = buscar[i][3].toString();
+			datos[4] = buscar[i][4].toString();
+			modelo.addRow(datos);
+		}
 	}
 
 	@Override
