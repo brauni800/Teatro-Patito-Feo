@@ -60,16 +60,16 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initComboBox() {
-		cmBoxHoras = new JComboBox<String>();
+		cmBoxHoras = new JComboBox<Integer>();
 		cmBoxHoras.setModel(
-				new DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+				new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
 		cmBoxHoras.setBounds(304, 200, 85, 20);
 		cmBoxHoras.setEnabled(false);
 		add(cmBoxHoras);
 
-		cmBoxMinutos = new JComboBox<String>();
-		cmBoxMinutos.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55" }));
+		cmBoxMinutos = new JComboBox<Integer>();
+		cmBoxMinutos.setModel(new DefaultComboBoxModel<Integer>(
+				new Integer[] { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 }));
 		cmBoxMinutos.setBounds(419, 200, 85, 20);
 		cmBoxMinutos.setEnabled(false);
 		add(cmBoxMinutos);

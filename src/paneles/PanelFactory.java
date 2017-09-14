@@ -34,7 +34,8 @@ public abstract class PanelFactory extends JPanel {
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
-	protected JComboBox<String> cmBoxHoras, cmBoxMinutos, cmBoxRepresentantes, cmBoxSeleccionarObra;
+	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
+	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
 	protected JTextArea textAreaDescripcion;
 	protected JTable table;
 	protected JScrollPane scrollPane;
@@ -208,19 +209,19 @@ public abstract class PanelFactory extends JPanel {
 		this.lblSeleccion = lblSeleccion;
 	}
 
-	public JComboBox<String> getCmBoxHoras() {
+	public JComboBox<Integer> getCmBoxHoras() {
 		return cmBoxHoras;
 	}
 
-	public void setCmBoxHoras(JComboBox<String> cmBoxHoras) {
+	public void setCmBoxHoras(JComboBox<Integer> cmBoxHoras) {
 		this.cmBoxHoras = cmBoxHoras;
 	}
 
-	public JComboBox<String> getCmBoxMinutos() {
+	public JComboBox<Integer> getCmBoxMinutos() {
 		return cmBoxMinutos;
 	}
 
-	public void setCmBoxMinutos(JComboBox<String> cmBoxMinutos) {
+	public void setCmBoxMinutos(JComboBox<Integer> cmBoxMinutos) {
 		this.cmBoxMinutos = cmBoxMinutos;
 	}
 

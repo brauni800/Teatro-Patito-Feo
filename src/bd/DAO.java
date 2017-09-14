@@ -77,9 +77,9 @@ public class DAO {
     /**
      * Metodo para buscar todos los elementos en una tabla en la Base de Datos.
      *
-     * @param select Nombre de las columnas que extraerá de la tabla. Si se
-     * extraerá mas de una columna, separar los nombres por comas ','. Si se
-     * extraerán todas las columnas se puede hacer uso del atributo ALL.
+     * @param select Nombre de las columnas que extraera de la tabla. Si se
+     * extraera mas de una columna, separar los nombres por comas ','. Si se
+     * extraeran todas las columnas se puede hacer uso del atributo ALL.
      * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
      * FUNCION.
      * @return Object[][] - Arreglo de objetos en el se representan las filas y
@@ -87,10 +87,10 @@ public class DAO {
      * @throws SQLException
      */
     public Object[][] buscar(String select, String from) throws SQLException {
-        ArrayList<Object[]> lista = new ArrayList();
+        ArrayList<Object[]> lista = new ArrayList<Object[]>();
         Object[] arreglo;
         Object[][] resultado;
-        boolean asientosEncontrados = false;
+        boolean encontrado = false;
         String sql = "SELECT " + select + " FROM " + from;
         this.statement = this.connection.createStatement();
         this.resultStatement = this.statement.executeQuery(sql);
@@ -100,10 +100,10 @@ public class DAO {
                 arreglo[i] = this.resultStatement.getObject(i + 1);
             }
             lista.add(arreglo);
-            asientosEncontrados = true;
+            encontrado = true;
         }
         desconectar();
-        if (asientosEncontrados) {
+        if (encontrado) {
             resultado = new Object[lista.size()][lista.get(0).length];
             for (int i = 0; i < lista.size(); i++) {
                 for (int j = 0; j < lista.get(i).length; j++) {
@@ -118,26 +118,26 @@ public class DAO {
 
     /**
      * Metodo para buscar elementos en una tabla en la Base de Datos filtrando
-     * el contenido por algún parámetro especificado.
+     * el contenido por algun parametro especificado.
      *
-     * @param select Nombre de las columnas que extraerá de la tabla. Si se
-     * extraerá mas de una columna, separar los nombres por comas ','. Si se
-     * extraerán todas las columnas se puede hacer uso del atributo ALL.
+     * @param select Nombre de las columnas que extraera de la tabla. Si se
+     * extraera mas de una columna, separar los nombres por comas ','. Si se
+     * extraeran todas las columnas se puede hacer uso del atributo ALL.
      * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
      * FUNCION.
-     * @param where Parámetro por el cual se filtrarán los valores de la tabla.
-     * @param what Valor del parámetro.
+     * @param where Parametro por el cual se filtraran los valores de la tabla.
+     * @param what Valor del parametro.
      * @return Object[][] - Arreglo de objetos en el se representan las filas y
      * columnas de la tabla
      * @throws SQLException
      */
-    public Object[][] buscarConFiltro(String select, String from, String where, String what) throws SQLException {
-        ArrayList<Object[]> lista = new ArrayList();
+    public Object[][] buscarConFiltro(String select, String from, String where, Object what) throws SQLException {
+        ArrayList<Object[]> lista = new ArrayList<Object[]>();
         Object[] arreglo;
         Object[][] resultado;
-        boolean asientosEncontrados = false;
+        boolean encontrado = false;
         this.statement = this.connection.createStatement();
-        String sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " = " + what;
+        String sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " = " + what.toString();
         this.resultStatement = this.statement.executeQuery(sql);
         while (this.resultStatement.next()) {
             arreglo = new Object[contarColumnas(this.resultStatement)];
@@ -145,10 +145,10 @@ public class DAO {
                 arreglo[i] = this.resultStatement.getObject(i + 1);
             }
             lista.add(arreglo);
-            asientosEncontrados = true;
+            encontrado = true;
         }
         desconectar();
-        if (asientosEncontrados) {
+        if (encontrado) {
             resultado = new Object[lista.size()][lista.get(0).length];
             for (int i = 0; i < lista.size(); i++) {
                 for (int j = 0; j < lista.get(i).length; j++) {
@@ -167,8 +167,8 @@ public class DAO {
      *
      * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
      * FUNCION.
-     * @param where Parámetro por el cual se filtrarán los valores de la tabla.
-     * @param what Valor del parámetro.
+     * @param where Parametro por el cual se filtraran los valores de la tabla.
+     * @param what Valor del parametro.
      * @throws SQLException
      */
     public void crearEstructuraParaActualizar(String from, String where, Object what) throws SQLException {
@@ -182,8 +182,8 @@ public class DAO {
      *
      * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
      * FUNCION.
-     * @param where Parámetro por el cual se filtrarán los valores de la tabla.
-     * @param what Valor del parámetro.
+     * @param where Parametro por el cual se filtraran los valores de la tabla.
+     * @param what Valor del parametro.
      * @throws SQLException
      */
     public void crearEstructuraParaEliminar(String from, String where, Object what) throws SQLException {
@@ -198,7 +198,7 @@ public class DAO {
      * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
      * FUNCION.
      * @param select Nombre de las columnas que se usaran de la tabla para
-     * indicar los elementos que serán insertados. Si se insertará a mas de una
+     * indicar los elementos que seran insertados. Si se insertara a mas de una
      * columna, separar los nombres por comas ','.
      * @throws SQLException
      */
@@ -208,12 +208,12 @@ public class DAO {
     }
 
     /**
-     * Método que se utiliza para colocar un valor de tipo int a la estructura
+     * Metodo que se utiliza para colocar un valor de tipo int a la estructura
      * para insertar en la tabla de la Base de Datos.
      *
-     * @param i número de columna. El número de la columna 1 es 1, el 2 es 2,
+     * @param i numero de columna. El numero de la columna 1 es 1, el 2 es 2,
      * etc...
-     * @param j número que se insertará.
+     * @param j numero que se insertara.
      * @throws SQLException
      */
     public void insertarInt(int i, int j) throws SQLException {
@@ -221,12 +221,12 @@ public class DAO {
     }
 
     /**
-     * Método que se utiliza para colocar un valor de tipo String a la
+     * Metodo que se utiliza para colocar un valor de tipo String a la
      * estructura para insertar en la tabla de la Base de Datos.
      *
-     * @param i número de columna. El número de la columna 1 es 1, el 2 es 2,
+     * @param i numero de columna. El numero de la columna 1 es 1, el 2 es 2,
      * etc...
-     * @param s String que se insertará.
+     * @param s String que se insertara.
      * @throws SQLException
      */
     public void insertarString(int i, String s) throws SQLException {
@@ -234,12 +234,12 @@ public class DAO {
     }
 
     /**
-     * Método que se utiliza para colocar un valor de tipo Time a la estructura
+     * Metodo que se utiliza para colocar un valor de tipo Time a la estructura
      * para insertar en la tabla de la Base de Datos.
      *
-     * @param i número de columna. El número de la columna 1 es 1, el 2 es 2,
+     * @param i numero de columna. El numero de la columna 1 es 1, el 2 es 2,
      * etc...
-     * @param time Objeto de tipo Time que se insertará.
+     * @param time Objeto de tipo Time que se insertara.
      * @throws SQLException
      */
     public void insertarTime(int i, Time time) throws SQLException {
@@ -247,12 +247,12 @@ public class DAO {
     }
 
     /**
-     * Método que se utiliza para colocar un valor de tipo double a la
+     * Metodo que se utiliza para colocar un valor de tipo double a la
      * estructura para insertar en la tabla de la Base de Datos.
      *
-     * @param i número de columna. El número de la columna 1 es 1, el 2 es 2,
+     * @param i numero de columna. El numero de la columna 1 es 1, el 2 es 2,
      * etc...
-     * @param d Objeto de tipo double que se insertará.
+     * @param d Objeto de tipo double que se insertara.
      * @throws SQLException
      */
     public void insertarDouble(int i, double d) throws SQLException {
@@ -260,12 +260,12 @@ public class DAO {
     }
 
     /**
-     * Método que se utiliza para colocar un valor de tipo boolean a la
+     * Metodo que se utiliza para colocar un valor de tipo boolean a la
      * estructura para insertar en la tabla de la Base de Datos.
      *
-     * @param i número de columna. El número de la columna 1 es 1, el 2 es 2,
+     * @param i numero de columna. El numero de la columna 1 es 1, el 2 es 2,
      * etc...
-     * @param b Objeto de tipo boolean que se insertará.
+     * @param b Objeto de tipo boolean que se insertara.
      * @throws SQLException
      */
     public void insertarBoolean(int i, boolean b) throws SQLException {
@@ -273,7 +273,7 @@ public class DAO {
     }
 
     /**
-     * Método para confirmar la instrucción que se realizará en la Base de
+     * Metodo para confirmar la instruccion que se realizara en la Base de
      * Datos. Puede ser INSERT, DELETE o UPDATE.
      *
      * @throws SQLException
