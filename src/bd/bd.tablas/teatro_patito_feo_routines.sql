@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
 --
--- Host: localhost    Database: teatro-patito-feo
+-- Host: localhost    Database: teatro_patito_feo
 -- ------------------------------------------------------
--- Server version	5.7.19-log
+-- Server version	5.7.19-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,32 +16,8 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `funcion`
+-- Dumping routines for database 'teatro_patito_feo'
 --
-
-DROP TABLE IF EXISTS `funcion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `funcion` (
-  `idfuncion` int(11) NOT NULL AUTO_INCREMENT,
-  `idObra` int(11) NOT NULL,
-  `fechaFuncion` date NOT NULL,
-  `inicioFuncion` time NOT NULL,
-  `finalFuncion` time NOT NULL,
-  PRIMARY KEY (`idfuncion`),
-  KEY `idObra_idx` (`idObra`),
-  CONSTRAINT `idObra` FOREIGN KEY (`idObra`) REFERENCES `obra` (`idObra`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `funcion`
---
-
-LOCK TABLES `funcion` WRITE;
-/*!40000 ALTER TABLE `funcion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `funcion` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +28,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-11 17:20:03
+-- Dump completed on 2017-09-13 21:16:57

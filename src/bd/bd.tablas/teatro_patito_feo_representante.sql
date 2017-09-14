@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
 --
--- Host: localhost    Database: teatro-patito-feo
+-- Host: localhost    Database: teatro_patito_feo
 -- ------------------------------------------------------
--- Server version	5.7.19-log
+-- Server version	5.7.19-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `obra`
+-- Table structure for table `representante`
 --
 
-DROP TABLE IF EXISTS `obra`;
+DROP TABLE IF EXISTS `representante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `obra` (
-  `idObra` int(11) NOT NULL AUTO_INCREMENT,
-  `idRepresentante` int(11) NOT NULL,
-  `nombreObra` varchar(80) NOT NULL,
-  `precioObra` double NOT NULL,
-  `duracionObra` time NOT NULL,
-  `descripcionObra` varchar(500) NOT NULL,
-  PRIMARY KEY (`idObra`),
-  KEY `idRepresentante_idx` (`idRepresentante`),
-  CONSTRAINT `idRepresentante` FOREIGN KEY (`idRepresentante`) REFERENCES `representante` (`idRepresentante`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `representante` (
+  `idRepresentante` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `telefonoAlternativo` varchar(15) DEFAULT NULL,
+  `correoElectronico` varchar(80) NOT NULL,
+  PRIMARY KEY (`idRepresentante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `obra`
+-- Dumping data for table `representante`
 --
 
-LOCK TABLES `obra` WRITE;
-/*!40000 ALTER TABLE `obra` DISABLE KEYS */;
-/*!40000 ALTER TABLE `obra` ENABLE KEYS */;
+LOCK TABLES `representante` WRITE;
+/*!40000 ALTER TABLE `representante` DISABLE KEYS */;
+/*!40000 ALTER TABLE `representante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-11 17:20:02
+-- Dump completed on 2017-09-13 21:16:57
