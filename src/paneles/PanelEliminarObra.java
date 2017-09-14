@@ -2,7 +2,7 @@ package paneles;
 
 import java.awt.Color;
 
-import tablas.tablaObras;
+import tablas.TablaObras;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -30,7 +30,7 @@ public class PanelEliminarObra extends PanelFactory {
 		scrollPane.setBounds(60, 45, 500, 340);
 		add(scrollPane);
 		
-		table = new tablaObras();
+		table = new TablaObras();
 		scrollPane.setViewportView(table);
 		
 		lbl1 = new JLabel("Seleccion:");
