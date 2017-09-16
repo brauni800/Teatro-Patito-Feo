@@ -21,19 +21,20 @@ import tablas.TablaObras;
 @SuppressWarnings("serial")
 public abstract class PanelFactory extends JPanel {
 	
-	public static final String OBRAS = "OBRAS";
-	public static final String VENDER_BOLETOS = "VENDER_BOLETOS";
-	public static final String REGRESAR = "REGRESAR";
-	public static final String CREAR_OBRA = "CREAR_OBRA";
-	public static final String ELIMINAR_OBRA = "ELIMINAR_OBRA";
 	public static final String ACTUALIZAR_OBRA = "ACTUALIZAR_OBRA";
-	public static final String CREAR_EDITAR = "CREAR_EDITAR";
-	public static final String ELIMINAR = "ELIMINAR";
-	public static final String SIGUIENTE = "SIGUIENTE";
+	public static final String ACTUALIZAR_REPRESENTANTE = "ACTUALIZAR_REPRESENTANTE";
 	public static final String ANTERIOR = "ANTERIOR";
-	public static final String SELECCIONAR = "SELECCIONAR";
+	public static final String CREAR_EDITAR = "CREAR_EDITAR";
+	public static final String CREAR_OBRA = "CREAR_OBRA";
 	public static final String EDITAR_REPRESENTANTE = "EDITAR_REPRESENTANTE";
-	
+	public static final String ELIMINAR = "ELIMINAR";
+	public static final String ELIMINAR_OBRA = "ELIMINAR_OBRA";
+	public static final String OBRAS = "OBRAS";
+	public static final String REGRESAR = "REGRESAR";
+	public static final String SELECCIONAR = "SELECCIONAR";
+	public static final String SIGUIENTE = "SIGUIENTE";
+	public static final String VENDER_BOLETOS = "VENDER_BOLETOS";
+
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior, btnActualizar;

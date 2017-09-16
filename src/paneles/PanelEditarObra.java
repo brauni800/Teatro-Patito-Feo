@@ -15,22 +15,22 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initLabels() {
-		lbl1 = new JLabel("Nombre de la obra:");
+		lbl1 = new JLabel("Representante:");
 		lbl1.setBounds(116, 86, 153, 14);
 		lbl1.setEnabled(false);
 		add(lbl1);
 
-		lbl2 = new JLabel("Precio (Asiento Diamante):");
+		lbl2 = new JLabel("Nombre de la obra:");
 		lbl2.setBounds(116, 146, 153, 14);
 		lbl2.setEnabled(false);
 		add(lbl2);
 
-		lbl3 = new JLabel("Duracion (horas:min):");
+		lbl3 = new JLabel("Precio (Asiento Diamante):");
 		lbl3.setBounds(116, 206, 153, 14);
 		lbl3.setEnabled(false);
 		add(lbl3);
 
-		lbl4 = new JLabel("Representante:");
+		lbl4 = new JLabel("Duracion (horas:min):");
 		lbl4.setBounds(116, 266, 153, 14);
 		lbl4.setEnabled(false);
 		add(lbl4);
@@ -48,21 +48,20 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initTextFields() {
+		txtFieldRepresentantes = new JTextField();
+		txtFieldRepresentantes.setBounds(304, 83, 200, 20);
+		txtFieldRepresentantes.setEnabled(false);
+		add(txtFieldRepresentantes);
+		
 		txtFieldNombre = new JTextField();
-		txtFieldNombre.setBounds(304, 83, 200, 20);
+		txtFieldNombre.setBounds(304, 143, 200, 20);
 		txtFieldNombre.setEnabled(false);
 		add(txtFieldNombre);
 
 		txtFieldPrecio = new JTextField();
-		txtFieldPrecio.setBounds(304, 143, 200, 20);
+		txtFieldPrecio.setBounds(304, 200, 200, 20);
 		txtFieldPrecio.setEnabled(false);
 		add(txtFieldPrecio);
-
-		txtFieldRepresentantes = new JTextField();
-		txtFieldRepresentantes.setBounds(304, 263, 200, 20);
-		txtFieldRepresentantes.setEnabled(false);
-		add(txtFieldRepresentantes);
-
 	}
 
 	@Override
@@ -70,14 +69,14 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		cmBoxHoras = new JComboBox<Integer>();
 		cmBoxHoras.setModel(
 				new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
-		cmBoxHoras.setBounds(304, 200, 85, 20);
+		cmBoxHoras.setBounds(304, 263, 85, 20);
 		cmBoxHoras.setEnabled(false);
 		add(cmBoxHoras);
 
 		cmBoxMinutos = new JComboBox<Integer>();
 		cmBoxMinutos.setModel(new DefaultComboBoxModel<Integer>(
 				new Integer[] { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 }));
-		cmBoxMinutos.setBounds(419, 200, 85, 20);
+		cmBoxMinutos.setBounds(419, 263, 85, 20);
 		cmBoxMinutos.setEnabled(false);
 		add(cmBoxMinutos);
 
@@ -105,7 +104,7 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		add(btnActualizar);
 		
 		btnEditar = new JButton("Editar");
-		btnEditar.setBounds(510, 261, 80, 21);
+		btnEditar.setBounds(510, 82, 80, 21);
 		btnEditar.setVisible(false);
 		add(btnEditar);
 	}

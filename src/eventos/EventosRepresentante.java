@@ -6,13 +6,14 @@ import javax.swing.JOptionPane;
 
 import administradores.AdministradorRepresentante;
 import elementos.ElementoCrearObra;
+import elementos.ElementoEditarObra;
 import entidades.Representante;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-public class EventosAgregarRepresentante extends EventosFactory {
+public class EventosRepresentante extends EventosFactory {
 
-	public EventosAgregarRepresentante(VentanaPrincipal ventanaPrincipal) {
+	public EventosRepresentante(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
 
@@ -30,8 +31,12 @@ public class EventosAgregarRepresentante extends EventosFactory {
 				JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
 			}
 			break;
-		case PanelFactory.ACTUALIZAR_OBRA:
+		case PanelFactory.ACTUALIZAR_REPRESENTANTE:
 			
+			break;
+		case PanelFactory.ANTERIOR:
+			super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
+			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 			break;
 		}
 
@@ -43,7 +48,10 @@ public class EventosAgregarRepresentante extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnSiguiente().setActionCommand(PanelFactory.SIGUIENTE);
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR_REPRESENTANTE);
+		
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior().setActionCommand(PanelFactory.ANTERIOR);
 	}
 
 }

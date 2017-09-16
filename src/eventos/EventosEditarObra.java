@@ -5,14 +5,18 @@ import java.sql.SQLException;
 
 import administradores.AdministradorObras;
 import administradores.AdministradorRepresentante;
+import elementos.ElementoEditarRepresentante;
 import entidades.Obra;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
 public class EventosEditarObra extends EventosFactory {
 
+	private Obra obraEncontrada;
+	
 	public EventosEditarObra(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
+		this.obraEncontrada = null;
 	}
 
 	@Override
@@ -23,7 +27,8 @@ public class EventosEditarObra extends EventosFactory {
 			
 			break;
 		case PanelFactory.EDITAR_REPRESENTANTE:
-			
+			super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
+			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarRepresentante(ventanaPrincipal));
 			break;
 		case PanelFactory.SELECCIONAR:
 			String item = super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionar().getSelectedItem().toString();
@@ -31,8 +36,8 @@ public class EventosEditarObra extends EventosFactory {
 			if (!texto.equals(item)) {
 				String[] parse = item.split(" - ");
 				try {
-					Obra obraEncontrada = new AdministradorObras().buscarObraBD(Integer.parseInt(parse[0]));
-					habilitarComponentes(obraEncontrada);
+					obraEncontrada = new AdministradorObras().buscarObraBD(Integer.parseInt(parse[0]));
+					habilitarComponentes();
 				} catch (NumberFormatException | SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -56,7 +61,7 @@ public class EventosEditarObra extends EventosFactory {
 	}
 	
 	@SuppressWarnings("deprecation")
-	private void habilitarComponentes(Obra obraEncontrada) throws SQLException {
+	private void habilitarComponentes() throws SQLException {
 		String representante = String.valueOf(obraEncontrada.getIdRepresentante()) + " - " + AdministradorRepresentante.buscarNombreCompletoRepresentante(obraEncontrada.getIdRepresentante());
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getTxtFieldNombre().setText(obraEncontrada.getNombre());

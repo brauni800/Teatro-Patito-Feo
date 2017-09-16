@@ -1,14 +1,14 @@
 package elementos;
 
 import eventos.EventosRepresentante;
-import paneles.PanelAgregarRepresentante;
+import paneles.PanelEditarRepresentante;
 import vista.VentanaPrincipal;
 
-public class ElementoAgregarRepresentante extends ElementoFactory {
+public class ElementoEditarRepresentante extends ElementoFactory {
 
-	public ElementoAgregarRepresentante(VentanaPrincipal ventana) {
+	public ElementoEditarRepresentante(VentanaPrincipal ventana) {
 		super(ventana);
-		super.panel = new PanelAgregarRepresentante();
+		super.panel = new PanelEditarRepresentante();
 		ventana.getPanelDinamico().setPanelDinamico(super.panel);
 		super.eventos = new EventosRepresentante(ventana);
 	}
