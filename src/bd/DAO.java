@@ -53,7 +53,6 @@ public class DAO {
         } catch (SQLException ex) {
             i -= 1;
         }
-        System.out.println(i);
         return i;
     }
 
@@ -80,8 +79,7 @@ public class DAO {
      * @param select Nombre de las columnas que extraera de la tabla. Si se
      * extraera mas de una columna, separar los nombres por comas ','. Si se
      * extraeran todas las columnas se puede hacer uso del atributo ALL.
-     * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
-     * FUNCION.
+     * @param from Nombre de la tabla.
      * @return Object[][] - Arreglo de objetos en el se representan las filas y
      * columnas de la tabla
      * @throws SQLException
@@ -123,8 +121,7 @@ public class DAO {
      * @param select Nombre de las columnas que extraera de la tabla. Si se
      * extraera mas de una columna, separar los nombres por comas ','. Si se
      * extraeran todas las columnas se puede hacer uso del atributo ALL.
-     * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
-     * FUNCION.
+     * @param from Nombre de la tabla.
      * @param where Parametro por el cual se filtraran los valores de la tabla.
      * @param what Valor del parametro.
      * @return Object[][] - Arreglo de objetos en el se representan las filas y
@@ -165,14 +162,15 @@ public class DAO {
      * Se crea la estructura inicial para actualizar un elemento en la Base de
      * Datos.
      *
-     * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
-     * FUNCION.
+     * @param from Nombre de la tabla.
+     * @param setWhere Parametro que se desea cambiar.
+     * @param setWhat Valor del parametro que se desea cambiar.
      * @param where Parametro por el cual se filtraran los valores de la tabla.
-     * @param what Valor del parametro.
+     * @param what Valor del parametro por el cual se filtraran los valores de la tabla.
      * @throws SQLException
      */
-    public void crearEstructuraParaActualizar(String from, String where, Object what) throws SQLException {
-        String sql = "UPDATE " + from + " SET " + where + " = " + what.toString();
+    public void crearEstructuraParaActualizar(String from, String setWhere, Object setWhat, String where, Object what) throws SQLException {
+        String sql = "UPDATE " + from + " SET " + setWhere + " = " + setWhat.toString() + " WHERE " + where + " = " + what.toString();
         this.prepareStatement = this.connection.prepareStatement(sql);
     }
 
@@ -180,8 +178,7 @@ public class DAO {
      * Se crea la estructura inicial para eliminar un elemento de la Base de
      * Datos.
      *
-     * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
-     * FUNCION.
+     * @param from Nombre de la tabla.
      * @param where Parametro por el cual se filtraran los valores de la tabla.
      * @param what Valor del parametro.
      * @throws SQLException
@@ -195,8 +192,7 @@ public class DAO {
      * Se crea la estructura inicial para insertar un elemento en la Base de
      * Datos.
      *
-     * @param from Nombre de la tabla. Puede tomar los valores de ASIENTO o
-     * FUNCION.
+     * @param from Nombre de la tabla.
      * @param select Nombre de las columnas que se usaran de la tabla para
      * indicar los elementos que seran insertados. Si se insertara a mas de una
      * columna, separar los nombres por comas ','.

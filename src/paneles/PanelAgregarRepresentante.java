@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class PanelAgregarRepresentante extends PanelFactory {
 	
 	public PanelAgregarRepresentante() {
@@ -75,5 +76,10 @@ public class PanelAgregarRepresentante extends PanelFactory {
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setBounds(521, 5, 89, 23);
 		add(btnSiguiente);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(263, 445, 100, 23);
+		btnActualizar.setVisible(false);
+		add(btnActualizar);
 	}
 }

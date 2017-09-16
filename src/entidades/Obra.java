@@ -11,7 +11,14 @@ public class Obra {
 	
 	public Obra() {
 		super();
-		this.idObra = 0;
+	}
+
+	public int getIdObra() {
+		return idObra;
+	}
+
+	public void setIdObra(int idObra) {
+		this.idObra = idObra;
 	}
 
 	public int getIdRepresentante() {

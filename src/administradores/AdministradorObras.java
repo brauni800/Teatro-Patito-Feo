@@ -22,6 +22,10 @@ public class AdministradorObras {
 	private PanelFactory panel;
 	private Obra obra;
 
+	public AdministradorObras() {
+		super();
+	}
+	
 	public AdministradorObras(PanelFactory panel) {
 		super();
 		this.panel = panel;
@@ -35,6 +39,12 @@ public class AdministradorObras {
 			creado = true;
 		}
 		return creado;
+	}
+	
+	public Obra buscarObraBD (int idObra) throws SQLException {
+		Object[][] buscar = new DAO().buscarConFiltro(DAO.ALL, DAO.OBRA, "idObra", idObra);
+		crearEntidadObra(buscar);
+		return this.obra;
 	}
 
 	// ****************************************************************************************
@@ -67,6 +77,19 @@ public class AdministradorObras {
 		this.obra.setDuracion(calcularDuracion());
 		this.obra.setDescripcion(this.panel.getTextAreaDescripcion().getText());
 		this.obra.setEstado(AdministradorObras.ESTADO_ACTIVO);
+	}
+	
+	private void crearEntidadObra(Object[][] arreglo) throws SQLException {
+		this.obra = new Obra();
+		for (int i = 0; i < arreglo.length; i++) {
+			this.obra.setIdObra(Integer.parseInt(arreglo[i][0].toString()));
+			this.obra.setIdRepresentante(Integer.parseInt(arreglo[i][1].toString()));
+			this.obra.setNombre(arreglo[i][2].toString());
+			this.obra.setPrecio(Double.parseDouble(arreglo[i][3].toString()));
+			this.obra.setDuracion((Time)arreglo[i][4]);
+			this.obra.setDescripcion(arreglo[i][5].toString());
+			this.obra.setEstado(arreglo[i][6].toString());
+		}
 	}
 
 	private int buscarIdRepresentante(String email) throws SQLException {

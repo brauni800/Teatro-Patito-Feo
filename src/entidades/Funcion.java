@@ -3,10 +3,7 @@ package entidades;
 public class Funcion {
 
 	private String nombre;
-    private int horaInicio;
-    private int minutoInicio;
-    private int horaDuracion;
-    private int minutoDuracion;
+    private int horaInicio, minutoInicio, horaDuracion, minutoDuracion;
     private double precioPorAsiento;
 
 	public Funcion() {

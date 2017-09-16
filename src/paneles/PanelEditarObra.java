@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class PanelEditarObra extends PanelCrearEditarObra {
 	
 	public PanelEditarObra() {
@@ -56,6 +57,12 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		txtFieldPrecio.setBounds(304, 143, 200, 20);
 		txtFieldPrecio.setEnabled(false);
 		add(txtFieldPrecio);
+
+		txtFieldRepresentantes = new JTextField();
+		txtFieldRepresentantes.setBounds(304, 263, 200, 20);
+		txtFieldRepresentantes.setEnabled(false);
+		add(txtFieldRepresentantes);
+
 	}
 
 	@Override
@@ -74,12 +81,9 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		cmBoxMinutos.setEnabled(false);
 		add(cmBoxMinutos);
 
-		cmBoxRepresentantes = new JComboBox<String>();
-		cmBoxRepresentantes.setBounds(304, 263, 200, 20);
-		cmBoxRepresentantes.setEnabled(false);
-		add(cmBoxRepresentantes);
-		
 		cmBoxSeleccionar = new JComboBox<String>();
+		cmBoxSeleccionar.setModel(
+				new DefaultComboBoxModel<String>(new String[] {"Seleccionar obra", "1 - Pepa Pig"}));
 		cmBoxSeleccionar.setBounds(231, 36, 311, 20);
 		cmBoxSeleccionar.setVisible(true);
 		add(cmBoxSeleccionar);
@@ -95,9 +99,14 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 
 	@Override
 	protected void initButtons() {
-		btnEditar = new JButton("Actualizar");
-		btnEditar.setBounds(263, 445, 100, 23);
-		btnEditar.setEnabled(false);
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(263, 445, 100, 23);
+		btnActualizar.setEnabled(false);
+		add(btnActualizar);
+		
+		btnEditar = new JButton("Editar");
+		btnEditar.setBounds(510, 261, 80, 21);
+		btnEditar.setVisible(false);
 		add(btnEditar);
 	}
 

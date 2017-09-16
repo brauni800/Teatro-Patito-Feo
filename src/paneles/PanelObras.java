@@ -7,6 +7,7 @@ import javax.swing.JButton;
  * @author b1796
  *
  */
+@SuppressWarnings("serial")
 public class PanelObras extends PanelFactory {
 	
 	/**
@@ -27,7 +28,7 @@ public class PanelObras extends PanelFactory {
         btnCrear.setBounds(66, 100, 190, 23);
         add(btnCrear);
         
-        btnEliminar = new JButton("Eliminar Obra");
+        btnEliminar = new JButton("Cancelar Obra");
         btnEliminar.setBounds(66, 150, 190, 23);
         add(btnEliminar);
         

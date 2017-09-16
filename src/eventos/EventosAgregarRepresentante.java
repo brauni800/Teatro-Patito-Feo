@@ -1,7 +1,6 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
-import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
@@ -31,6 +30,9 @@ public class EventosAgregarRepresentante extends EventosFactory {
 				JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
 			}
 			break;
+		case PanelFactory.ACTUALIZAR_OBRA:
+			
+			break;
 		}
 
 	}
@@ -38,8 +40,10 @@ public class EventosAgregarRepresentante extends EventosFactory {
 	@Override
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnSiguiente().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnSiguiente()
-				.setActionCommand(PanelFactory.SIGUIENTE);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnSiguiente().setActionCommand(PanelFactory.SIGUIENTE);
+		
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR_OBRA);
 	}
 
 }

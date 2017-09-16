@@ -8,6 +8,17 @@ import paneles.PanelFactory;
 
 public class AdministradorRepresentante {
 
+
+	public static String buscarNombreCompletoRepresentante(int idRepresentante) throws SQLException {
+		String nombreCompleto = "";
+		Object[][] buscar = new DAO().buscarConFiltro("nombre, apellido", DAO.REPRESENTANTE, "idRepresentante", idRepresentante);
+		for (int i = 0; i < buscar.length; i++) {
+			nombreCompleto += buscar[i][0];
+			nombreCompleto += (" " + buscar[i][1]);
+		}
+		return nombreCompleto;
+	}
+
 	private PanelFactory panel;
 	private Representante representante;
 

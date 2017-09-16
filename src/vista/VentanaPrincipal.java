@@ -11,6 +11,7 @@ import paneles.PanelFactory;
  * @author brauni800
  *
  */
+@SuppressWarnings("serial")
 public class VentanaPrincipal extends JFrame {
 
 	private ElementoFactory elementoDinamico;

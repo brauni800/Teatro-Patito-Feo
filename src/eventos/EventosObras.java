@@ -40,10 +40,9 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico()
-						.setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
 				break;
-			case PanelFactory.EDITAR_OBRA:
+			case PanelFactory.ACTUALIZAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(false);
@@ -59,7 +58,7 @@ public class EventosObras extends EventosFactory {
 			case PanelFactory.ELIMINAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
 				break;
-			case PanelFactory.EDITAR_OBRA:
+			case PanelFactory.ACTUALIZAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 				break;
 			}
@@ -78,7 +77,7 @@ public class EventosObras extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setActionCommand(PanelFactory.ELIMINAR_OBRA);
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.EDITAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.ACTUALIZAR_OBRA);
 	}
 
 }

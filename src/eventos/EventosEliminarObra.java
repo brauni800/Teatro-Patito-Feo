@@ -1,6 +1,7 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
@@ -21,7 +22,11 @@ public class EventosEliminarObra extends EventosFactory {
 		String comando = e.getActionCommand();
 		switch(comando) {
 		case PanelFactory.ELIMINAR:
-			
+			try {
+				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getTable().cancelarSeleccionado();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			break;
 		}
 	}

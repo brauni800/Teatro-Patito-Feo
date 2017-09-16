@@ -7,17 +7,18 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import elementos.ElementoFactory;
+import tablas.TablaObras;
 
 /**
  * 
  * @author b1796
  *
  */
+@SuppressWarnings("serial")
 public abstract class PanelFactory extends JPanel {
 	
 	public static final String OBRAS = "OBRAS";
@@ -25,21 +26,23 @@ public abstract class PanelFactory extends JPanel {
 	public static final String REGRESAR = "REGRESAR";
 	public static final String CREAR_OBRA = "CREAR_OBRA";
 	public static final String ELIMINAR_OBRA = "ELIMINAR_OBRA";
-	public static final String EDITAR_OBRA = "EDITAR_OBRA";
+	public static final String ACTUALIZAR_OBRA = "ACTUALIZAR_OBRA";
 	public static final String CREAR_EDITAR = "CREAR_EDITAR";
 	public static final String ELIMINAR = "ELIMINAR";
 	public static final String SIGUIENTE = "SIGUIENTE";
 	public static final String ANTERIOR = "ANTERIOR";
+	public static final String SELECCIONAR = "SELECCIONAR";
+	public static final String EDITAR_REPRESENTANTE = "EDITAR_REPRESENTANTE";
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior;
-	protected JTextField txtFieldNombre, txtFieldApellido, txtFieldPrecio, txtFieldSeleccion, txtFieldTelefono1, txtFieldTelefono2, txtFieldCorreoElectronico;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior, btnActualizar;
+	protected JTextField txtFieldNombre, txtFieldApellido, txtFieldPrecio, txtFieldSeleccion, txtFieldTelefono1, txtFieldTelefono2, txtFieldCorreoElectronico, txtFieldRepresentantes;
 	protected JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
-	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionar;
+	protected JComboBox<String> cmBoxSeleccionar;
 	protected JTextArea textAreaDescripcion;
-	protected JTable table;
+	protected TablaObras table;
 	protected JScrollPane scrollPane;
 	protected String email;
 
@@ -74,6 +77,30 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setElementoDinamico(ElementoFactory elementoDinamico) {
 		this.elementoDinamico = elementoDinamico;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JLabel getLbl7() {
+		return lbl7;
+	}
+
+	public void setLbl7(JLabel lbl7) {
+		this.lbl7 = lbl7;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public JButton getBtnAnterior() {
@@ -228,12 +255,12 @@ public abstract class PanelFactory extends JPanel {
 		this.cmBoxMinutos = cmBoxMinutos;
 	}
 
-	public JComboBox<String> getCmBoxRepresentantes() {
-		return cmBoxRepresentantes;
+	public JTextField getTxtFieldRepresentantes() {
+		return txtFieldRepresentantes;
 	}
 
-	public void setCmBoxRepresentantes(JComboBox<String> cmBoxRepresentantes) {
-		this.cmBoxRepresentantes = cmBoxRepresentantes;
+	public void setTxtFieldRepresentantes(JTextField txtFieldRepresentantes) {
+		this.txtFieldRepresentantes = txtFieldRepresentantes;
 	}
 
 	public JComboBox<String> getCmBoxSeleccionar() {
@@ -252,11 +279,11 @@ public abstract class PanelFactory extends JPanel {
 		this.textAreaDescripcion = textAreaDescripcion;
 	}
 
-	public JTable getTable() {
+	public TablaObras getTable() {
 		return table;
 	}
 
-	public void setTable(JTable table) {
+	public void setTable(TablaObras table) {
 		this.table = table;
 	}
 
