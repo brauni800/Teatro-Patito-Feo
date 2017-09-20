@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import bd.DAO;
 import entidades.Obra;
-import paneles.PanelFactory;
+import vista.paneles.PanelFactory;
 
 /**
  * 

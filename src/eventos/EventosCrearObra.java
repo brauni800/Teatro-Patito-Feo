@@ -9,8 +9,8 @@ import administradores.AdministradorObras;
 import administradores.AdministradorRepresentante;
 import elementos.ElementoAgregarRepresentante;
 import entidades.Representante;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

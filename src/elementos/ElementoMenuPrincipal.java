@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosMenuPrincipal;
-import paneles.PanelMenuPrincipal;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelMenuPrincipal;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoMenuPrincipal extends ElementoFactory{
 

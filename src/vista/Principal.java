@@ -1,6 +1,7 @@
 package vista;
 
 import elementos.ElementoMenuPrincipal;
+import vista.ventanas.VentanaPrincipal;
 
 public class Principal {
 

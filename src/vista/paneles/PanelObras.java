@@ -1,4 +1,4 @@
-package paneles;
+package vista.paneles;
 
 import javax.swing.JButton;
 

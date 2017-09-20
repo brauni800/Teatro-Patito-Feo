@@ -2,7 +2,7 @@ package eventos;
 
 import java.awt.event.ActionListener;
 
-import vista.VentanaPrincipal;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

@@ -7,8 +7,8 @@ import administradores.AdministradorObras;
 import administradores.AdministradorRepresentante;
 import elementos.ElementoEditarRepresentante;
 import entidades.Obra;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 public class EventosEditarObra extends EventosFactory {
 

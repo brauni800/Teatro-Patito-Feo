@@ -2,8 +2,8 @@ package elementos;
 
 import entidades.Representante;
 import eventos.EventosCrearObra;
-import paneles.PanelCrearObra;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelCrearObra;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoCrearObra extends ElementoFactory {
 	

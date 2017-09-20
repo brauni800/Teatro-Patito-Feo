@@ -1,4 +1,4 @@
-package paneles;
+package vista.paneles;
 
 import java.awt.Color;
 import java.sql.SQLException;

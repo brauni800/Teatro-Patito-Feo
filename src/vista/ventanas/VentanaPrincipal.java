@@ -1,10 +1,10 @@
-package vista;
+package vista.ventanas;
 
 
 import javax.swing.JFrame;
 
 import elementos.ElementoFactory;
-import paneles.PanelFactory;
+import vista.paneles.PanelFactory;
 
 /**
  * 

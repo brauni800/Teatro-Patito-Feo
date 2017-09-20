@@ -3,8 +3,8 @@ package eventos;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

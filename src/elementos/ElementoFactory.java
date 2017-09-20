@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosFactory;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

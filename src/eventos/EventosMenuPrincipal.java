@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 
 import elementos.ElementoFunciones;
 import elementos.ElementoObras;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

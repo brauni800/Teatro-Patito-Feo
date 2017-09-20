@@ -8,8 +8,8 @@ import administradores.AdministradorRepresentante;
 import elementos.ElementoCrearObra;
 import elementos.ElementoEditarObra;
 import entidades.Representante;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 public class EventosRepresentante extends EventosFactory {
 

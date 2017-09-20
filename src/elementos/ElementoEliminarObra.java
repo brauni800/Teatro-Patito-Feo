@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosEliminarObra;
-import paneles.PanelEliminarObra;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelEliminarObra;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoEliminarObra extends ElementoFactory {
 

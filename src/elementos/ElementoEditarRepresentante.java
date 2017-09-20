@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosRepresentante;
-import paneles.PanelEditarRepresentante;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelEditarRepresentante;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoEditarRepresentante extends ElementoFactory {
 

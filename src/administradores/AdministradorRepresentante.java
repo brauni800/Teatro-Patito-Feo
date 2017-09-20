@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import bd.DAO;
 import entidades.Representante;
-import paneles.PanelFactory;
+import vista.paneles.PanelFactory;
 
 public class AdministradorRepresentante {
 

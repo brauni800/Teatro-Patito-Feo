@@ -6,8 +6,8 @@ import elementos.ElementoAgregarRepresentante;
 import elementos.ElementoEditarObra;
 import elementos.ElementoEliminarObra;
 import elementos.ElementoMenuPrincipal;
-import paneles.PanelFactory;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFactory;
+import vista.ventanas.VentanaPrincipal;
 
 /**
  * 

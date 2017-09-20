@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosEditarObra;
-import paneles.PanelEditarObra;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelEditarObra;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoEditarObra extends ElementoFactory {
 

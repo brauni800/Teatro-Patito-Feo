@@ -1,8 +1,8 @@
 package elementos;
 
 import eventos.EventosFunciones;
-import paneles.PanelFunciones;
-import vista.VentanaPrincipal;
+import vista.paneles.PanelFunciones;
+import vista.ventanas.VentanaPrincipal;
 
 public class ElementoFunciones extends ElementoFactory {
 

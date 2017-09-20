@@ -1,14 +1,14 @@
-package paneles;
+package vista.paneles;
 
 import java.awt.Color;
 
 @SuppressWarnings("serial")
-public abstract class PanelCrearEditarObra extends PanelFactory {
+public abstract class PanelFactoryMini extends PanelFactory {
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelCrearEditarObra() {
+	public PanelFactoryMini() {
 		setBackground(Color.GREEN);
 		setBounds(300, 20, 620, 500);
 	}

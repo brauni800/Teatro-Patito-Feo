@@ -1,4 +1,4 @@
-package paneles;
+package vista.paneles;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class PanelEditarObra extends PanelCrearEditarObra {
+public class PanelEditarObra extends PanelFactoryMini {
 	
 	public PanelEditarObra() {
 	}
