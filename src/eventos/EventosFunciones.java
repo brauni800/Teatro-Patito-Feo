@@ -2,21 +2,13 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 
-import elementos.ElementoAgregarRepresentante;
-import elementos.ElementoEditarObra;
-import elementos.ElementoEliminarObra;
 import elementos.ElementoMenuPrincipal;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-/**
- * 
- * @author b1796
- *
- */
-public class EventosObras extends EventosFactory {
+public class EventosFunciones extends EventosFactory {
 
-	public EventosObras(VentanaPrincipal ventanaPrincipal) {
+	public EventosFunciones(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
 
@@ -32,34 +24,28 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
 				break;
 			case PanelFactory.ELIMINAR:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
 				break;
 			case PanelFactory.ACTUALIZAR:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(false);
-				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 				break;
 			}
 		} catch (NullPointerException ex) {
 			switch (comando) {
 			case PanelFactory.CREAR:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarRepresentante(ventanaPrincipal));
+				
 				break;
 			case PanelFactory.ELIMINAR:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
+				
 				break;
 			case PanelFactory.ACTUALIZAR:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
+				
 				break;
 			}
 		}

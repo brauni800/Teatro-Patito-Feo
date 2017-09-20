@@ -21,14 +21,12 @@ import tablas.TablaObras;
 @SuppressWarnings("serial")
 public abstract class PanelFactory extends JPanel {
 	
-	public static final String ACTUALIZAR_OBRA = "ACTUALIZAR_OBRA";
-	public static final String ACTUALIZAR_REPRESENTANTE = "ACTUALIZAR_REPRESENTANTE";
+	public static final String ACTUALIZAR = "ACTUALIZAR";
 	public static final String ANTERIOR = "ANTERIOR";
-	public static final String CREAR_EDITAR = "CREAR_EDITAR";
-	public static final String CREAR_OBRA = "CREAR_OBRA";
-	public static final String EDITAR_REPRESENTANTE = "EDITAR_REPRESENTANTE";
+	public static final String CREAR = "CREAR";
+	public static final String EDITAR = "EDITAR";
 	public static final String ELIMINAR = "ELIMINAR";
-	public static final String ELIMINAR_OBRA = "ELIMINAR_OBRA";
+	public static final String FUNCIONES = "FUNCIONES";
 	public static final String OBRAS = "OBRAS";
 	public static final String REGRESAR = "REGRESAR";
 	public static final String SELECCIONAR = "SELECCIONAR";
@@ -37,7 +35,7 @@ public abstract class PanelFactory extends JPanel {
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior, btnActualizar;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnSiguiente, btnAnterior, btnActualizar, btnFunciones;
 	protected JTextField txtFieldNombre, txtFieldApellido, txtFieldPrecio, txtFieldSeleccion, txtFieldTelefono1, txtFieldTelefono2, txtFieldCorreoElectronico, txtFieldRepresentantes;
 	protected JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
@@ -78,6 +76,14 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setElementoDinamico(ElementoFactory elementoDinamico) {
 		this.elementoDinamico = elementoDinamico;
+	}
+
+	public JButton getBtnFunciones() {
+		return btnFunciones;
+	}
+
+	public void setBtnFunciones(JButton btnFunciones) {
+		this.btnFunciones = btnFunciones;
 	}
 
 	public JButton getBtnActualizar() {

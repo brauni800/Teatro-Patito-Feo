@@ -23,8 +23,12 @@ public class PanelMenuPrincipal extends PanelFactory {
 		btnObras.setBounds(50, 50, 150, 23);
 		add(btnObras);
 		
+		btnFunciones = new JButton("Funciones");
+		btnFunciones.setBounds(50, 100, 150, 23);
+		add(btnFunciones);
+		
 		btnVenderBoletos = new JButton("Vender Boletos");
-		btnVenderBoletos.setBounds(50, 100, 150, 23);
+		btnVenderBoletos.setBounds(50, 150, 150, 23);
         add(btnVenderBoletos);
 	}
 }

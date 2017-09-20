@@ -31,7 +31,7 @@ public class EventosCrearObra extends EventosFactory {
 		String comando = e.getActionCommand();
 		try {
 			switch (comando) {
-			case PanelFactory.CREAR_OBRA:
+			case PanelFactory.CREAR:
 				AdministradorRepresentante representante = new AdministradorRepresentante(this.representante);
 				representante.insertarRepresentanteBD();
 				AdministradorObras admin = new AdministradorObras(ventanaPrincipal.getPanelDinamico().getPanelDinamico());
@@ -58,7 +58,7 @@ public class EventosCrearObra extends EventosFactory {
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrear().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrear()
-				.setActionCommand(PanelFactory.CREAR_OBRA);
+				.setActionCommand(PanelFactory.CREAR);
 
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior()

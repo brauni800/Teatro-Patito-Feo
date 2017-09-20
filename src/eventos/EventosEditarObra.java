@@ -23,10 +23,10 @@ public class EventosEditarObra extends EventosFactory {
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		switch(comando) {
-		case PanelFactory.ACTUALIZAR_OBRA:
+		case PanelFactory.ACTUALIZAR:
 			
 			break;
-		case PanelFactory.EDITAR_REPRESENTANTE:
+		case PanelFactory.EDITAR:
 			super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarRepresentante(ventanaPrincipal));
 			break;
@@ -54,10 +54,10 @@ public class EventosEditarObra extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionar().setActionCommand(PanelFactory.SELECCIONAR);
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR_OBRA);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR);
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.EDITAR_REPRESENTANTE);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.EDITAR);
 	}
 	
 	@SuppressWarnings("deprecation")

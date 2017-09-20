@@ -31,7 +31,7 @@ public class EventosRepresentante extends EventosFactory {
 				JOptionPane.showMessageDialog(null, "Hay un campo obligatorio sin llenar", "", JOptionPane.INFORMATION_MESSAGE);
 			}
 			break;
-		case PanelFactory.ACTUALIZAR_REPRESENTANTE:
+		case PanelFactory.ACTUALIZAR:
 			
 			break;
 		case PanelFactory.ANTERIOR:
@@ -48,7 +48,7 @@ public class EventosRepresentante extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnSiguiente().setActionCommand(PanelFactory.SIGUIENTE);
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR_REPRESENTANTE);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnActualizar().setActionCommand(PanelFactory.ACTUALIZAR);
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAnterior().setActionCommand(PanelFactory.ANTERIOR);
