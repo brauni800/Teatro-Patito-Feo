@@ -47,15 +47,17 @@ public class AdministradorObras {
 		return this.obra;
 	}
 	
-	public void buscarObrasActivas() {
+	public Object[][] buscarObrasActivas() {
 		String what = "\"" + AdministradorObras.ESTADO_ACTIVO + "\"";
+		Object[][] buscar = null;
 		try {
-			Object[][] buscar = new DAO().buscarConFiltro("idObra, estado", DAO.OBRA, "estado", what);
+			buscar = new DAO().buscarConFiltro("idObra, nombreObra", DAO.OBRA, "estado", what);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return buscar;
 	}
 
 	// ****************************************************************************************

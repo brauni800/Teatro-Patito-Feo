@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import vista.combobox.ComboboxObrasActivas;
+
 @SuppressWarnings("serial")
 public class PanelEditarObra extends PanelFactoryMini {
 	
@@ -80,11 +82,8 @@ public class PanelEditarObra extends PanelFactoryMini {
 		cmBoxMinutos.setEnabled(false);
 		add(cmBoxMinutos);
 
-		cmBoxSeleccionar = new JComboBox<String>();
-		cmBoxSeleccionar.setModel(
-				new DefaultComboBoxModel<String>(new String[] {"Seleccionar obra", "1 - Pepa Pig"}));
+		cmBoxSeleccionar = new ComboboxObrasActivas();
 		cmBoxSeleccionar.setBounds(231, 36, 311, 20);
-		cmBoxSeleccionar.setVisible(true);
 		add(cmBoxSeleccionar);
 	}
 

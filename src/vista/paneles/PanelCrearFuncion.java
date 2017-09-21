@@ -1,5 +1,7 @@
 package vista.paneles;
 
+import vista.combobox.ComboboxObrasActivas;
+
 @SuppressWarnings("serial")
 public class PanelCrearFuncion extends PanelFactoryMini {
 
@@ -17,15 +19,13 @@ public class PanelCrearFuncion extends PanelFactoryMini {
 
 	@Override
 	protected void initComboBox() {
-		// TODO Auto-generated method stub
-		
+		cmBoxSeleccionar = new ComboboxObrasActivas();
+		cmBoxSeleccionar.setBounds(231, 36, 311, 20);
+		add(cmBoxSeleccionar);
 	}
 
 	@Override
-	protected void initTextArea() {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initTextArea() {}
 
 	@Override
 	protected void initButtons() {
