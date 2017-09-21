@@ -46,6 +46,17 @@ public class AdministradorObras {
 		crearEntidadObra(buscar);
 		return this.obra;
 	}
+	
+	public void buscarObrasActivas() {
+		String what = "\"" + AdministradorObras.ESTADO_ACTIVO + "\"";
+		try {
+			Object[][] buscar = new DAO().buscarConFiltro("idObra, estado", DAO.OBRA, "estado", what);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	// ****************************************************************************************
 	// ****************************************************************************************
