@@ -21,7 +21,7 @@ public class PanelMenuPrincipal extends PanelFactory {
 		btnObras = new JButton("Obras");
 		btnObras.setBounds(50, 50, 150, 23);
 		add(btnObras);
-		
+        
 		btnFuncion = new JButton("Funciones");
 		btnFuncion.setBounds(50, 100, 150, 23);
 		add(btnFuncion);

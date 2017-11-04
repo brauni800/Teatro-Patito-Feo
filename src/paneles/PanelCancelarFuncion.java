@@ -1,6 +1,6 @@
 package paneles;
 
-public class PanelEditarFuncion extends PanelFactory{
+public class PanelCancelarFuncion extends PanelFactory{
 
 	@Override
 	protected void initComponents() {

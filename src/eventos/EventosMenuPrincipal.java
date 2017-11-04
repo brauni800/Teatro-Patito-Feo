@@ -2,6 +2,7 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 
+import elementos.ElementoFuncion;
 import elementos.ElementoObras;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
@@ -24,6 +25,9 @@ public class EventosMenuPrincipal extends EventosFactory {
 		case PanelFactory.OBRAS:
 			super.ventanaPrincipal.setElementoDinamico(new ElementoObras(ventanaPrincipal));
 			break;
+		case PanelFactory.FUNCION:
+			super.ventanaPrincipal.setElementoDinamico(new ElementoFuncion(ventanaPrincipal));
+			break;
 		case PanelFactory.VENDER_BOLETOS:
 			break;
 		}
@@ -33,6 +37,8 @@ public class EventosMenuPrincipal extends EventosFactory {
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().setActionCommand(PanelFactory.OBRAS);
+		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().setActionCommand(PanelFactory.FUNCION);
 	}
 
 }
