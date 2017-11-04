@@ -36,6 +36,7 @@ public abstract class PanelFactory extends JPanel {
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
+	protected JButton btnAceptarCrearFuncion;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
@@ -300,6 +301,14 @@ public abstract class PanelFactory extends JPanel {
 	
 	public void setBtnEditarFuncion(JButton btnEditarFuncion) {
 		this.btnEditarFuncion = btnEditarFuncion;
+	}
+	
+	public JButton getBtnAceptarCrearFuncion() {
+		return btnEditarFuncion;
+	}
+	
+	public void setBtnAceptarCrearFuncion(JButton btnAceptarCrearFuncion) {
+		this.btnAceptarCrearFuncion = btnAceptarCrearFuncion;
 	}
 	
 }

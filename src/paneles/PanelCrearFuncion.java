@@ -27,11 +27,14 @@ public class PanelCrearFuncion extends PanelFactory{
 	protected void initLabels() {
 		lblSeleccionarObra = new JLabel("Seleccionar obra:");
 		lblSeleccionarObra.setBounds(93, 39, 106, 14);
-		lblSeleccionarObra.setVisible(false);
+		lblSeleccionarObra.setVisible(true);
 		add(lblSeleccionarObra);
+		
+		
 	}
 
 	protected void initComboBox() {
+		
 		cmBoxHoras = new JComboBox<Integer>();
 		cmBoxHoras.setModel(
 				new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
@@ -46,14 +49,14 @@ public class PanelCrearFuncion extends PanelFactory{
 		
 		cmBoxSeleccionarObra = new JComboBox<String>();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
-		cmBoxSeleccionarObra.setVisible(false);
+		cmBoxSeleccionarObra.setVisible(true);
 		add(cmBoxSeleccionarObra);
 	}
 
 	protected void initButtons() {
-		btnCrear = new JButton("Crear");
-		btnCrear.setBounds(263, 445, 89, 23);
-		add(btnCrear);
+		btnAceptarCrearFuncion = new JButton("Crear");
+		btnAceptarCrearFuncion.setBounds(263, 445, 89, 23);
+		add(btnAceptarCrearFuncion);
 	}
 
 

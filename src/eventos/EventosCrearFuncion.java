@@ -17,12 +17,23 @@ public class EventosCrearFuncion extends EventosFactory{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		String comando = e.getActionCommand();
+		switch (comando) {
+		case PanelFactory.CREAR_FUNCION:
+			try {
+				new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearFuncion();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
+		}
 		
 	}
 
 	@Override
 	protected void initEvents() {
-		
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAceptarCrearFuncion().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAceptarCrearFuncion()
+				.setActionCommand(PanelFactory.CREAR_FUNCION);
 	}
 }

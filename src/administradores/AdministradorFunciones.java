@@ -6,6 +6,7 @@ import java.sql.Time;
 import javax.swing.JOptionPane;
 
 import bd.DAO;
+import entidades.Funcion;
 import entidades.Obra;
 import paneles.PanelFactory;
 
@@ -15,6 +16,7 @@ public class AdministradorFunciones {
 	public static final String ESTADO_CANCELADO = "ESTADO_CANCELADO";
 
 	private PanelFactory panel;
+	private Funcion funcion;
 	private Obra obra;
 
 	public AdministradorFunciones(PanelFactory panel) {
@@ -29,8 +31,8 @@ public class AdministradorFunciones {
 	
 	private void insertarFuncionBD() throws SQLException {
 		DAO insertar = new DAO();
-		insertar.crearEstructuraParaInsertar(DAO.OBRA, "idRepresentante, nombreObra, precioObra, duracionObra, descripcionObra, estado");
-		insertar.insertarInt(1, this.obra.getIdRepresentante());
+		insertar.crearEstructuraParaInsertar(DAO.FUNCION, "idfuncion, idObra, fechaFuncion, inicioFuncion, finalFuncion");
+		insertar.insertarInt(1, this.funcion.getIdFuncion());
 		insertar.insertarString(2, this.obra.getNombre());
 		insertar.insertarDouble(3, this.obra.getPrecio());
 		insertar.insertarTime(4, this.obra.getDuracion());

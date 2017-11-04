@@ -23,7 +23,7 @@ public class EventosCrearObra extends EventosFactory {
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		switch (comando) {
-		case PanelFactory.CREAR_FUNCION:
+		case PanelFactory.CREAR_OBRA:
 			try {
 				new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearFuncion();
 			} catch (SQLException e1) {

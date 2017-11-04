@@ -20,16 +20,12 @@ public class TablaFunciones extends JTable{
 		DefaultTableModel modelo = new DefaultTableModel();
 		modelo.addColumn("idFuncion");
 		modelo.addColumn("idObra");
-		modelo.addColumn("Obra");
 		modelo.addColumn("Fecha");
 		modelo.addColumn("Inicio");
 		modelo.addColumn("Final");
-		modelo.addColumn("Duración");
-		modelo.addColumn("Descripción");
-		modelo.addColumn("Representante");	
 		AdministrarTablas ad = new AdministrarTablas();
 		try {
-			ad.cargarBaseDatosObras(modelo);
+			ad.cargarBaseDatosFuncion(modelo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

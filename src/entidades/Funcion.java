@@ -1,8 +1,8 @@
 package entidades;
 
 public class Funcion {
-
-	private String nombre;
+	
+	private int idFuncion;
     private int horaInicio;
     private int minutoInicio;
     private int horaDuracion;
@@ -12,12 +12,12 @@ public class Funcion {
 	public Funcion() {
 	}
 
-	public String getNombre() {
-		return nombre;
+	public int getIdFuncion() {
+		return idFuncion;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	
+	public void setIdFuncion(int idFuncion) {
+		this.idFuncion = idFuncion;
 	}
 
 	public int getHoraInicio() {
