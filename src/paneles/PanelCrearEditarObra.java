@@ -2,12 +2,6 @@ package paneles;
 
 import java.awt.Color;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
 
 public abstract class PanelCrearEditarObra extends PanelFactory {
 

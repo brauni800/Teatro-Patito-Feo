@@ -2,9 +2,9 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 
-import elementos.ElementoCrearObra;
-import elementos.ElementoEditarObra;
-import elementos.ElementoEliminarObra;
+import elementos.ElementoCancelarFuncion;
+import elementos.ElementoCrearFuncion;
+import elementos.ElementoEditarFuncion;
 import elementos.ElementoMenuPrincipal;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
@@ -28,7 +28,7 @@ public class EventoFuncion extends EventosFactory{
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditarFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearFuncion(ventanaPrincipal));
 				break;
 			case PanelFactory.CANCELAR_FUNCION:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrearFuncion().setEnabled(true);
@@ -36,26 +36,26 @@ public class EventoFuncion extends EventosFactory{
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditarFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico()
-						.setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
+						.setElementoDinamico(new ElementoCancelarFuncion(ventanaPrincipal));
 				break;
 			case PanelFactory.EDITAR_FUNCION:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrearFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditarFuncion().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarFuncion(ventanaPrincipal));
 				break;
 			}
 		} catch (NullPointerException ex) {
 			switch (comando) {
 			case PanelFactory.CREAR_FUNCION:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearFuncion(ventanaPrincipal));
 				break;
 			case PanelFactory.CANCELAR_FUNCION:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarFuncion(ventanaPrincipal));
 				break;
 			case PanelFactory.EDITAR_FUNCION:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarFuncion(ventanaPrincipal));
 				break;
 			}
 		}

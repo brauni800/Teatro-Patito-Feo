@@ -1,15 +1,14 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
-import java.sql.SQLException;
 
-import administradores.AdministradorObras;
+import elementos.ElementoMenuPrincipal;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-public class EventosCancelarFuncion extends EventosFactory{
+public class EventosEditarFuncion extends EventosFactory{
 
-	public EventosCancelarFuncion(VentanaPrincipal ventanaPrincipal) {
+	public EventosEditarFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 		// TODO Auto-generated constructor stub
 	}
@@ -17,13 +16,12 @@ public class EventosCancelarFuncion extends EventosFactory{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		
 	}
 
 	@Override
 	protected void initEvents() {
-
-	}
+		// TODO Auto-generated method stub
 		
 	}
-	
+
+}
