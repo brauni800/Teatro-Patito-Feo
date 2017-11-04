@@ -28,10 +28,13 @@ public abstract class PanelFactory extends JPanel {
 	public static final String EDITAR_OBRA = "EDITAR_OBRA";
 	public static final String CREAR_EDITAR = "CREAR_EDITAR";
 	public static final String ELIMINAR = "ELIMINAR";
+	public static final String CREAR_FUNCION = "CREAR_FUNCION";
+	public static final String CANCELAR_FUNCION = "CANCELAR_FUNCION";
+	public static final String FUNCION = "FUNCION";
 	
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnCrearFuncion, btnCancelarFuncion, btnFuncion;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
@@ -48,6 +51,7 @@ public abstract class PanelFactory extends JPanel {
 		setVisible(true);
 		initComponents();
 	}
+	
 
 	protected abstract void initComponents();
 	
@@ -263,6 +267,30 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
+	}
+	
+	public JButton getBtnCrearFuncion() {
+		return btnCrearFuncion;
+	}
+
+	public void setBtnCrearFuncion(JButton btnCrearFuncion) {
+		this.btnCrearFuncion = btnCrearFuncion;
+	}
+		
+	public JButton getBtnCancelarFuncion() {
+		return btnCancelarFuncion;
+	}
+	
+	public void setBtnCancelarFuncion(JButton btnCancelarFuncion) {
+		this.btnCancelarFuncion = btnCancelarFuncion;
+	}
+	
+	public JButton getBtnFuncion() {
+		return btnFuncion;
+	}
+	
+	public void setBtnFuncion(JButton btnFuncion) {
+		this.btnFuncion = btnFuncion;
 	}
 	
 }
