@@ -11,12 +11,17 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+
 import elementos.ElementoFactory;
 
 /**
- * 
- * @author b1796
+ *  @author b1796
  *
+ */
+/**
+ * @author arman
  */
 public abstract class PanelFactory extends JPanel {
 	
@@ -39,11 +44,14 @@ public abstract class PanelFactory extends JPanel {
 	protected JButton btnAceptarCrearFuncion;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
+	protected JLabel lblHorario, lblHora, lblMinuto, lblFecha;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
 	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
 	protected JTextArea textAreaDescripcion;
-	protected JTable table;
+	protected JTable table, tableFunciones;
 	protected JScrollPane scrollPane;
+	protected JCalendar calendarioFunciones;
+	protected JDateChooser calendario;
 
 	public PanelFactory() {
 		super();
@@ -310,5 +318,80 @@ public abstract class PanelFactory extends JPanel {
 	public void setBtnAceptarCrearFuncion(JButton btnAceptarCrearFuncion) {
 		this.btnAceptarCrearFuncion = btnAceptarCrearFuncion;
 	}
+
+
+	public JLabel getLblHorario() {
+		return lblHorario;
+	}
+
+
+	public void setLblHorario(JLabel lblHorario) {
+		this.lblHorario = lblHorario;
+	}
+
+
+	public JLabel getLblHora() {
+		return lblHora;
+	}
+
+
+	public void setLblHora(JLabel lblHora) {
+		this.lblHora = lblHora;
+	}
+
+
+	public JLabel getLblMinuto() {
+		return lblMinuto;
+	}
+
+
+	public void setLblMinuto(JLabel lblMinuto) {
+		this.lblMinuto = lblMinuto;
+	}
+
+
+	public JTable getTableFunciones() {
+		return tableFunciones;
+	}
+
+
+	public void setTableFunciones(JTable tableFunciones) {
+		this.tableFunciones = tableFunciones;
+	}
+
+
+	public JCalendar getCalendarioFunciones() {
+		return calendarioFunciones;
+	}
+
+
+	public void setCalendarioFunciones(JCalendar calendarioFunciones) {
+		this.calendarioFunciones = calendarioFunciones;
+	}
+
+
+	public JLabel getLblFecha() {
+		return lblFecha;
+	}
+
+
+	public void setLblFecha(JLabel lblFecha) {
+		this.lblFecha = lblFecha;
+	}
+
+
+	public JDateChooser getCalendario() {
+		return calendario;
+	}
+
+
+	public void setCalendario(JDateChooser calendario) {
+		this.calendario = calendario;
+	}
+
+
+
+	
+	
 	
 }

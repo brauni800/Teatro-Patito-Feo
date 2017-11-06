@@ -9,7 +9,6 @@ public abstract class PanelCrearEditarObra extends PanelFactory {
 	 * Create the panel.
 	 */
 	public PanelCrearEditarObra() {
-		setBackground(Color.GREEN);
 		setBounds(300, 20, 620, 500);
 	}
 

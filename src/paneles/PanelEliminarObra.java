@@ -20,7 +20,6 @@ public class PanelEliminarObra extends PanelFactory {
 	 * Create the panel.
 	 */
 	public PanelEliminarObra() {
-		setBackground(Color.GREEN);
 		setBounds(300, 20, 620, 500);
 	}
 

@@ -12,7 +12,6 @@ import tablas.TablaFunciones;
 public class PanelCancelarFuncion extends PanelFactory{
 
 	public PanelCancelarFuncion() {
-		setBackground(Color.GREEN);
 		setBounds(300, 20, 620, 500);
 	}
 	@Override
