@@ -33,11 +33,10 @@ public class AdministradorFunciones {
 		DAO insertar = new DAO();
 		insertar.crearEstructuraParaInsertar(DAO.FUNCION, "idfuncion, idObra, fechaFuncion, inicioFuncion, finalFuncion");
 		insertar.insertarInt(1, this.funcion.getIdFuncion());
-		insertar.insertarString(2, this.obra.getNombre());
-		insertar.insertarDouble(3, this.obra.getPrecio());
-		insertar.insertarTime(4, this.obra.getDuracion());
-		insertar.insertarString(5, this.obra.getDescripcion());
-		insertar.insertarString(6, this.obra.getEstado());
+		insertar.crearEstructuraParaInsertar(DAO.FUNCION,"idObra");
+		insertar.crearEstructuraParaInsertar(DAO.FUNCION, "fechaFuncion");
+		insertar.insertarTime(5, this.funcion.getInicioFuncion());
+		insertar.insertarTime(6, this.funcion.getFinalFuncion());
 		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (reply == JOptionPane.YES_OPTION) {
             insertar.confirmar();

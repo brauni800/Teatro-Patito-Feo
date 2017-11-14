@@ -13,6 +13,8 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import entidades.Obra;
+
 /**
  *
  * @author b1796
@@ -271,6 +273,7 @@ public class DAO {
     public void insertarBoolean(int i, boolean b) throws SQLException {
         this.prepareStatement.setBoolean(i, b);
     }
+    
 
     /**
      * Metodo para confirmar la instruccion que se realizara en la Base de

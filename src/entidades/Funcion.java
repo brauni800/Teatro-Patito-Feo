@@ -1,13 +1,15 @@
 package entidades;
 
+import java.sql.Time;
+import java.util.Date;
+
 public class Funcion {
 	
 	private int idFuncion;
-    private int horaInicio;
-    private int minutoInicio;
-    private int horaDuracion;
-    private int minutoDuracion;
-    private double precioPorAsiento;
+    private Obra idObra;
+    private Date fechaFuncion;
+    private Time inicioFuncion;
+    private Time finalFuncion;
 
 	public Funcion() {
 	}
@@ -15,48 +17,43 @@ public class Funcion {
 	public int getIdFuncion() {
 		return idFuncion;
 	}
-	
+
 	public void setIdFuncion(int idFuncion) {
 		this.idFuncion = idFuncion;
 	}
 
-	public int getHoraInicio() {
-		return horaInicio;
+	public Obra getIdObra() {
+		return idObra;
 	}
 
-	public void setHoraInicio(int horaInicio) {
-		this.horaInicio = horaInicio;
+	public void setIdObra(Obra idObra) {
+		this.idObra = idObra;
 	}
 
-	public int getMinutoInicio() {
-		return minutoInicio;
+	public Date getFechaFuncion() {
+		return fechaFuncion;
 	}
 
-	public void setMinutoInicio(int minutoInicio) {
-		this.minutoInicio = minutoInicio;
+	public void setFechaFuncion(Date fechaFuncion) {
+		this.fechaFuncion = fechaFuncion;
 	}
 
-	public int getHoraDuracion() {
-		return horaDuracion;
+	public Time getInicioFuncion() {
+		return inicioFuncion;
 	}
 
-	public void setHoraDuracion(int horaDuracion) {
-		this.horaDuracion = horaDuracion;
+	public void setInicioFuncion(Time inicioFuncion) {
+		this.inicioFuncion = inicioFuncion;
 	}
 
-	public int getMinutoDuracion() {
-		return minutoDuracion;
+	public Time getFinalFuncion() {
+		return finalFuncion;
 	}
 
-	public void setMinutoDuracion(int minutoDuracion) {
-		this.minutoDuracion = minutoDuracion;
+	public void setFinalFuncion(Time finalFuncion) {
+		this.finalFuncion = finalFuncion;
 	}
 
-	public double getPrecioPorAsiento() {
-		return precioPorAsiento;
-	}
+	
 
-	public void setPrecioPorAsiento(double precioPorAsiento) {
-		this.precioPorAsiento = precioPorAsiento;
-	}
 }

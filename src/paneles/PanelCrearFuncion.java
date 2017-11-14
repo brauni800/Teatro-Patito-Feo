@@ -82,9 +82,11 @@ public class PanelCrearFuncion extends PanelFactory{
 		cmBoxMinutos.setBounds(395, 150, 85, 20);
 		add(cmBoxMinutos);
 		
+		
+		
 		cmBoxSeleccionarObra = new JComboBox<String>();
+		cmBoxSeleccionarObra.setModel(new DefaultComboBoxModel<String>());
 		cmBoxSeleccionarObra.setBounds(230, 40, 310, 20);
-		cmBoxSeleccionarObra.setVisible(true);
 		add(cmBoxSeleccionarObra);
 		
 	}
