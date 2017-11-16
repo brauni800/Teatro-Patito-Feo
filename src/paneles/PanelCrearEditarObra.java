@@ -1,8 +1,5 @@
 package paneles;
 
-import java.awt.Color;
-
-
 public abstract class PanelCrearEditarObra extends PanelFactory {
 
 	/**

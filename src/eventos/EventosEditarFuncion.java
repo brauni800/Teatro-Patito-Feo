@@ -1,9 +1,6 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
-
-import elementos.ElementoMenuPrincipal;
-import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
 public class EventosEditarFuncion extends EventosFactory{

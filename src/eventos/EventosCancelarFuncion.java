@@ -1,10 +1,6 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
-import java.sql.SQLException;
-
-import administradores.AdministradorObras;
-import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
 public class EventosCancelarFuncion extends EventosFactory{

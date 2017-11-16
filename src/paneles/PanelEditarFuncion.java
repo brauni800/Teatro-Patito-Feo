@@ -5,15 +5,14 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-
 import com.toedter.calendar.JDateChooser;
 
+import combobox.ComboBoxFunciones;
 import tablas.TablaFunciones;
 
 /*
  * 
  */
-
 public class PanelEditarFuncion extends PanelFactory{
 
 	public PanelEditarFuncion() {
@@ -78,7 +77,7 @@ public class PanelEditarFuncion extends PanelFactory{
 		cmBoxMinutos.setBounds(395, 150, 85, 20);
 		add(cmBoxMinutos);
 		
-		cmBoxSeleccionarObra = new JComboBox<String>();
+		cmBoxSeleccionarObra = new ComboBoxFunciones();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
 		cmBoxSeleccionarObra.setVisible(true);
 		add(cmBoxSeleccionarObra);

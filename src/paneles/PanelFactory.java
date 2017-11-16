@@ -17,11 +17,7 @@ import com.toedter.calendar.JDateChooser;
 import elementos.ElementoFactory;
 
 /**
- *  @author b1796
- *
- */
-/**
- * @author arman
+ * @author b1796
  */
 public abstract class PanelFactory extends JPanel {
 	
@@ -56,7 +52,6 @@ public abstract class PanelFactory extends JPanel {
 	public PanelFactory() {
 		super();
 		setSize(950, 550);
-		setBackground(Color.CYAN);
 		setLayout(null);
 		setVisible(true);
 		initComponents();

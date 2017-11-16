@@ -10,6 +10,7 @@ public class Funcion {
     private Date fechaFuncion;
     private Time inicioFuncion;
     private Time finalFuncion;
+    private String disponiblidadFuncion;
 
 	public Funcion() {
 	}
@@ -52,6 +53,14 @@ public class Funcion {
 
 	public void setFinalFuncion(Time finalFuncion) {
 		this.finalFuncion = finalFuncion;
+	}
+
+	public String getDisponiblidadFuncion() {
+		return disponiblidadFuncion;
+	}
+
+	public void setDisponiblidadFuncion(String disponiblidadFuncion) {
+		this.disponiblidadFuncion = disponiblidadFuncion;
 	}
 
 	

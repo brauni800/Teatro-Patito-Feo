@@ -1,9 +1,6 @@
 package paneles;
 
-import java.awt.Color;
-
 import tablas.TablaObras;
-
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

@@ -11,7 +11,7 @@ public class Obra {
 	
 	public Obra() {
 		super();
-		this.idObra = 0;
+		this.setIdObra(0);
 	}
 
 	public int getIdRepresentante() {
@@ -60,6 +60,14 @@ public class Obra {
 
 	public void setDuracion(Time duracion) {
 		this.duracion = duracion;
+	}
+
+	public int getIdObra() {
+		return idObra;
+	}
+
+	public void setIdObra(int idObra) {
+		this.idObra = idObra;
 	}
 	
 }

@@ -2,9 +2,7 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
-
 import administradores.AdministradorFunciones;
-import administradores.AdministradorObras;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
