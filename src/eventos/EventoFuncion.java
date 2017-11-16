@@ -35,8 +35,7 @@ public class EventoFuncion extends EventosFactory{
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarFuncion().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditarFuncion().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico()
-						.setElementoDinamico(new ElementoCancelarFuncion(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarFuncion(ventanaPrincipal));
 				break;
 			case PanelFactory.EDITAR_FUNCION:
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrearFuncion().setEnabled(true);
