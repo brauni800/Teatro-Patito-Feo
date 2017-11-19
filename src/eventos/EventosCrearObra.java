@@ -3,6 +3,7 @@ package eventos;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import administradores.AdministradorFunciones;
+import administradores.AdministradorObras;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -23,7 +24,7 @@ public class EventosCrearObra extends EventosFactory {
 		switch (comando) {
 		case PanelFactory.CREAR_OBRA:
 			try {
-				new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearFuncion();
+				new AdministradorObras(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearObra();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}

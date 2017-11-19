@@ -7,9 +7,9 @@ import javax.swing.JComboBox;
 
 import administradores.AdministrarComboBox;
 
-public class ComboBoxFunciones extends JComboBox<String> {
+public class ComboBoxObras extends JComboBox<String> {
 	
-	public ComboBoxFunciones() {
+	public ComboBoxObras() {
 		super();
 		setModel(createModel());
 	}

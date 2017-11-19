@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.sql.Date;
 
 /**
  *
@@ -231,6 +232,18 @@ public class DAO {
      */
     public void insertarString(int i, String s) throws SQLException {
         this.prepareStatement.setString(i, s);
+    }
+    
+    /**
+     * Metodo que se utiliza para colocar un valor de tipo Date a la estructura
+     * para insertar en la tabla de la Base de Datos.
+     * 
+     * @param i numero de columna. El numero de la columna empieza a partir del 1
+     * @param d es el objeto tipo date que se va a agregar
+     * @throws SQLException 
+     */
+    public void insertarDate(int i, Date d) throws SQLException {
+    	this.prepareStatement.setDate(i, d);
     }
 
     /**

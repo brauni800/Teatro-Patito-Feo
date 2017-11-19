@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import combobox.ComboBoxFunciones;
+import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
 public class PanelCancelarFuncion extends PanelFactory{
@@ -24,7 +24,7 @@ public class PanelCancelarFuncion extends PanelFactory{
 	}
 	
 	protected void initComboBox() {
-		cmBoxSeleccionarObra = new ComboBoxFunciones();
+		cmBoxSeleccionarObra = new ComboBoxObras();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
 		add(cmBoxSeleccionarObra);
 	}
@@ -48,6 +48,7 @@ public class PanelCancelarFuncion extends PanelFactory{
 		add(scrollPane);
 		
 		table = new TablaFunciones();
+		table.setVisible(false);
 		scrollPane.setViewportView(table);
 	}
 	

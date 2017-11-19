@@ -1,12 +1,12 @@
 package entidades;
 
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 public class Funcion {
 	
 	private int idFuncion;
-    private Obra idObra;
+    private int idObra;
     private Date fechaFuncion;
     private Time inicioFuncion;
     private Time finalFuncion;
@@ -23,11 +23,11 @@ public class Funcion {
 		this.idFuncion = idFuncion;
 	}
 
-	public Obra getIdObra() {
+	public int getIdObra() {
 		return idObra;
 	}
 
-	public void setIdObra(Obra idObra) {
+	public void setIdObra(int idObra) {
 		this.idObra = idObra;
 	}
 
@@ -35,8 +35,10 @@ public class Funcion {
 		return fechaFuncion;
 	}
 
-	public void setFechaFuncion(Date fechaFuncion) {
-		this.fechaFuncion = fechaFuncion;
+	public void setFechaFuncion(java.util.Date date) {
+		date = new java.util.Date();
+		java.sql.Date fecha = new java.sql.Date(date.getTime());
+		this.fechaFuncion = fecha;
 	}
 
 	public Time getInicioFuncion() {

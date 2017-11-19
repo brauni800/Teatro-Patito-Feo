@@ -1,16 +1,16 @@
 package elementos;
 
-import eventos.EventosEliminarObra;
-import paneles.PanelEliminarObra;
+import eventos.EventosCancelarObra;
+import paneles.PanelCancelarObra;
 import vista.VentanaPrincipal;
 
 public class ElementoEliminarObra extends ElementoFactory {
 
 	public ElementoEliminarObra(VentanaPrincipal ventana) {
 		super(ventana);
-		super.panel = new PanelEliminarObra();
+		super.panel = new PanelCancelarObra();
 		ventana.getPanelDinamico().setPanelDinamico(super.panel);
-		super.eventos = new EventosEliminarObra(ventana);
+		super.eventos = new EventosCancelarObra(ventana);
 	}
 
 }

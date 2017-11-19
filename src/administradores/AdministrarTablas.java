@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import bd.DAO;
 
-public class AdministrarTablas extends MouseAdapter {
+public class AdministrarTablas{
 
 	private JTable tabla;
 	private JButton boton;
@@ -52,31 +52,4 @@ public class AdministrarTablas extends MouseAdapter {
 			modelo.addRow(datos);
 		}
 	}
-
-	@Override
-	public void mouseClicked(MouseEvent me) {
-		super.mousePressed(me);
-		int row = this.tabla.getSelectedRow();
-		this.valueObtained = this.tabla.getModel().getValueAt(row, 0);
-		this.boton.setEnabled(true);
-		mostrarNombreJTextField(row);
-	}
-
-	/**
-	 * @return the valueObtained
-	 */
-	public Object getValueObtained() {
-		return this.valueObtained;
-	}
-
-	private void mostrarNombreJTextField(int row) {
-		if (this.jTextField != null) {
-			this.jTextField.setText(this.tabla.getModel().getValueAt(row, 1).toString());
-		}
-	}
-
-	public void setjTextField(JTextField jTextField) {
-		this.jTextField = jTextField;
-	}
-
 }

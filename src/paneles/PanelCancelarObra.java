@@ -11,12 +11,12 @@ import javax.swing.JButton;
  * @author b1796
  *
  */
-public class PanelEliminarObra extends PanelFactory {
+public class PanelCancelarObra extends PanelFactory {
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelEliminarObra() {
+	public PanelCancelarObra() {
 		setBounds(300, 20, 620, 500);
 	}
 
@@ -38,7 +38,7 @@ public class PanelEliminarObra extends PanelFactory {
 		txtFieldSeleccion.setEnabled(false);
 		add(txtFieldSeleccion);
 		
-		btnEliminar = new JButton("Eliminar");
+		btnEliminar = new JButton("Cancelar");
 		btnEliminar.setBounds(441, 420, 89, 23);
 		add(btnEliminar);
 	}

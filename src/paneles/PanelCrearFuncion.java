@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 
-import combobox.ComboBoxFunciones;
+import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
 public class PanelCrearFuncion extends PanelFactory{
@@ -18,12 +18,12 @@ public class PanelCrearFuncion extends PanelFactory{
 	
 	@Override
 	protected void initComponents() {
-		initCalendar();
 		initComboBox();
 		initTables();
 		initButtons();
 		initTables();
 		initLables();
+		initCalendar();
 	}
 	
 	protected void initCalendar() {
@@ -46,7 +46,7 @@ public class PanelCrearFuncion extends PanelFactory{
 		cmBoxMinutos.setBounds(395, 150, 85, 20);
 		add(cmBoxMinutos);
 		
-		cmBoxSeleccionarObra = new ComboBoxFunciones();
+		cmBoxSeleccionarObra = new ComboBoxObras();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
 		add(cmBoxSeleccionarObra);
 	}
@@ -57,14 +57,15 @@ public class PanelCrearFuncion extends PanelFactory{
 		add(scrollPane);
 
 		tableFunciones = new TablaFunciones();
+		tableFunciones.setVisible(false);
 		scrollPane.setViewportView(tableFunciones);
 	}
 	
 	protected void initButtons() {
-		btnEditar = new JButton("Crear Funcion");
-		btnEditar.setBounds(263, 445, 100, 23);
-		btnEditar.setEnabled(false);
-		add(btnEditar);
+		btnCrearFuncion = new JButton("Crear Funcion");
+		btnCrearFuncion.setBounds(263, 445, 100, 23);
+		btnCrearFuncion.setEnabled(true);
+		add(btnCrearFuncion);
 	}
 	
 	protected void initLables() {

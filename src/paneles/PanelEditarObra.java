@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import combobox.ComboBoxObras;
+
 public class PanelEditarObra extends PanelCrearEditarObra {
 	
 	public PanelEditarObra() {
@@ -79,7 +81,7 @@ public class PanelEditarObra extends PanelCrearEditarObra {
 		cmBoxRepresentantes.setEnabled(false);
 		add(cmBoxRepresentantes);
 		
-		cmBoxSeleccionarObra = new JComboBox<String>();
+		cmBoxSeleccionarObra = new ComboBoxObras();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
 		cmBoxSeleccionarObra.setVisible(true);
 		add(cmBoxSeleccionarObra);
