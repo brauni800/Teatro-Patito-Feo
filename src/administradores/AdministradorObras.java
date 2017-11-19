@@ -79,14 +79,10 @@ public class AdministradorObras {
 		return idRepresentante;
 	}
 
+	@SuppressWarnings("deprecation")
 	private Time calcularDuracion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		long milisecDuracion = getMilisegundos(horas, minutos);
-		return new Time(milisecDuracion);
-	}
-
-	private long getMilisegundos(int hor, int min) {
-		return (hor * 3600000) + (min * 60000);
+		return new Time(horas, minutos, 0);
 	}
 }

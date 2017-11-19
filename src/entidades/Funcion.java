@@ -7,7 +7,7 @@ public class Funcion {
 	
 	private int idFuncion;
     private int idObra;
-    private Date fechaFuncion;
+    private long fechaFuncion;
     private Time inicioFuncion;
     private Time finalFuncion;
     private String disponiblidadFuncion;
@@ -31,14 +31,12 @@ public class Funcion {
 		this.idObra = idObra;
 	}
 
-	public Date getFechaFuncion() {
+	public long getFechaFuncion() {
 		return fechaFuncion;
 	}
 
-	public void setFechaFuncion(java.util.Date date) {
-		date = new java.util.Date();
-		java.sql.Date fecha = new java.sql.Date(date.getTime());
-		this.fechaFuncion = fecha;
+	public void setFechaFuncion(long date) {
+		this.fechaFuncion = date;
 	}
 
 	public Time getInicioFuncion() {

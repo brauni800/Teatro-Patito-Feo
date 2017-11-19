@@ -12,5 +12,4 @@ public class ElementoCrearFuncion extends ElementoFactory{
 		ventana.getPanelDinamico().setPanelDinamico(super.panel);
 		super.eventos = new EventosCrearFuncion(ventana);
 	}
-
 }

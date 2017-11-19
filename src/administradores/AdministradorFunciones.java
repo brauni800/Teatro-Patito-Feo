@@ -10,8 +10,8 @@ import paneles.PanelFactory;
 
 public class AdministradorFunciones {
 
-	public static final String ESTADO_ACTIVO = "ESTADO_ACTIVO";
-	public static final String ESTADO_CANCELADO = "ESTADO_CANCELADO";
+	public static final String ESTADO_ACTIVO = "ACTIVO";
+	public static final String ESTADO_CANCELADO = "CANCELADO";
 
 	private PanelFactory panel;
 	private Funcion funcion;
@@ -44,30 +44,25 @@ public class AdministradorFunciones {
 	}
 	
 	private void crearEntidadFuncion() throws SQLException {
-		System.out.println(panel.getCalendario().getDate().getTime());
 		this.funcion = new Funcion();
 		this.funcion.setIdObra(panel.getCmBoxSeleccionarObra().getComponentCount());
 		this.funcion.setInicioFuncion(inicioFuncion());
 		this.funcion.setFinalFuncion(finalFuncion());
-		this.funcion.setFechaFuncion(panel.getCalendario().getDate());
-		this.funcion.setDisponiblidadFuncion("DISPONIBLE");
+		this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
+		this.funcion.setDisponiblidadFuncion(ESTADO_ACTIVO);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private Time inicioFuncion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		long milisecDuracion = getMilisegundos(horas, minutos);
-		return new Time(milisecDuracion);
+		return new Time(horas, minutos, 0);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private Time finalFuncion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		long milisecDuracion = getMilisegundos(horas, minutos);
-		return new Time(milisecDuracion);
-	}
-
-	private long getMilisegundos(int hor, int min) {
-		return (hor * 3600000) + (min * 60000);
+		return new Time(horas, minutos, 0);
 	}
 }

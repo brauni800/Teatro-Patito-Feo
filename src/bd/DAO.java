@@ -242,8 +242,9 @@ public class DAO {
      * @param d es el objeto tipo date que se va a agregar
      * @throws SQLException 
      */
-    public void insertarDate(int i, Date d) throws SQLException {
-    	this.prepareStatement.setDate(i, d);
+    public void insertarDate(int i, long d) throws SQLException {
+    	java.sql.Date date = new java.sql.Date(d);
+    	this.prepareStatement.setDate(i, date);
     }
 
     /**

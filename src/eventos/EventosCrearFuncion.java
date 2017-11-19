@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
 import administradores.AdministradorFunciones;
+import entidades.Obra;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -22,7 +23,7 @@ public class EventosCrearFuncion extends EventosFactory{
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-			break;
+			break;		
 		}
 	}
 
@@ -31,6 +32,11 @@ public class EventosCrearFuncion extends EventosFactory{
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion()
 				.setActionCommand(PanelFactory.CREAR_FUNCION);
+	}
+	
+	protected void obtenerComboBox() {
+		Object dato = super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra().getSelectedItem();
+		System.out.println(dato.toString());
 	}
 
 }

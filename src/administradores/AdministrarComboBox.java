@@ -14,16 +14,7 @@ import bd.DAO;
 
 public class AdministrarComboBox{
 
-	private JComboBox<String> comboBox;
-	private JTable table;
-	private JButton boton;
-	private Object valueObtained;
-
 	public AdministrarComboBox() {
-		this.comboBox = comboBox;
-		this.boton = boton;
-		this.table = table;
-		this.valueObtained = null;
 	}
 
 	public void cargarBaseDatosObras(DefaultComboBoxModel<String> modelo) throws SQLException {
