@@ -257,7 +257,7 @@ public class DAO {
      * @throws SQLException
      */
     public void insertarTime(int i, Time time) throws SQLException {
-        this.prepareStatement.setTime(i, time);
+        this.prepareStatement.setTime(i, time);;
     }
 
     /**

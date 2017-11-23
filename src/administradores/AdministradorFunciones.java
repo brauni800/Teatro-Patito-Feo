@@ -56,32 +56,40 @@ public class AdministradorFunciones {
 		insertar.insertarDate(3, this.funcion.getFechaFuncion());
 		insertar.insertarTime(4, this.funcion.getInicioFuncion());
 		insertar.insertarTime(5, this.funcion.getFinalFuncion());
+		insertar.insertarString(6, this.funcion.getDisponiblidadFuncion());
 		
-		Object[][] buscar = new DAO().buscar("fechaFuncion,inicioFuncion,finalFuncion",DAO.FUNCION);
-		boolean deteced = false;
-		java.sql.Date date = new java.sql.Date(this.funcion.getFechaFuncion());
-		for(int i = 0; i<buscar.length; i++) {		
-			System.out.println(buscar[i][0]);
-			if((buscar[i][0]).equals(date) &&
-					buscar[i][1].equals(this.funcion.getInicioFuncion())){
-				deteced = true;
-			}else {
-				deteced = false;
-			}
-		}
-		
-		if(deteced = false) {
-			insertar.insertarString(6, this.funcion.getDisponiblidadFuncion());
+		if(validarHorarios() == false) {
 			int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	        if (reply == JOptionPane.YES_OPTION) {
 	            insertar.confirmar();
 	            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
 	        }
-		} else {
+		}else {
 			JOptionPane.showMessageDialog(null, "Ya existe una función a esa hora");
+		}	
+	}
+	
+	private boolean validarHorarios() throws SQLException {
+		Object[][] buscar = new DAO().buscar("fechaFuncion,inicioFuncion,finalFuncion",DAO.FUNCION);
+		java.sql.Date date = new java.sql.Date(this.funcion.getFechaFuncion());
+		for(int i = 0; i<buscar.length; i++) {	
+			
+			String tiempo[] = buscar[i][1].toString().split(":");
+			int horaInicio = Integer.parseInt(tiempo[0]);
+			int minutosInicio = Integer.parseInt(tiempo[1]);
+			Time iniciodato = new Time((horaInicio*3600000) + (minutosInicio*60000));
+			
+			int horaFinal = Integer.parseInt(tiempo[0]);
+			int minutosFinal = Integer.parseInt(tiempo[1]);
+			Time finalDato = new Time((horaFinal*3600000) + (minutosFinal*60000));
+			
+			if((date.toString()).equals(buscar[i][0].toString())
+					&& this.funcion.getInicioFuncion().getTime() >= iniciodato.getTime()
+					&& this.funcion.getFinalFuncion().getTime() <= finalDato.getTime()){
+				return true;
+			}
 		}
-		
-		
+		return false;
 	}
 	
 	private void crearEntidadFuncion() throws SQLException {
@@ -97,13 +105,13 @@ public class AdministradorFunciones {
 	private Time inicioFuncion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		return new Time(horas, minutos, 0);
+		return new Time((horas*3600000) + (minutos*60000));
 	}
 	
 	@SuppressWarnings("deprecation")
 	private Time finalFuncion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		return new Time(horas, minutos, 0);
+		return new Time((horas*3600000) + (minutos*60000));
 	}
 }
