@@ -1,5 +1,7 @@
 package paneles;
 
+import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,6 +30,7 @@ public class PanelCrearFuncion extends PanelFactory{
 	
 	protected void initCalendar() {
 		calendario = new JDateChooser();
+		calendario.setMinSelectableDate(new Date());
 		calendario.setBounds(150,125,100,26);
 		add(calendario);
 	}
