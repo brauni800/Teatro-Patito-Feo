@@ -1,11 +1,20 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.table.TableModel;
+
+import com.sun.glass.events.MouseEvent;
+
 import administradores.AdministradorFunciones;
+import combobox.ComboBoxObras;
 import entidades.Obra;
 import paneles.PanelFactory;
+import tablas.TablaFunciones;
 import vista.VentanaPrincipal;
 
 public class EventosCrearFuncion extends EventosFactory{
@@ -13,6 +22,7 @@ public class EventosCrearFuncion extends EventosFactory{
 	public EventosCrearFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
@@ -23,7 +33,7 @@ public class EventosCrearFuncion extends EventosFactory{
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-			break;		
+			break;
 		}
 	}
 
@@ -34,9 +44,4 @@ public class EventosCrearFuncion extends EventosFactory{
 				.setActionCommand(PanelFactory.CREAR_FUNCION);
 	}
 	
-	protected void obtenerComboBox() {
-		Object dato = super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra().getSelectedItem();
-		System.out.println(dato.toString());
-	}
-
 }

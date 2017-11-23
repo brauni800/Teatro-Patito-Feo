@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -21,11 +22,15 @@ public class AdministrarTablas{
 		this.boton = boton;
 		this.valueObtained = null;
 		this.jTextField = null;
+		
 	}
 	
 	public void cargarBaseDatosFuncion(DefaultTableModel modeloFuncion) throws SQLException {
-		String[] datos = new String[6];
 		
+		//AdministrarComboBox combo = new AdministrarComboBox();
+		//combo.obtenerIdObras(modelo);
+		
+		String[] datos = new String[6];
 		Object[][] buscar = new DAO().buscar("idfuncion,idObra,fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion",DAO.FUNCION);
 		
 		for(int i = 0; i < buscar.length; i++) {

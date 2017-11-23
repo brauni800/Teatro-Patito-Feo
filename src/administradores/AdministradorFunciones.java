@@ -1,5 +1,6 @@
 package administradores;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import javax.swing.JOptionPane;
@@ -15,7 +16,6 @@ public class AdministradorFunciones {
 
 	private PanelFactory panel;
 	private Funcion funcion;
-	private Obra obra;
 
 	public AdministradorFunciones(PanelFactory panel) {
 		super();
@@ -27,6 +27,27 @@ public class AdministradorFunciones {
 		insertarFuncionBD();
 	}
 	
+	public void editarFuncion() throws SQLException{
+		
+	}
+	
+	private void editarFuncionBD() throws SQLException{
+		DAO editar = new DAO();
+		editar.crearEstructuraParaActualizar(DAO.FUNCION, "disponibilidadFuncion", "ACTIVO");
+		//editar.insertarInt(1, this.funcion.getIdFuncion());
+		//editar.insertarInt(2, this.funcion.getIdObra());
+		//editar.insertarDate(3, this.funcion.getFechaFuncion());
+		//editar.insertarTime(4, this.funcion.getInicioFuncion());
+		//editar.insertarTime(5, this.funcion.getFinalFuncion());
+		editar.insertarString(1, this.funcion.getDisponiblidadFuncion());
+		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea editar esta funcion?", "Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (reply == JOptionPane.YES_OPTION) {
+            editar.confirmar();
+            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+        }
+		
+	}
+	
 	private void insertarFuncionBD() throws SQLException {
 		DAO insertar = new DAO();
 		insertar.crearEstructuraParaInsertar(DAO.FUNCION, "idfuncion, idObra, fechaFuncion, inicioFuncion, finalFuncion, disponibilidadFuncion");
@@ -35,12 +56,32 @@ public class AdministradorFunciones {
 		insertar.insertarDate(3, this.funcion.getFechaFuncion());
 		insertar.insertarTime(4, this.funcion.getInicioFuncion());
 		insertar.insertarTime(5, this.funcion.getFinalFuncion());
-		insertar.insertarString(6, this.funcion.getDisponiblidadFuncion());
-		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (reply == JOptionPane.YES_OPTION) {
-            insertar.confirmar();
-            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
-        }
+		
+		Object[][] buscar = new DAO().buscar("fechaFuncion,inicioFuncion,finalFuncion",DAO.FUNCION);
+		boolean deteced = false;
+		java.sql.Date date = new java.sql.Date(this.funcion.getFechaFuncion());
+		for(int i = 0; i<buscar.length; i++) {		
+			System.out.println(buscar[i][0]);
+			if((buscar[i][0]).equals(date) &&
+					buscar[i][1].equals(this.funcion.getInicioFuncion())){
+				deteced = true;
+			}else {
+				deteced = false;
+			}
+		}
+		
+		if(deteced = false) {
+			insertar.insertarString(6, this.funcion.getDisponiblidadFuncion());
+			int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	        if (reply == JOptionPane.YES_OPTION) {
+	            insertar.confirmar();
+	            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+	        }
+		} else {
+			JOptionPane.showMessageDialog(null, "Ya existe una función a esa hora");
+		}
+		
+		
 	}
 	
 	private void crearEntidadFuncion() throws SQLException {
