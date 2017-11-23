@@ -1,5 +1,7 @@
 package paneles;
 
+import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -30,6 +32,7 @@ public class PanelEditarFuncion extends PanelFactory{
 	
 	protected void initCalendar() {
 		calendario = new JDateChooser();
+		calendario.setMinSelectableDate(new Date());
 		calendario.setBounds(150,125,100,26);
 		add(calendario);
 	}
@@ -80,14 +83,12 @@ public class PanelEditarFuncion extends PanelFactory{
 		
 		cmBoxSeleccionarObra = new ComboBoxObras();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
-		cmBoxSeleccionarObra.setVisible(true);
 		add(cmBoxSeleccionarObra);
 	}
 
 	protected void initButtons() {
 		btnEditar = new JButton("Actualizar");
 		btnEditar.setBounds(263, 445, 100, 23);
-		btnEditar.setEnabled(false);
 		add(btnEditar);
 	}
 

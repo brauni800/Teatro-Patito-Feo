@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class PanelCrearObra extends PanelCrearEditarObra {
-	
+
 	public PanelCrearObra() {
 	}
 
@@ -33,7 +33,7 @@ public class PanelCrearObra extends PanelCrearEditarObra {
 		lblDescripcion = new JLabel("Descripcion de la obra:");
 		lblDescripcion.setBounds(116, 318, 153, 14);
 		add(lblDescripcion);
-		
+
 		lblSeleccionarObra = new JLabel("Seleccionar obra:");
 		lblSeleccionarObra.setBounds(93, 39, 106, 14);
 		lblSeleccionarObra.setVisible(false);
@@ -54,22 +54,22 @@ public class PanelCrearObra extends PanelCrearEditarObra {
 	@Override
 	protected void initComboBox() {
 		cmBoxHoras = new JComboBox<Integer>();
-		cmBoxHoras.setModel(
-				new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+		cmBoxHoras.setModel(new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
 		cmBoxHoras.setBounds(304, 200, 85, 20);
 		add(cmBoxHoras);
 
 		cmBoxMinutos = new JComboBox<Integer>();
-		cmBoxMinutos.setModel(new DefaultComboBoxModel<Integer>(
-				new Integer[] { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 }));
+		cmBoxMinutos.setModel(
+				new DefaultComboBoxModel<Integer>(new Integer[] { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 }));
 		cmBoxMinutos.setBounds(419, 200, 85, 20);
 		add(cmBoxMinutos);
 
 		cmBoxRepresentantes = new JComboBox<String>();
-		cmBoxRepresentantes.setModel(new DefaultComboBoxModel<String>(new String[] { "Rogelio Campos", "Ricardo Perez"}));
+		cmBoxRepresentantes
+				.setModel(new DefaultComboBoxModel<String>(new String[] { "Rogelio Campos", "Ricardo Perez" }));
 		cmBoxRepresentantes.setBounds(304, 263, 200, 20);
 		add(cmBoxRepresentantes);
-		
+
 		cmBoxSeleccionarObra = new JComboBox<String>();
 		cmBoxSeleccionarObra.setBounds(231, 36, 311, 20);
 		cmBoxSeleccionarObra.setVisible(false);

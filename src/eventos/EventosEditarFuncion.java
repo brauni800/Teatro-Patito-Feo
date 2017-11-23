@@ -1,13 +1,15 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.SQLException;
 
 import administradores.AdministradorFunciones;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-public class EventosEditarFuncion extends EventosFactory{
+public class EventosEditarFuncion extends EventosFactory {
 
 	public EventosEditarFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
@@ -29,6 +31,20 @@ public class EventosEditarFuncion extends EventosFactory{
 
 	@Override
 	protected void initEvents() {
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion()
+				.setActionCommand(PanelFactory.EDITAR_FUNCION);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
+				.addItemListener(new ItemListener() {
+
+					@Override
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							System.out.println(e.getItem());
+						}
+
+					}
+				});
 	}
 
 }

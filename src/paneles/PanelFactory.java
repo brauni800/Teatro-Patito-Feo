@@ -20,7 +20,7 @@ import elementos.ElementoFactory;
  * @author b1796
  */
 public abstract class PanelFactory extends JPanel {
-	
+
 	public static final String OBRAS = "OBRAS";
 	public static final String VENDER_BOLETOS = "VENDER_BOLETOS";
 	public static final String REGRESAR = "REGRESAR";
@@ -33,13 +33,15 @@ public abstract class PanelFactory extends JPanel {
 	public static final String CANCELAR_FUNCION = "CANCELAR_FUNCION";
 	public static final String FUNCION = "FUNCION";
 	public static final String EDITAR_FUNCION = "EDITAR_FUNCION";
-	
+
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos, btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos,
+			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
 	protected JButton btnAceptarCrearFuncion;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
-	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra, lblSeleccion;
+	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
+			lblSeleccion;
 	protected JLabel lblHorario, lblHora, lblMinuto, lblFecha;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
 	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
@@ -56,24 +58,25 @@ public abstract class PanelFactory extends JPanel {
 		setVisible(true);
 		initComponents();
 	}
-	
 
 	protected abstract void initComponents();
-	
+
 	/**
-	 * El panel dinamico que contiene este panel. Si no existe un panel regresa null.
+	 * El panel dinamico que contiene este panel. Si no existe un panel regresa
+	 * null.
+	 * 
 	 * @return PanelFactory - el panel dinamico.
 	 */
 	public PanelFactory getPanelDinamico() {
 		return this.panelDinamico;
 	}
-	
+
 	public void setPanelDinamico(PanelFactory panelDinamico) {
 		this.panelDinamico = panelDinamico;
 		add(panelDinamico);
 		repaint();
 	}
-	
+
 	public ElementoFactory getElementoDinamico() {
 		return elementoDinamico;
 	}
@@ -273,7 +276,7 @@ public abstract class PanelFactory extends JPanel {
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
-	
+
 	public JButton getBtnCrearFuncion() {
 		return btnCrearFuncion;
 	}
@@ -281,112 +284,93 @@ public abstract class PanelFactory extends JPanel {
 	public void setBtnCrearFuncion(JButton btnCrearFuncion) {
 		this.btnCrearFuncion = btnCrearFuncion;
 	}
-		
+
 	public JButton getBtnCancelarFuncion() {
 		return btnCancelarFuncion;
 	}
-	
+
 	public void setBtnCancelarFuncion(JButton btnCancelarFuncion) {
 		this.btnCancelarFuncion = btnCancelarFuncion;
 	}
-	
+
 	public JButton getBtnFuncion() {
 		return btnFuncion;
 	}
-	
+
 	public void setBtnFuncion(JButton btnFuncion) {
 		this.btnFuncion = btnFuncion;
 	}
-	
+
 	public JButton getBtnEditarFuncion() {
 		return btnEditarFuncion;
 	}
-	
+
 	public void setBtnEditarFuncion(JButton btnEditarFuncion) {
 		this.btnEditarFuncion = btnEditarFuncion;
 	}
-	
+
 	public JButton getBtnAceptarCrearFuncion() {
 		return btnEditarFuncion;
 	}
-	
+
 	public void setBtnAceptarCrearFuncion(JButton btnAceptarCrearFuncion) {
 		this.btnAceptarCrearFuncion = btnAceptarCrearFuncion;
 	}
-
 
 	public JLabel getLblHorario() {
 		return lblHorario;
 	}
 
-
 	public void setLblHorario(JLabel lblHorario) {
 		this.lblHorario = lblHorario;
 	}
-
 
 	public JLabel getLblHora() {
 		return lblHora;
 	}
 
-
 	public void setLblHora(JLabel lblHora) {
 		this.lblHora = lblHora;
 	}
-
 
 	public JLabel getLblMinuto() {
 		return lblMinuto;
 	}
 
-
 	public void setLblMinuto(JLabel lblMinuto) {
 		this.lblMinuto = lblMinuto;
 	}
-
 
 	public JTable getTableFunciones() {
 		return tableFunciones;
 	}
 
-
 	public void setTableFunciones(JTable tableFunciones) {
 		this.tableFunciones = tableFunciones;
 	}
-
 
 	public JCalendar getCalendarioFunciones() {
 		return calendarioFunciones;
 	}
 
-
 	public void setCalendarioFunciones(JCalendar calendarioFunciones) {
 		this.calendarioFunciones = calendarioFunciones;
 	}
-
 
 	public JLabel getLblFecha() {
 		return lblFecha;
 	}
 
-
 	public void setLblFecha(JLabel lblFecha) {
 		this.lblFecha = lblFecha;
 	}
-
 
 	public JDateChooser getCalendario() {
 		return calendario;
 	}
 
-
 	public void setCalendario(JDateChooser calendario) {
 		this.calendario = calendario;
 	}
 
-
-
-	
-	
-	
 }
