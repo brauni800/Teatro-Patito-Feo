@@ -31,9 +31,6 @@ public class EventosEditarFuncion extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion()
-				.setActionCommand(PanelFactory.EDITAR_FUNCION);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
 				.addItemListener(new ItemListener() {
 
@@ -46,5 +43,7 @@ public class EventosEditarFuncion extends EventosFactory {
 					}
 				});
 	}
+	
+	
 
 }

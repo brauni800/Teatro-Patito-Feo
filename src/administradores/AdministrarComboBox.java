@@ -18,7 +18,7 @@ public class AdministrarComboBox {
 		for (int i = 0; i < buscar.length; i++) {
 			datos[0] = buscar[i][0].toString();
 			datos[1] = buscar[i][1].toString();
-			modelo.addElement(datos[1]);
+			modelo.addElement(datos[0] + " " + datos[1]);
 		}
 	}
 }

@@ -4,12 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.SQLException;
+
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
 import administradores.AdministradorFunciones;
 import paneles.PanelFactory;
+import tablas.TablaFunciones;
 import vista.VentanaPrincipal;
 
 public class EventosCrearFuncion extends EventosFactory {
 
+	JTable table;
+	
 	public EventosCrearFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
@@ -27,7 +34,7 @@ public class EventosCrearFuncion extends EventosFactory {
 			break;
 		}
 	}
-
+	
 	@Override
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion().addActionListener(this);
@@ -39,11 +46,12 @@ public class EventosCrearFuncion extends EventosFactory {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						if (e.getStateChange() == ItemEvent.SELECTED) {
-							System.out.println(e.getItem());
+							String idObra[] = e.getItem().toString().split(" ");
 						}
-
 					}
 				});
 	}
+	
+	
 
 }
