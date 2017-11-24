@@ -40,6 +40,7 @@ public class EventosCrearFuncion extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion()
 				.setActionCommand(PanelFactory.CREAR_FUNCION);
+		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
 				.addItemListener(new ItemListener() {
 
@@ -47,6 +48,7 @@ public class EventosCrearFuncion extends EventosFactory {
 					public void itemStateChanged(ItemEvent e) {
 						if (e.getStateChange() == ItemEvent.SELECTED) {
 							String idObra[] = e.getItem().toString().split(" ");
+							
 						}
 					}
 				});

@@ -13,7 +13,7 @@ public class AdministrarTablas{
 		
 		Object idObra = 1;
 		String[] datos = new String[6];
-		Object[][] buscar = new DAO().buscarConFiltro("fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION, "idObra", idObra);
+		Object[][] buscar = new DAO().buscar("fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION);
 		
 		for(int i = 0; i < buscar.length; i++) {
 			datos[0] = buscar[i][0].toString();

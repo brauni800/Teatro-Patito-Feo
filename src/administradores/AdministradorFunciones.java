@@ -1,18 +1,17 @@
 package administradores;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import javax.swing.JOptionPane;
 import bd.DAO;
 import entidades.Funcion;
-import entidades.Obra;
 import paneles.PanelFactory;
 
 public class AdministradorFunciones {
 
 	public static final String ESTADO_ACTIVO = "ACTIVO";
 	public static final String ESTADO_CANCELADO = "CANCELADO";
+	private boolean validacionDatos;
 
 	private PanelFactory panel;
 	private Funcion funcion;
@@ -20,6 +19,7 @@ public class AdministradorFunciones {
 	public AdministradorFunciones(PanelFactory panel) {
 		super();
 		this.panel = panel;
+		this.validacionDatos =  false;
 	}
 
 	public void crearFuncion() throws SQLException {
@@ -38,23 +38,31 @@ public class AdministradorFunciones {
 	}
 	
 	private void cancelarFuncionBD() throws SQLException {
+		
 		DAO cancelar = new DAO();
 		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "disponiblidadFuncion", ESTADO_CANCELADO);
 		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "inicioFuncion, finalFuncion", new Time(0));
 	}
 	
 	private void editarFuncionBD() throws SQLException{
-		DAO editar = new DAO();
-		editar.crearEstructuraParaActualizar(DAO.FUNCION, "disponibilidadFuncion", ESTADO_ACTIVO);
 		
-		if(validarHorarios() == false) {
-		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea actualizar esta funcion?", "Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (reply == JOptionPane.YES_OPTION) {
-            editar.confirmar();
-            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+        DAO editar = new DAO();
+        
+        int columna = obtenerColumnaEditada();
+        int fila = obtenerFilaEditada();
+        //Object nuevoValor = panel.getTableFunciones().getValueAt(fila, columna);
+        
+        //editar.crearEstructuraParaActualizar(DAO.FUNCION, panel.getTableFunciones().getColumnName(columna), nuevoValor);
+        if(this.validacionDatos == true){
+        if (validarHorarios() == false) {
+            int reply = JOptionPane.showConfirmDialog(null, "ï¿½Estï¿½ seguro que desea actualizar esta funcion?", "Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (reply == JOptionPane.YES_OPTION) {
+                editar.confirmar();
+                JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya existe una funciï¿½n a esa hora");
         }
-        }else {
-        	JOptionPane.showMessageDialog(null, "Ya existe una función a esa hora");
         }
 		
 	}
@@ -69,15 +77,17 @@ public class AdministradorFunciones {
 		insertar.insertarTime(5, finalFuncion());
 		insertar.insertarString(6, this.funcion.getDisponiblidadFuncion());
 		
+		if(this.validacionDatos = false) {
 		if(validarHorarios() == false) {
-			int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			int reply = JOptionPane.showConfirmDialog(null, "Â¿EstÃ¡ seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	        if (reply == JOptionPane.YES_OPTION) {
 	            insertar.confirmar();
 	            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
 	        }
 		}else {
-			JOptionPane.showMessageDialog(null, "Ya existe una función a esa hora");
+			JOptionPane.showMessageDialog(null, "Ya existe una funciÃ³n a esa hora");
 		}	
+		}
 	}
 	
 	private boolean validarHorarios() throws SQLException {
@@ -103,13 +113,18 @@ public class AdministradorFunciones {
 		return false;
 	}
 	
-	private void crearEntidadFuncion() throws SQLException {
+	private void crearEntidadFuncion() throws SQLException {	
+		try {
 		this.funcion = new Funcion();
-		this.funcion.setIdObra(panel.getCmBoxSeleccionarObra().getComponentCount());
+		this.funcion.setIdObra(obtenerIDObra());
 		this.funcion.setInicioFuncion(inicioFuncion());
 		this.funcion.setFinalFuncion(finalFuncion());
 		this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
 		this.funcion.setDisponiblidadFuncion(ESTADO_ACTIVO);
+		this.validacionDatos = true;
+		}catch(NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Falta algÃºn dato");	
+		}
 	}
 	
 	
@@ -124,4 +139,43 @@ public class AdministradorFunciones {
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
 		return new Time(((horas*3600000) + (minutos*60000)) - 64800000);
 	}
+	
+	public int obtenerIDObra() {
+		String item = panel.getCmBoxSeleccionarObra().getSelectedItem().toString();
+		String[] idObra = item.split(" ");
+		return Integer.parseInt(idObra[0]);
+	}
+	
+    public int obtenerColumnaEditada(){        
+        int row = panel.getTableFunciones().getRowCount();
+        int column = panel.getTableFunciones().getColumnCount();
+        int columnEdit = 0;
+        int rowEdit = 0;
+        for (int i = 0; i < column; i++) {
+            for (int j = 0; j < row; j++) {
+                columnEdit = panel.getTableFunciones().getEditingColumn();
+                rowEdit = panel.getTableFunciones().getEditingRow();
+                return columnEdit;
+            }
+        }
+        return 0;
+    }
+	
+    public int obtenerFilaEditada(){
+    	
+        int row = panel.getTableFunciones().getRowCount();
+        int column = panel.getTableFunciones().getColumnCount();
+        
+        int columnEdit = 0;
+        int rowEdit = 0;
+        
+        for (int i = 0; i < column; i++) {
+            for (int j = 0; j < row; j++) {
+                columnEdit = panel.getTableFunciones().getEditingColumn();
+                rowEdit = panel.getTableFunciones().getEditingRow();
+                return rowEdit;
+            }
+        }
+        return  0;
+    }
 }

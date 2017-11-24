@@ -18,10 +18,10 @@ public class TablaFunciones extends JTable{
 	public DefaultTableModel createModel() {
 		
 		DefaultTableModel modelo = new DefaultTableModel();
-		modelo.addColumn("Fecha");
-		modelo.addColumn("Inicio");
-		modelo.addColumn("Final");
-		modelo.addColumn("Disponibilidad");
+		modelo.addColumn("FechaFuncion");
+		modelo.addColumn("InicioFuncion");
+		modelo.addColumn("FinalFuncion");
+		modelo.addColumn("DisponibilidadFuncion");
 		AdministrarTablas ad = new AdministrarTablas();
 		try {
 			ad.cargarBaseDatosFuncion(modelo);

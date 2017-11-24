@@ -87,9 +87,9 @@ public class PanelEditarFuncion extends PanelFactory{
 	}
 
 	protected void initButtons() {
-		btnEditar = new JButton("Actualizar");
-		btnEditar.setBounds(263, 445, 100, 23);
-		add(btnEditar);
+		btnEditarFuncion = new JButton("Actualizar");
+		btnEditarFuncion.setBounds(263, 445, 100, 23);
+		add(btnEditarFuncion);
 	}
 
 }
