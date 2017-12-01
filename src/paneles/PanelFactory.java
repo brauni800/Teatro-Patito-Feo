@@ -33,15 +33,18 @@ public abstract class PanelFactory extends JPanel {
 	public static final String CANCELAR_FUNCION = "CANCELAR_FUNCION";
 	public static final String FUNCION = "FUNCION";
 	public static final String EDITAR_FUNCION = "EDITAR_FUNCION";
+	public static final String AGREGAR_RESPONSABLE = "AGREGAR_RESPONSABLE";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
 	protected JButton btnAceptarCrearFuncion;
-	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion;
+	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion,txtFieldNombreRepre,txtFieldApellidoRepre,
+	txtFieldTelefonoRepre,txtFieldTelefonoAlternativoRepre,txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
-			lblSeleccion;
+			lblSeleccion,lblNombreRepresentante,lblApellidoRepresentante,lblTelefonoRepresentante,lblTelAlternativoRepresentante,
+			lblEmailRepresentante;
 	protected JLabel lblHorario, lblHora, lblMinuto, lblFecha;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
 	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
@@ -79,6 +82,47 @@ public abstract class PanelFactory extends JPanel {
 
 	public ElementoFactory getElementoDinamico() {
 		return elementoDinamico;
+	}
+	
+
+	public JTextField getTxtFieldNombreRepre() {
+		return txtFieldNombreRepre;
+	}
+
+	public void setTxtFieldNombreRepre(JTextField txtFieldNombreRepre) {
+		this.txtFieldNombreRepre = txtFieldNombreRepre;
+	}
+
+	public JTextField getTxtFieldApellidoRepre() {
+		return txtFieldApellidoRepre;
+	}
+
+	public void setTxtFieldApellidoRepre(JTextField txtFieldApellidoRepre) {
+		this.txtFieldApellidoRepre = txtFieldApellidoRepre;
+	}
+
+	public JTextField getTxtFieldTelefonoRepre() {
+		return txtFieldTelefonoRepre;
+	}
+
+	public void setTxtFieldTelefonoRepre(JTextField txtFieldTelefonoRepre) {
+		this.txtFieldTelefonoRepre = txtFieldTelefonoRepre;
+	}
+
+	public JTextField getTxtFieldTelefonoAlternativoRepre() {
+		return txtFieldTelefonoAlternativoRepre;
+	}
+
+	public void setTxtFieldTelefonoAlternativoRepre(JTextField txtFieldTelefonoAlternativoRepre) {
+		this.txtFieldTelefonoAlternativoRepre = txtFieldTelefonoAlternativoRepre;
+	}
+
+	public JTextField getTxtFieldEmailRepre() {
+		return txtFieldEmailRepre;
+	}
+
+	public void setTxtFieldEmailRepre(JTextField txtFieldEmailRepre) {
+		this.txtFieldEmailRepre = txtFieldEmailRepre;
 	}
 
 	public void setElementoDinamico(ElementoFactory elementoDinamico) {
