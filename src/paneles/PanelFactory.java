@@ -34,12 +34,16 @@ public abstract class PanelFactory extends JPanel {
 	public static final String FUNCION = "FUNCION";
 	public static final String EDITAR_FUNCION = "EDITAR_FUNCION";
 	public static final String AGREGAR_RESPONSABLE = "AGREGAR_RESPONSABLE";
+	public static final String COMPRAR_BOLETO = "COMPRAR_BOLETO";
+	public static final String CANCELAR_BOLETO = "CANCELAR_BOLETO";
+	public static final String VER_SALA = "VER_SALA";
+	public static final String BOLETOS = "BOLETOS";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
-	protected JButton btnAceptarCrearFuncion;
+	protected JButton btnAceptarCrearFuncion, btnComprarBoleto, btnCancelarBoleto, btnVerSala, btnBoleto;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion,txtFieldNombreRepre,txtFieldApellidoRepre,
 	txtFieldTelefonoRepre,txtFieldTelefonoAlternativoRepre,txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
@@ -73,6 +77,40 @@ public abstract class PanelFactory extends JPanel {
 	public PanelFactory getPanelDinamico() {
 		return this.panelDinamico;
 	}
+	
+	
+	public JButton getBtnBoleto() {
+		return btnBoleto;
+	}
+
+	public void setBtnBoleto(JButton btnBoleto) {
+		this.btnBoleto = btnBoleto;
+	}
+
+	public JButton getBtnComprarBoleto() {
+		return btnComprarBoleto;
+	}
+
+	public void setBtnComprarBoleto(JButton btnComprarBoleto) {
+		this.btnComprarBoleto = btnComprarBoleto;
+	}
+
+	public JButton getBtnCancelarBoleto() {
+		return btnCancelarBoleto;
+	}
+
+	public void setBtnCancelarBoleto(JButton btnCancelarBoleto) {
+		this.btnCancelarBoleto = btnCancelarBoleto;
+	}
+
+	public JButton getBtnVerSala() {
+		return btnVerSala;
+	}
+
+	public void setBtnVerSala(JButton btnVerSala) {
+		this.btnVerSala = btnVerSala;
+	}
+
 
 	public void setPanelDinamico(PanelFactory panelDinamico) {
 		this.panelDinamico = panelDinamico;
