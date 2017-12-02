@@ -82,6 +82,6 @@ public class AdministradorObras {
 	private Time calcularDuracion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		return new Time((horas*3600000) + (minutos*60000));
+		return new Time(((horas*3600000) + (minutos*60000)) - 64800000);
 	}
 }
