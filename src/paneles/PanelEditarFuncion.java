@@ -62,8 +62,8 @@ public class PanelEditarFuncion extends PanelFactory{
 		scrollPane.setBounds(60, 200, 500, 200);
 		add(scrollPane);
 
-		tableFunciones = new TablaFunciones();
-		tableFunciones.setVisible(true);
+		tableFunciones = new TablaFunciones(0);
+		//tableFunciones.setVisible(true);
 		scrollPane.setViewportView(tableFunciones);
 	}
 

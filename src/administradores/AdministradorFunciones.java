@@ -18,7 +18,6 @@ public class AdministradorFunciones {
 	private PanelFactory panel;
 	private Funcion funcion;
 	private boolean validarDatosCompletos;
-	
 
 	public AdministradorFunciones(PanelFactory panel) {
 		super();
@@ -26,9 +25,11 @@ public class AdministradorFunciones {
 		this.validarDatosCompletos = true;
 	}
 	
+
 	/**
-	 * Metodo desarrollado para inicializar el proceso de insertar una funcion
-	 * en la base de datos.
+	 * Metodo desarrollado para inicializar el proceso de insertar una funcion en la
+	 * base de datos.
+	 * 
 	 * @throws SQLException
 	 */
 	public void crearFuncion() throws SQLException {
@@ -37,8 +38,9 @@ public class AdministradorFunciones {
 	}
 
 	/**
-	 * Metodo desarrollado para inicializar el proceso de editar una funcion
-	 * en la base de datos.
+	 * Metodo desarrollado para inicializar el proceso de editar una funcion en la
+	 * base de datos.
+	 * 
 	 * @throws SQLException
 	 */
 	public void editarFuncion() throws SQLException {
@@ -47,8 +49,9 @@ public class AdministradorFunciones {
 	}
 
 	/**
-	 * Metodo desarrollado para inicializar el proceso de cancelar una funcion
-	 * en la base de datos.
+	 * Metodo desarrollado para inicializar el proceso de cancelar una funcion en la
+	 * base de datos.
+	 * 
 	 * @throws SQLException
 	 */
 	public void cancelarFuncion() throws SQLException {
@@ -58,6 +61,7 @@ public class AdministradorFunciones {
 
 	/**
 	 * Metodo para leer los datos que serán insertados en la base de datos.
+	 * 
 	 * @throws SQLException
 	 */
 	private void crearEntidadFuncion() throws SQLException {
@@ -74,10 +78,11 @@ public class AdministradorFunciones {
 		}
 
 	}
-	
+
 	/**
-	 * Método para modificar los datos de una función de tal manera que su disponibilidad
-	 * sea cancelado y sus horarios removidos.
+	 * Método para modificar los datos de una función de tal manera que su
+	 * disponibilidad sea cancelado y sus horarios removidos.
+	 * 
 	 * @throws SQLException
 	 */
 	private void cancelarFuncionBD() throws SQLException {
@@ -85,11 +90,13 @@ public class AdministradorFunciones {
 		DAO cancelar = new DAO();
 		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "disponiblidadFuncion", ESTADO_CANCELADO);
 		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "inicioFuncion, finalFuncion", new Time(0));
+		
 		actualizarTabla();
 	}
 
 	/**
 	 * Metodo para modificar los datos de una función
+	 * 
 	 * @throws SQLException
 	 */
 	private void editarFuncionBD() throws SQLException {
@@ -114,9 +121,10 @@ public class AdministradorFunciones {
 		}
 		actualizarTabla();
 	}
-	
+
 	/**
 	 * Metodo para crear una funcion
+	 * 
 	 * @throws SQLException
 	 */
 	private void insertarFuncionBD() throws SQLException {
@@ -143,13 +151,13 @@ public class AdministradorFunciones {
 				JOptionPane.showMessageDialog(null, "Ya existe una función a esa hora");
 			}
 		}
-		
+
 		actualizarTabla();
-		
 	}
-	
+
 	/**
 	 * Valida que los horarios de las funciones no sean las mismas.
+	 * 
 	 * @return La validación cierta o false sobre la colision de horarios
 	 * @throws SQLException
 	 */
@@ -171,32 +179,34 @@ public class AdministradorFunciones {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Método para transformar los enteros en milisegundos para la base de datos.
+	 * 
 	 * @return El valor en tipo Tiempo para insertarse en la base de datos
 	 */
 	private Time inicioFuncion() {
 		int horas = (Integer) this.panel.getCmBoxHoras().getSelectedItem();
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
-		
+
 		return new Time(((horas * 3600000) + (minutos * 60000)) - 64800000);
 	}
-	
+
 	/**
 	 * Método para obtener el el horario final de una función.
+	 * 
 	 * @return El valor en tipo Tiempo para insertarse en la base de datos
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	private Time finalFuncion() throws SQLException {
 
 		Object[][] obra = new DAO().buscarConFiltro("duracionObra", DAO.OBRA, "idObra", obtenerIDObra());
 		long milisegundos = 0;
-		for(int i = 0; i< obra.length; i++) {
+		for (int i = 0; i < obra.length; i++) {
 			String tiempo[] = obra[0][0].toString().split(":");
 			int horaInicio = Integer.parseInt(tiempo[0]);
 			int minutosInicio = Integer.parseInt(tiempo[1]);
-			milisegundos = (((horaInicio*3600000) + (minutosInicio*60000)));
+			milisegundos = (((horaInicio * 3600000) + (minutosInicio * 60000)));
 		}
 		long finalFuncion = inicioFuncion().getTime() + milisegundos;
 		return new Time(finalFuncion);
@@ -204,6 +214,7 @@ public class AdministradorFunciones {
 
 	/**
 	 * Obtener del ComboBox de Obras el ID para la función
+	 * 
 	 * @return el valor entero de el id de la obra
 	 */
 	public int obtenerIDObra() {
@@ -224,12 +235,13 @@ public class AdministradorFunciones {
 
 		return rowEdit;
 	}
-	
+
 	/**
 	 * Método para actualizar la tabla cuando existan cambios.
 	 */
-	private void actualizarTabla() {
-		JTable table = new TablaFunciones();
+	public void actualizarTabla() {
+		JTable table = new TablaFunciones(1);
+		table.setVisible(true);
 		this.panel.getScrollPane().setViewportView(table);
 	}
 }

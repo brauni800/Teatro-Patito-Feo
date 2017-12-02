@@ -3,17 +3,19 @@ package administradores;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import bd.DAO;
+import paneles.PanelFactory;
 
 public class AdministrarTablas{
 
+	
 	public AdministrarTablas() {
 	}
 	
-	public void cargarBaseDatosFuncion(DefaultTableModel modeloFuncion) throws SQLException {
+	
+	public void cargarBaseDatosFuncion(DefaultTableModel modeloFuncion, int idObra) throws SQLException {
 		
-		Object idObra = 1;
 		String[] datos = new String[6];
-		Object[][] buscar = new DAO().buscar("fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION);
+		Object[][] buscar = new DAO().buscarConFiltro("fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION, "idObra", idObra);
 		
 		for(int i = 0; i < buscar.length; i++) {
 			datos[0] = buscar[i][0].toString();
@@ -39,4 +41,5 @@ public class AdministrarTablas{
 			modelo.addRow(datos);
 		}
 	}
+	
 }

@@ -47,7 +47,7 @@ public class PanelCancelarFuncion extends PanelFactory {
 		scrollPane.setBounds(60, 200, 500, 200);
 		add(scrollPane);
 
-		table = new TablaFunciones();
+		table = new TablaFunciones(0);
 		scrollPane.setViewportView(table);
 	}
 

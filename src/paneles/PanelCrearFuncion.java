@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 
 import combobox.ComboBoxObras;
+import eventos.EventosCrearFuncion;
 import tablas.TablaFunciones;
 
 public class PanelCrearFuncion extends PanelFactory {
@@ -57,7 +58,8 @@ public class PanelCrearFuncion extends PanelFactory {
 		scrollPane.setBounds(60, 200, 500, 200);
 		add(scrollPane);
 		
-		tableFunciones = new TablaFunciones();
+		tableFunciones = new TablaFunciones(0);
+		//tableFunciones.setVisible(false);
 		scrollPane.setViewportView(tableFunciones);
 	}
 
