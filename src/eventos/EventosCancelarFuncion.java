@@ -13,14 +13,13 @@ public class EventosCancelarFuncion extends EventosFactory {
 
 	public EventosCancelarFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		switch (comando) {
-		case PanelFactory.CREAR_FUNCION:
+		case PanelFactory.CANCELAR_FUNCION:
 			try {
 				new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).cancelarFuncion();
 				;
@@ -28,6 +27,8 @@ public class EventosCancelarFuncion extends EventosFactory {
 				e1.printStackTrace();
 			}
 			break;
+		case PanelFactory.MOSTRAR_FUNCIONES:
+			new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).actualizarTabla();
 		}
 
 	}
@@ -37,6 +38,9 @@ public class EventosCancelarFuncion extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion()
 				.setActionCommand(PanelFactory.CANCELAR_FUNCION);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
+				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);
 
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
 				.addItemListener(new ItemListener() {
@@ -44,7 +48,6 @@ public class EventosCancelarFuncion extends EventosFactory {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						if (e.getStateChange() == ItemEvent.SELECTED) {
-							System.out.println(e.getItem());
 						}
 
 					}

@@ -1,8 +1,6 @@
 package elementos;
 
-import eventos.EventosCrearFuncion;
 import eventos.EventosVenderBoleto;
-import paneles.PanelCrearFuncion;
 import paneles.PanelVenderBoleto;
 import vista.VentanaPrincipal;
 

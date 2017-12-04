@@ -18,6 +18,7 @@ import tablas.TablaFunciones;
  * @author ArmandoCarvajal
  *
  */
+@SuppressWarnings("serial")
 public class PanelVerSala extends PanelFactory {
 
 	public PanelVerSala() {

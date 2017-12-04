@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import combobox.ComboBoxObras;
 
+@SuppressWarnings("serial")
 public class PanelEditarObra extends PanelCrearEditarObra {
 	
 	public PanelEditarObra() {

@@ -1,8 +1,6 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
-
-import bd.DAO;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -20,7 +18,6 @@ public class EventosCancelarObra extends EventosFactory {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
-		DAO cancelar = new DAO();
 		switch(comando) {
 		case PanelFactory.ELIMINAR:
 			

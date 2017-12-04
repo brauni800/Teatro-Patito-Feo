@@ -11,6 +11,7 @@ import com.toedter.calendar.JDateChooser;
 import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
+@SuppressWarnings("serial")
 public class PanelCrearFuncion extends PanelFactory {
 
 	public PanelCrearFuncion() {
@@ -56,17 +57,22 @@ public class PanelCrearFuncion extends PanelFactory {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(60, 200, 500, 200);
 		add(scrollPane);
-		
+
 		tableFunciones = new TablaFunciones(0);
-		//tableFunciones.setVisible(false);
+		// tableFunciones.setVisible(false);
 		scrollPane.setViewportView(tableFunciones);
 	}
 
 	protected void initButtons() {
 		btnCrearFuncion = new JButton("Crear Funcion");
-		btnCrearFuncion.setBounds(263, 445, 100, 23);
+		btnCrearFuncion.setBounds(263, 445, 150, 23);
 		btnCrearFuncion.setEnabled(true);
 		add(btnCrearFuncion);
+
+		btnMostrarFunciones = new JButton("Mostrar Funcionens");
+		btnMostrarFunciones.setBounds(100, 445, 150, 23);
+		btnMostrarFunciones.setEnabled(true);
+		add(btnMostrarFunciones);
 	}
 
 	protected void initLables() {

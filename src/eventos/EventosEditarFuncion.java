@@ -26,13 +26,21 @@ public class EventosEditarFuncion extends EventosFactory {
 				e1.printStackTrace();
 			}
 			break;
+		case PanelFactory.MOSTRAR_FUNCIONES:
+			new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).actualizarTabla();
+			break;
+
 		}
 	}
 
 	@Override
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion().setActionCommand(PanelFactory.EDITAR_FUNCION);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditarFuncion()
+				.setActionCommand(PanelFactory.EDITAR_FUNCION);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
+				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
 				.addItemListener(new ItemListener() {
 					@Override
@@ -44,7 +52,5 @@ public class EventosEditarFuncion extends EventosFactory {
 					}
 				});
 	}
-	
-	
 
 }

@@ -4,21 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.SQLException;
-
-import javax.swing.JTable;
-
 import paneles.PanelFactory;
-import tablas.TablaFunciones;
 import administradores.AdministradorFunciones;
 import vista.VentanaPrincipal;
 
 public class EventosCrearFuncion extends EventosFactory {
-	
 
 	public EventosCrearFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -31,6 +25,9 @@ public class EventosCrearFuncion extends EventosFactory {
 				e1.printStackTrace();
 			}
 			break;
+		case PanelFactory.MOSTRAR_FUNCIONES:
+			new AdministradorFunciones(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).actualizarTabla();
+			break;
 		}
 	}
 
@@ -39,6 +36,9 @@ public class EventosCrearFuncion extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCrearFuncion()
 				.setActionCommand(PanelFactory.CREAR_FUNCION);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
+				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);
 
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
 				.addItemListener(new ItemListener() {
@@ -46,11 +46,11 @@ public class EventosCrearFuncion extends EventosFactory {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						if (e.getStateChange() == ItemEvent.SELECTED) {
-							String idObra[] = e.getItem().toString().split(" ");
+							
 						}
-						
+
 					}
 				});
 	}
-	
+
 }

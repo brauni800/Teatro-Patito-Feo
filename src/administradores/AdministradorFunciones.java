@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.sql.Time;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-
 import bd.DAO;
 import entidades.Funcion;
 import paneles.PanelFactory;
@@ -13,7 +12,7 @@ import tablas.TablaFunciones;
 public class AdministradorFunciones {
 
 	public static final String ESTADO_ACTIVO = "ACTIVO";
-	public static final String ESTADO_CANCELADO = "CANCELADO";
+	public static final String ESTADO_CANCELADO = "\"CANCELADO\"";
 
 	private PanelFactory panel;
 	private Funcion funcion;
@@ -24,7 +23,6 @@ public class AdministradorFunciones {
 		this.panel = panel;
 		this.validarDatosCompletos = true;
 	}
-	
 
 	/**
 	 * Metodo desarrollado para inicializar el proceso de insertar una funcion en la
@@ -55,7 +53,7 @@ public class AdministradorFunciones {
 	 * @throws SQLException
 	 */
 	public void cancelarFuncion() throws SQLException {
-		crearEntidadFuncion();
+		crearEntidadCancelar();
 		cancelarFuncionBD();
 	}
 
@@ -76,8 +74,21 @@ public class AdministradorFunciones {
 			this.validarDatosCompletos = false;
 			JOptionPane.showMessageDialog(null, "Falta algún dato");
 		}
-
 	}
+
+	private void crearEntidadCancelar() throws SQLException {
+		try {
+			this.funcion = new Funcion();
+			this.funcion.setIdObra(obtenerIDObra());
+			this.funcion.setInicioFuncion(inicioFuncion());
+			this.funcion.setFinalFuncion(finalFuncion());
+			this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
+			this.funcion.setDisponiblidadFuncion(ESTADO_ACTIVO);
+		} catch (NullPointerException e) {
+
+		}
+	}
+	
 
 	/**
 	 * Método para modificar los datos de una función de tal manera que su
@@ -88,9 +99,22 @@ public class AdministradorFunciones {
 	private void cancelarFuncionBD() throws SQLException {
 
 		DAO cancelar = new DAO();
-		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "disponiblidadFuncion", ESTADO_CANCELADO);
-		cancelar.crearEstructuraParaActualizar(DAO.FUNCION, "inicioFuncion, finalFuncion", new Time(0));
-		
+
+		int fila = this.panel.getTableFunciones().getSelectedRow();
+		Object id = this.panel.getTableFunciones().getValueAt(fila, 0);
+
+		this.funcion.setDisponiblidadFuncion(ESTADO_CANCELADO);
+
+		cancelar.estruturaParaActualizarCondicion(DAO.FUNCION, "disponibilidadFuncion",
+				this.funcion.getDisponiblidadFuncion(), "idFuncion", id);
+
+		int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea cancelar la funcion?",
+				"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		if (reply == JOptionPane.YES_OPTION) {
+			cancelar.confirmar();
+			JOptionPane.showMessageDialog(null, "Ha cancelado la Funcion", "", JOptionPane.INFORMATION_MESSAGE);
+		}
+
 		actualizarTabla();
 	}
 
@@ -173,7 +197,8 @@ public class AdministradorFunciones {
 
 			if ((date.toString()).equals(buscar[i][0].toString())
 					&& this.funcion.getInicioFuncion().getTime() <= horario.getTime()
-					&& this.funcion.getFinalFuncion().getTime() >= horario.getTime()) {
+					&& this.funcion.getFinalFuncion().getTime() >= horario.getTime()
+					&& this.funcion.getDisponiblidadFuncion().equals(ESTADO_CANCELADO)) {
 				return false;
 			}
 		}
@@ -240,8 +265,10 @@ public class AdministradorFunciones {
 	 * Método para actualizar la tabla cuando existan cambios.
 	 */
 	public void actualizarTabla() {
-		JTable table = new TablaFunciones(1);
+		JTable table = new TablaFunciones(obtenerIDObra());
+		this.panel.setTableFunciones(table);
 		table.setVisible(true);
 		this.panel.getScrollPane().setViewportView(table);
 	}
+
 }

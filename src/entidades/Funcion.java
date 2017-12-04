@@ -1,7 +1,6 @@
 package entidades;
 
 import java.sql.Time;
-import java.sql.Date;
 
 public class Funcion {
 	

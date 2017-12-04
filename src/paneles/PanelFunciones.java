@@ -2,6 +2,7 @@ package paneles;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class PanelFunciones extends PanelFactory{
 
 	@Override

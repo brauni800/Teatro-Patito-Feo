@@ -18,6 +18,7 @@ import tablas.TablaFunciones;
  * @author ArmandoCarvajal
  *
  */
+@SuppressWarnings("serial")
 public class PanelVenderBoleto extends PanelFactory{
 	
 	public PanelVenderBoleto() {

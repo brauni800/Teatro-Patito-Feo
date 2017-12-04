@@ -33,6 +33,7 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
 				break;
@@ -40,6 +41,7 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico()
 						.setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
@@ -48,6 +50,7 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(false);
+				super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 				break;
@@ -55,8 +58,10 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getBtnCrear().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEliminar().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoAgregarResponsable(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico()
+						.setElementoDinamico(new ElementoAgregarResponsable(ventanaPrincipal));
 				break;
 			}
 		} catch (NullPointerException ex) {
@@ -65,11 +70,15 @@ public class EventosObras extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCrearObra(ventanaPrincipal));
 				break;
 			case PanelFactory.ELIMINAR_OBRA:
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
+				super.ventanaPrincipal.getPanelDinamico()
+						.setElementoDinamico(new ElementoEliminarObra(ventanaPrincipal));
 				break;
 			case PanelFactory.EDITAR_OBRA:
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoEditarObra(ventanaPrincipal));
 				break;
+			case PanelFactory.AGREGAR_RESPONSABLE:
+				super.ventanaPrincipal.getPanelDinamico()
+						.setElementoDinamico(new ElementoAgregarResponsable(ventanaPrincipal));
 			}
 		}
 	}
@@ -87,9 +96,10 @@ public class EventosObras extends EventosFactory {
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.EDITAR_OBRA);
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable().setActionCommand(PanelFactory.AGREGAR_RESPONSABLE);
+		super.ventanaPrincipal.getPanelDinamico().getBtnAgregarResponsable()
+				.setActionCommand(PanelFactory.AGREGAR_RESPONSABLE);
 	}
 
 }

@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.sql.Date;
 
 /**
  *
@@ -178,6 +177,12 @@ public class DAO {
 	 */
 	public void crearEstructuraParaActualizar(String from, String where, Object what) throws SQLException {
 		String sql = "UPDATE " + from + " SET " + where + " = " + what.toString();
+		this.prepareStatement = this.connection.prepareStatement(sql);
+	}
+	
+	
+	public void estruturaParaActualizarCondicion(String from, String set, Object whatSet, String where, Object whatWhere) throws SQLException {
+		String sql = "UPDATE " + from + " SET " + set + " = " + whatSet.toString() + " WHERE " + where + " = " + whatWhere.toString();
 		this.prepareStatement = this.connection.prepareStatement(sql);
 	}
 

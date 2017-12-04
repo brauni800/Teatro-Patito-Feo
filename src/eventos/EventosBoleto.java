@@ -3,9 +3,6 @@ package eventos;
 import java.awt.event.ActionEvent;
 
 import elementos.ElementoCancelarBoleto;
-import elementos.ElementoCancelarFuncion;
-import elementos.ElementoCrearFuncion;
-import elementos.ElementoEditarFuncion;
 import elementos.ElementoMenuPrincipal;
 import elementos.ElementoVenderBoletos;
 import elementos.ElementoVerSala;

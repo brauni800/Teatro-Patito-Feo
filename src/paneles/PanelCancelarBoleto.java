@@ -13,6 +13,7 @@ import com.toedter.calendar.JDateChooser;
 import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
+@SuppressWarnings("serial")
 public class PanelCancelarBoleto extends PanelFactory {
 	
 	public PanelCancelarBoleto() {

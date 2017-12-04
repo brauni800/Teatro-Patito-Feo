@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 
 import administradores.AdministrarComboBox;
 
+@SuppressWarnings("serial")
 public class ComboBoxObras extends JComboBox<String> {
 
 	public ComboBoxObras() {

@@ -1,7 +1,5 @@
 package paneles;
 
-import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,6 +17,7 @@ import elementos.ElementoFactory;
 /**
  * @author b1796
  */
+@SuppressWarnings("serial")
 public abstract class PanelFactory extends JPanel {
 
 	public static final String OBRAS = "OBRAS";
@@ -38,17 +37,20 @@ public abstract class PanelFactory extends JPanel {
 	public static final String VER_SALA = "VER_SALA";
 	public static final String BOLETOS = "BOLETOS";
 	public static final String INFORME_VENTAS = "INFORME_VENTAS";
+	public static final String MOSTRAR_FUNCIONES = "MOSTRAR_FUNCIONES";
+	public static final String IR_FUNCIONES = "IR_FUNCIONES";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnInformes,
-			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
-	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto;
-	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion,txtFieldNombreRepre,txtFieldApellidoRepre,
-	txtFieldTelefonoRepre,txtFieldTelefonoAlternativoRepre,txtFieldEmailRepre;
+			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion, btnIrAFunciones;
+	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto,
+			btnMostrarFunciones;
+	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion, txtFieldNombreRepre,
+			txtFieldApellidoRepre, txtFieldTelefonoRepre, txtFieldTelefonoAlternativoRepre, txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
-			lblSeleccion,lblNombreRepresentante,lblApellidoRepresentante,lblTelefonoRepresentante,lblTelAlternativoRepresentante,
-			lblEmailRepresentante;
+			lblSeleccion, lblNombreRepresentante, lblApellidoRepresentante, lblTelefonoRepresentante,
+			lblTelAlternativoRepresentante, lblEmailRepresentante;
 	protected JLabel lblHorario, lblHora, lblMinuto, lblFecha;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
 	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
@@ -77,12 +79,26 @@ public abstract class PanelFactory extends JPanel {
 	public PanelFactory getPanelDinamico() {
 		return this.panelDinamico;
 	}
-	
-	
+
 	public JButton getBtnBoleto() {
 		return btnBoleto;
 	}
-	
+
+	public JButton getBtnMostrarFunciones() {
+		return btnMostrarFunciones;
+	}
+
+	public void setBtnMostrarFunciones(JButton btnMostrarFunciones) {
+		this.btnMostrarFunciones = btnMostrarFunciones;
+	}
+
+	public JButton getBtnIrAFunciones() {
+		return btnIrAFunciones;
+	}
+
+	public void setBtnIrAFunciones(JButton btnIrAFunciones) {
+		this.btnIrAFunciones = btnIrAFunciones;
+	}
 
 	public JButton getBtnInformes() {
 		return btnInformes;
@@ -120,7 +136,6 @@ public abstract class PanelFactory extends JPanel {
 		this.btnVerSala = btnVerSala;
 	}
 
-
 	public void setPanelDinamico(PanelFactory panelDinamico) {
 		this.panelDinamico = panelDinamico;
 		add(panelDinamico);
@@ -130,7 +145,6 @@ public abstract class PanelFactory extends JPanel {
 	public ElementoFactory getElementoDinamico() {
 		return elementoDinamico;
 	}
-	
 
 	public JTextField getTxtFieldNombreRepre() {
 		return txtFieldNombreRepre;

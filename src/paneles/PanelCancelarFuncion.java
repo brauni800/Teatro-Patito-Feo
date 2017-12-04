@@ -1,7 +1,6 @@
 package paneles;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -9,6 +8,7 @@ import javax.swing.JTextField;
 import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
+@SuppressWarnings("serial")
 public class PanelCancelarFuncion extends PanelFactory {
 
 	public PanelCancelarFuncion() {
@@ -32,19 +32,24 @@ public class PanelCancelarFuncion extends PanelFactory {
 
 	protected void initTextField() {
 		txtFieldSeleccion = new JTextField();
-		txtFieldSeleccion.setBounds(164, 421, 202, 20);
+		txtFieldSeleccion.setBounds(200, 400, 202, 20);
 		add(txtFieldSeleccion);
 	}
 
 	protected void initButton() {
 		btnCancelarFuncion = new JButton("Cancelar");
-		btnCancelarFuncion.setBounds(441, 420, 89, 23);
+		btnCancelarFuncion.setBounds(441, 445, 89, 23);
 		add(btnCancelarFuncion);
+		
+		btnMostrarFunciones = new JButton("Mostrar Funcionens");
+		btnMostrarFunciones.setBounds( 100, 445, 150 , 23);
+		btnMostrarFunciones.setEnabled(true);
+		add(btnMostrarFunciones);
 	}
 
 	protected void initTable() {
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(60, 200, 500, 200);
+		scrollPane.setBounds(60, 150, 500, 200);
 		add(scrollPane);
 
 		table = new TablaFunciones(0);
@@ -57,7 +62,7 @@ public class PanelCancelarFuncion extends PanelFactory {
 		add(lblSeleccion);
 
 		lblSeleccion = new JLabel("Seleccion:");
-		lblSeleccion.setBounds(70, 424, 84, 14);
+		lblSeleccion.setBounds(100, 400, 84, 14);
 		add(lblSeleccion);
 	}
 

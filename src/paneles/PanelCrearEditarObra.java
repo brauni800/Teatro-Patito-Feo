@@ -1,5 +1,6 @@
 package paneles;
 
+@SuppressWarnings("serial")
 public abstract class PanelCrearEditarObra extends PanelFactory {
 
 	/**

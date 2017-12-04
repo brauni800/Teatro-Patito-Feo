@@ -2,9 +2,7 @@ package administradores;
 
 import java.sql.SQLException;
 import java.sql.Time;
-
 import javax.swing.JOptionPane;
-
 import bd.DAO;
 import entidades.Obra;
 import paneles.PanelFactory;
@@ -21,40 +19,25 @@ public class AdministradorObras {
 
 	private PanelFactory panel;
 	private Obra obra;
+	private boolean validarDatosCompletos;
 
 	public AdministradorObras(PanelFactory panel) {
 		super();
 		this.panel = panel;
+		this.validarDatosCompletos = true;
 	}
 
 	public void crearObra() throws SQLException {
 		crearEntidadObra();
 		insertarObraBD();
 	}
-
-	// ****************************************************************************************
-	// ****************************************************************************************
-	// **************************Recursos para los metodos publicos****************************
-	// ****************************************************************************************
-	// ***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***\/***
-
-	private void insertarObraBD() throws SQLException {
-		DAO insertar = new DAO();
-		insertar.crearEstructuraParaInsertar(DAO.OBRA, "idRepresentante, nombreObra, precioObra, duracionObra, descripcionObra, estado");
-		insertar.insertarInt(1, this.obra.getIdRepresentante());
-		insertar.insertarString(2, this.obra.getNombre());
-		insertar.insertarDouble(3, this.obra.getPrecio());
-		insertar.insertarTime(4, this.obra.getDuracion());
-		insertar.insertarString(5, this.obra.getDescripcion());
-		insertar.insertarString(6, this.obra.getEstado());
-		int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?", "Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (reply == JOptionPane.YES_OPTION) {
-            insertar.confirmar();
-            JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
-        }
-	}
-
+	
+	/**
+	 * 
+	 * @throws SQLException
+	 */
 	private void crearEntidadObra() throws SQLException {
+		try {
 		this.obra = new Obra();
 		this.obra.setIdRepresentante(buscarIdRepresentante());
 		this.obra.setNombre(panel.getTxtFieldNombreObra().getText());
@@ -62,6 +45,32 @@ public class AdministradorObras {
 		this.obra.setDuracion(calcularDuracion());
 		this.obra.setDescripcion(this.panel.getTextAreaDescripcion().getText());
 		this.obra.setEstado(AdministradorObras.ESTADO_ACTIVO);
+		}catch(NullPointerException|NumberFormatException e) {
+			this.validarDatosCompletos = false;
+			JOptionPane.showMessageDialog(null, "Faltan datos");
+		}
+	}
+
+	private void insertarObraBD() throws SQLException {
+		DAO insertar = new DAO();
+		insertar.crearEstructuraParaInsertar(DAO.OBRA,
+				"idRepresentante, nombreObra, precioObra, duracionObra, descripcionObra, estado");
+		insertar.insertarInt(1, this.obra.getIdRepresentante());
+		insertar.insertarString(2, this.obra.getNombre());
+		insertar.insertarDouble(3, this.obra.getPrecio());
+		insertar.insertarTime(4, this.obra.getDuracion());
+		insertar.insertarString(5, this.obra.getDescripcion());
+		insertar.insertarString(6, this.obra.getEstado());
+
+		if (this.validarDatosCompletos == true) {
+			int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea registrar esta obra?",
+					"Registrar obra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if (reply == JOptionPane.YES_OPTION) {
+				insertar.confirmar();
+				JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
 	}
 
 	private int buscarIdRepresentante() throws SQLException {

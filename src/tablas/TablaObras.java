@@ -12,6 +12,7 @@ import administradores.AdministrarTablas;
  * @author b1796
  *
  */
+@SuppressWarnings("serial")
 public class TablaObras extends JTable {
 
 	public TablaObras() {

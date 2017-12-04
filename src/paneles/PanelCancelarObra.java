@@ -11,6 +11,7 @@ import javax.swing.JButton;
  * @author b1796
  *
  */
+@SuppressWarnings("serial")
 public class PanelCancelarObra extends PanelFactory {
 
 	/**

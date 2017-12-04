@@ -21,4 +21,9 @@ public class AdministrarComboBox {
 			modelo.addElement(datos[0] + " " + datos[1]);
 		}
 	}
+	
+	public void cargarBaseDatosFunciones(DefaultComboBoxModel<String> modelo) throws SQLException{
+		//String[] datos = new String[5];
+		//Object[][] buscar = new DAO().buscar("idFuncion,fechaFuncion,horaInicio", DAO.FUNCION);
+	}
 }

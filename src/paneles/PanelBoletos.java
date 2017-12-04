@@ -8,6 +8,7 @@ import javax.swing.JButton;
  * @author ArmandoCarvajal
  *
  */
+@SuppressWarnings("serial")
 public class PanelBoletos extends PanelFactory{
 
 	
