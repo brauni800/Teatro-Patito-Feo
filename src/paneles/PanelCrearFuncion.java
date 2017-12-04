@@ -9,7 +9,6 @@ import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 
 import combobox.ComboBoxObras;
-import eventos.EventosCrearFuncion;
 import tablas.TablaFunciones;
 
 public class PanelCrearFuncion extends PanelFactory {

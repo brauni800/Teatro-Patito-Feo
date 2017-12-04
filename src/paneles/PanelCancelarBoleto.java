@@ -13,14 +13,9 @@ import com.toedter.calendar.JDateChooser;
 import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 
-/**
- * 
- * @author ArmandoCarvajal
- *
- */
-public class PanelVerSala extends PanelFactory {
-
-	public PanelVerSala() {
+public class PanelCancelarBoleto extends PanelFactory {
+	
+	public PanelCancelarBoleto() {
 		setBounds(300, 20, 620, 500);
 	}
 

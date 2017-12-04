@@ -21,7 +21,18 @@ public class AdministradorBoletos {
 	}
 
 	public void venderBoleto() {
-		System.out.println("Hola");
+		System.out.println("vender");
+		
+	}
+
+	public void verSala() {
+		System.out.println("ver Sala");
+		
+		
+	}
+
+	public void cancelarBoleto() {
+		System.out.println("Cancelar");
 		
 	}
 	

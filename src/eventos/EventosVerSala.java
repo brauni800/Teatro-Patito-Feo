@@ -1,22 +1,24 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+
 import administradores.AdministradorBoletos;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-public class EventosVenderBoleto extends EventosFactory {
+public class EventosVerSala extends EventosFactory{
 
-	public EventosVenderBoleto(VentanaPrincipal ventanaPrincipal) {
+	public EventosVerSala(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		switch (comando) {
-		case PanelFactory.VENDER_BOLETOS:
-			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).venderBoleto();
+		case PanelFactory.VER_SALA:
+			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).verSala();
 			break;
 		}
 	}
@@ -34,7 +36,7 @@ public class EventosVenderBoleto extends EventosFactory {
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setActionCommand(PanelFactory.VER_SALA);
-
+		
 	}
 
 }

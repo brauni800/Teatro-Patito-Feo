@@ -1,12 +1,16 @@
 package elementos;
 
+import eventos.EventosVerSala;
+import paneles.PanelVerSala;
 import vista.VentanaPrincipal;
 
 public class ElementoVerSala extends ElementoFactory {
 
 	public ElementoVerSala(VentanaPrincipal ventana) {
 		super(ventana);
-		// TODO Auto-generated constructor stub
+		super.panel = new PanelVerSala();
+		ventana.getPanelDinamico().setPanelDinamico(super.panel);
+		super.eventos = new EventosVerSala(ventana);
 	}
 
 }

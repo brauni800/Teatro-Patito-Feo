@@ -9,9 +9,9 @@ import elementos.ElementoMenuPrincipal;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
-public class EventoFuncion extends EventosFactory{
+public class EventosFuncion extends EventosFactory{
 	
-	public EventoFuncion(VentanaPrincipal ventanaPrincipal) {
+	public EventosFuncion(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
 

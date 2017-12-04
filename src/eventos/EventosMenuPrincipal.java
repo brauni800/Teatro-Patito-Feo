@@ -39,8 +39,10 @@ public class EventosMenuPrincipal extends EventosFactory {
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().setActionCommand(PanelFactory.OBRAS);
+		
 		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().setActionCommand(PanelFactory.FUNCION);
+		
 		super.ventanaPrincipal.getPanelDinamico().getBtnBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnBoleto().setActionCommand(PanelFactory.BOLETOS);
 		

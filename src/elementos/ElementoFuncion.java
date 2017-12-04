@@ -1,6 +1,6 @@
 package elementos;
 
-import eventos.EventoFuncion;
+import eventos.EventosFuncion;
 import paneles.PanelFunciones;
 import vista.VentanaPrincipal;
 
@@ -10,6 +10,6 @@ public class ElementoFuncion extends ElementoFactory{
 		super(ventana);
 		super.panel = new PanelFunciones();
 		ventana.setPanelDinamico(super.panel);
-		super.eventos = new EventoFuncion(ventana);
+		super.eventos = new EventosFuncion(ventana);
 	}
 }

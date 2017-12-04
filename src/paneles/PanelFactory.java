@@ -34,16 +34,16 @@ public abstract class PanelFactory extends JPanel {
 	public static final String FUNCION = "FUNCION";
 	public static final String EDITAR_FUNCION = "EDITAR_FUNCION";
 	public static final String AGREGAR_RESPONSABLE = "AGREGAR_RESPONSABLE";
-	public static final String COMPRAR_BOLETO = "COMPRAR_BOLETO";
 	public static final String CANCELAR_BOLETO = "CANCELAR_BOLETO";
 	public static final String VER_SALA = "VER_SALA";
 	public static final String BOLETOS = "BOLETOS";
+	public static final String INFORME_VENTAS = "INFORME_VENTAS";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
-	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnVenderBoletos,
+	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnInformes,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion;
-	protected JButton btnAceptarCrearFuncion, btnComprarBoleto, btnCancelarBoleto, btnVerSala, btnBoleto;
+	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion,txtFieldNombreRepre,txtFieldApellidoRepre,
 	txtFieldTelefonoRepre,txtFieldTelefonoAlternativoRepre,txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
@@ -82,17 +82,26 @@ public abstract class PanelFactory extends JPanel {
 	public JButton getBtnBoleto() {
 		return btnBoleto;
 	}
+	
+
+	public JButton getBtnInformes() {
+		return btnInformes;
+	}
+
+	public void setBtnInformes(JButton btnInformes) {
+		this.btnInformes = btnInformes;
+	}
 
 	public void setBtnBoleto(JButton btnBoleto) {
 		this.btnBoleto = btnBoleto;
 	}
 
-	public JButton getBtnComprarBoleto() {
-		return btnComprarBoleto;
+	public JButton getBtnVenderBoleto() {
+		return btnVenderBoleto;
 	}
 
-	public void setBtnComprarBoleto(JButton btnComprarBoleto) {
-		this.btnComprarBoleto = btnComprarBoleto;
+	public void setBtnVenderBoleto(JButton btnComprarBoleto) {
+		this.btnVenderBoleto = btnComprarBoleto;
 	}
 
 	public JButton getBtnCancelarBoleto() {
@@ -213,14 +222,6 @@ public abstract class PanelFactory extends JPanel {
 
 	public void setBtnObras(JButton btnObras) {
 		this.btnObras = btnObras;
-	}
-
-	public JButton getBtnVenderBoletos() {
-		return btnVenderBoletos;
-	}
-
-	public void setBtnVenderBoletos(JButton btnVenderBoletos) {
-		this.btnVenderBoletos = btnVenderBoletos;
 	}
 
 	public JTextField getTxtFieldNombreObra() {

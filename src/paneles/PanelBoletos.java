@@ -19,9 +19,9 @@ public class PanelBoletos extends PanelFactory{
 		btnRegresar.setVisible(true);
         add(btnRegresar);
         
-        btnComprarBoleto = new JButton("Comprar Boleto");
-        btnComprarBoleto.setBounds(66, 100, 190, 23);
-        add(btnComprarBoleto);
+        btnVenderBoleto = new JButton("Vender Boleto");
+        btnVenderBoleto.setBounds(66, 100, 190, 23);
+        add(btnVenderBoleto);
         
         btnCancelarBoleto = new JButton("Cancelar Boleto");
         btnCancelarBoleto.setBounds(66, 150, 190, 23);

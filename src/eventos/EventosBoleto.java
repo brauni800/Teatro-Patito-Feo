@@ -17,36 +17,37 @@ import vista.VentanaPrincipal;
  * @author ArmandoCarvajal
  *
  */
-public class EventoBoleto extends EventosFactory {
+public class EventosBoleto extends EventosFactory {
 
-	public EventoBoleto(VentanaPrincipal ventanaPrincipal) {
+	public EventosBoleto(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
+		System.out.println(comando);
 		try {
 			switch (comando) {
 			case PanelFactory.REGRESAR:
 				super.ventanaPrincipal.setElementoDinamico(new ElementoMenuPrincipal(ventanaPrincipal));
 				break;
 			case PanelFactory.VENDER_BOLETOS:
-				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoletos().setEnabled(false);
+				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVenderBoletos(ventanaPrincipal));
 				break;
 			case PanelFactory.CANCELAR_BOLETO:
-				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoletos().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarBoleto(ventanaPrincipal));
 				break;
 			case PanelFactory.VER_SALA:
-				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoletos().setEnabled(true);
+				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
@@ -74,8 +75,8 @@ public class EventoBoleto extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getBtnRegresar().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnRegresar().setActionCommand(PanelFactory.REGRESAR);
 
-		super.ventanaPrincipal.getPanelDinamico().getBtnComprarBoleto().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBtnComprarBoleto().setActionCommand(PanelFactory.COMPRAR_BOLETO);
+		super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().addActionListener(this);
+		super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setActionCommand(PanelFactory.VENDER_BOLETOS);
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setActionCommand(PanelFactory.CANCELAR_BOLETO);
