@@ -42,7 +42,7 @@ public class AdministradorFunciones {
 	 * @throws SQLException
 	 */
 	public void editarFuncion() throws SQLException {
-		crearEntidadFuncion();
+		crearEntidadActualizar();
 		editarFuncionBD();
 	}
 
@@ -53,7 +53,7 @@ public class AdministradorFunciones {
 	 * @throws SQLException
 	 */
 	public void cancelarFuncion() throws SQLException {
-		crearEntidadCancelar();
+		crearEntidadActualizar();
 		cancelarFuncionBD();
 	}
 
@@ -76,7 +76,7 @@ public class AdministradorFunciones {
 		}
 	}
 
-	private void crearEntidadCancelar() throws SQLException {
+	private void crearEntidadActualizar() throws SQLException {
 		try {
 			this.funcion = new Funcion();
 			this.funcion.setIdObra(obtenerIDObra());
@@ -85,10 +85,9 @@ public class AdministradorFunciones {
 			this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
 			this.funcion.setDisponiblidadFuncion(ESTADO_ACTIVO);
 		} catch (NullPointerException e) {
-
+			e.getMessage();
 		}
 	}
-	
 
 	/**
 	 * Método para modificar los datos de una función de tal manera que su
@@ -127,11 +126,26 @@ public class AdministradorFunciones {
 
 		DAO editar = new DAO();
 
-		obtenerColumnaEditada();
-		obtenerFilaEditada();
+		int fila = this.panel.getTableFunciones().getSelectedRow();
+		int columna = this.panel.getTableFunciones().getSelectedColumn();
 
-		if (this.validarDatosCompletos == true) {
-			if (validarHorarios() == false) {
+		Object id = this.panel.getTableFunciones().getValueAt(fila, 0);
+		String columnName = this.panel.getTableFunciones().getColumnName(columna);
+		
+		if(columnName.equals("Fecha")) {
+			this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
+			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
+					this.funcion.getFechaFuncion(), "idFuncion", id);
+		}
+		
+		if(columnName.equals("Inicio")) {
+			this.funcion.setInicioFuncion(inicioFuncion());
+			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
+					this.funcion.getInicioFuncion(), "idFuncion", id);
+		}
+		
+
+			if (validarHorarios() == true) {
 				int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea actualizar la funcion?",
 						"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				if (reply == JOptionPane.YES_OPTION) {
@@ -141,7 +155,7 @@ public class AdministradorFunciones {
 				}
 			} else {
 				JOptionPane.showMessageDialog(null, "Ya existe una funci�n a esa hora");
-			}
+			
 		}
 		actualizarTabla();
 	}
@@ -246,19 +260,6 @@ public class AdministradorFunciones {
 		String item = panel.getCmBoxSeleccionarObra().getSelectedItem().toString();
 		String[] idObra = item.split(" ");
 		return Integer.parseInt(idObra[0]);
-	}
-
-	public int obtenerColumnaEditada() {
-
-		int columnEdit = panel.getTableFunciones().getEditingColumn();
-		return columnEdit;
-	}
-
-	public int obtenerFilaEditada() {
-
-		int rowEdit = panel.getTableFunciones().getEditingRow();
-
-		return rowEdit;
 	}
 
 	/**

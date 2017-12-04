@@ -21,7 +21,6 @@ public class PanelCancelarFuncion extends PanelFactory {
 		initComboBox();
 		initLabels();
 		initTable();
-		initTextField();
 	}
 
 	protected void initComboBox() {
@@ -30,11 +29,6 @@ public class PanelCancelarFuncion extends PanelFactory {
 		add(cmBoxSeleccionarObra);
 	}
 
-	protected void initTextField() {
-		txtFieldSeleccion = new JTextField();
-		txtFieldSeleccion.setBounds(200, 400, 202, 20);
-		add(txtFieldSeleccion);
-	}
 
 	protected void initButton() {
 		btnCancelarFuncion = new JButton("Cancelar");
@@ -59,10 +53,6 @@ public class PanelCancelarFuncion extends PanelFactory {
 	protected void initLabels() {
 		lblSeleccion = new JLabel("Obra:");
 		lblSeleccion.setBounds(150, 36, 311, 20);
-		add(lblSeleccion);
-
-		lblSeleccion = new JLabel("Seleccion:");
-		lblSeleccion.setBounds(100, 400, 84, 14);
 		add(lblSeleccion);
 	}
 
