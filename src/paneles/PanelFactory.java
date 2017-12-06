@@ -39,13 +39,14 @@ public abstract class PanelFactory extends JPanel {
 	public static final String INFORME_VENTAS = "INFORME_VENTAS";
 	public static final String MOSTRAR_FUNCIONES = "MOSTRAR_FUNCIONES";
 	public static final String IR_FUNCIONES = "IR_FUNCIONES";
+	public static final String VENDER_ASIENTOS = "VENDER_ASIENTOS";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnInformes,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion, btnIrAFunciones;
 	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto,
-			btnMostrarFunciones;
+			btnMostrarFunciones, btnVenderAsientos;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion, txtFieldNombreRepre,
 			txtFieldApellidoRepre, txtFieldTelefonoRepre, txtFieldTelefonoAlternativoRepre, txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
@@ -53,7 +54,7 @@ public abstract class PanelFactory extends JPanel {
 			lblTelAlternativoRepresentante, lblEmailRepresentante;
 	protected JLabel lblHorario, lblHora, lblMinuto, lblFecha;
 	protected JComboBox<Integer> cmBoxHoras, cmBoxMinutos;
-	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra;
+	protected JComboBox<String> cmBoxRepresentantes, cmBoxSeleccionarObra, cmBoxSeleccionarFunciones;
 	protected JTextArea textAreaDescripcion;
 	protected JTable table, tableFunciones;
 	protected JScrollPane scrollPane;
@@ -69,19 +70,31 @@ public abstract class PanelFactory extends JPanel {
 	}
 
 	protected abstract void initComponents();
+	
+	
+	
+	public JButton getBtnVenderAsientos() {
+		return btnVenderAsientos;
+	}
 
-	/**
-	 * El panel dinamico que contiene este panel. Si no existe un panel regresa
-	 * null.
-	 * 
-	 * @return PanelFactory - el panel dinamico.
-	 */
+	public void setBtnVenderAsientos(JButton btnVenderAsientos) {
+		this.btnVenderAsientos = btnVenderAsientos;
+	}
+
 	public PanelFactory getPanelDinamico() {
 		return this.panelDinamico;
 	}
 
 	public JButton getBtnBoleto() {
 		return btnBoleto;
+	}
+
+	public JComboBox<String> getCmBoxSeleccionarFunciones() {
+		return cmBoxSeleccionarFunciones;
+	}
+
+	public void setCmBoxSeleccionarFunciones(JComboBox<String> cmBoxSeleccionarFunciones) {
+		this.cmBoxSeleccionarFunciones = cmBoxSeleccionarFunciones;
 	}
 
 	public JButton getBtnMostrarFunciones() {

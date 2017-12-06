@@ -3,8 +3,6 @@ package paneles;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-
 import combobox.ComboBoxObras;
 import tablas.TablaFunciones;
 

@@ -25,6 +25,7 @@ public class AdministrarTablas{
 			modeloFuncion.addRow(datos);
 		}
 	}
+	
 
 	public void cargarBaseDatosObras(DefaultTableModel modelo) throws SQLException {
 		

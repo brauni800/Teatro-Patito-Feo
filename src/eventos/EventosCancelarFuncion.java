@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.SQLException;
-
 import administradores.AdministradorFunciones;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
@@ -38,6 +37,7 @@ public class EventosCancelarFuncion extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion()
 				.setActionCommand(PanelFactory.CANCELAR_FUNCION);
+		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
 				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);

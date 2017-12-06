@@ -1,27 +1,30 @@
 package combobox;
 
 import java.sql.SQLException;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+
 import administradores.AdministrarComboBox;
 
 @SuppressWarnings("serial")
-public class ComboBoxObras extends JComboBox<String> {
-
-	public ComboBoxObras() {
+public class ComboBoxFunciones extends JComboBox<String> {
+	
+	public ComboBoxFunciones() {
 		super();
 		setModel(createModel());
 	}
-
+	
 	public DefaultComboBoxModel<String> createModel() {
 
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
 		AdministrarComboBox ad = new AdministrarComboBox();
 		try {
-			ad.cargarBaseDatosObras(model);
+			ad.cargarBaseDatosFunciones(model);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return model;
 	}
+
 }

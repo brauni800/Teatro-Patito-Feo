@@ -68,8 +68,6 @@ public class PanelCrearObra extends PanelCrearEditarObra {
 		add(cmBoxMinutos);
 
 		cmBoxRepresentantes = new ComboBoxRepresentantes();
-		cmBoxRepresentantes
-				.setModel(new DefaultComboBoxModel<String>(new String[] { "Rogelio Campos", "Ricardo Perez" }));
 		cmBoxRepresentantes.setBounds(304, 263, 200, 20);
 		add(cmBoxRepresentantes);
 
