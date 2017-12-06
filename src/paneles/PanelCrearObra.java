@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import combobox.ComboBoxRepresentantes;
+
 @SuppressWarnings("serial")
 public class PanelCrearObra extends PanelCrearEditarObra {
 
@@ -65,7 +67,7 @@ public class PanelCrearObra extends PanelCrearEditarObra {
 		cmBoxMinutos.setBounds(419, 200, 85, 20);
 		add(cmBoxMinutos);
 
-		cmBoxRepresentantes = new JComboBox<String>();
+		cmBoxRepresentantes = new ComboBoxRepresentantes();
 		cmBoxRepresentantes
 				.setModel(new DefaultComboBoxModel<String>(new String[] { "Rogelio Campos", "Ricardo Perez" }));
 		cmBoxRepresentantes.setBounds(304, 263, 200, 20);

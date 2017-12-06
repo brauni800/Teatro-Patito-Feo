@@ -59,7 +59,6 @@ public class PanelCrearFuncion extends PanelFactory {
 		add(scrollPane);
 
 		tableFunciones = new TablaFunciones(0);
-		// tableFunciones.setVisible(false);
 		scrollPane.setViewportView(tableFunciones);
 	}
 
