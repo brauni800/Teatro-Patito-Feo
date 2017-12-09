@@ -1,7 +1,5 @@
 package paneles;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;

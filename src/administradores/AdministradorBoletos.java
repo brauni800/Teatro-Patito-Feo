@@ -21,7 +21,8 @@ public class AdministradorBoletos {
 	}
 
 	public void venderBoleto() {
-		System.out.println("vender");
+		int i = panel.getPanelDinamico().getTableFunciones().getSelectedRow();
+		System.out.println(i);
 		
 	}
 

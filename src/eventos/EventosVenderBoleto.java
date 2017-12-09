@@ -1,8 +1,11 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import administradores.AdministradorBoletos;
-import administradores.AdministradorFunciones;
+import elementos.ElementoVenderBoletos;
+import elementos.ElementoVerSala;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -17,7 +20,8 @@ public class EventosVenderBoleto extends EventosFactory {
 		String comando = e.getActionCommand();
 		switch (comando) {
 		case PanelFactory.VENDER_BOLETOS:
-			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).venderBoleto();
+			super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
+			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVerSala(ventanaPrincipal));
 			break;
 		case PanelFactory.MOSTRAR_FUNCIONES:
 			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).actualizarTabla();
@@ -30,12 +34,22 @@ public class EventosVenderBoleto extends EventosFactory {
 		
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnVenderAsientos().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnVenderAsientos()
-			.setActionCommand(PanelFactory.VENDER_ASIENTOS);
+			.setActionCommand(PanelFactory.VENDER_BOLETOS);
 
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
 				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);
+		
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
+		.addItemListener(new ItemListener() {
 
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+				}
+
+			}
+		});
 
 	}
 

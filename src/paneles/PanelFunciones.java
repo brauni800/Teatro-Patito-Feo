@@ -23,6 +23,10 @@ public class PanelFunciones extends PanelFactory{
         btnEditarFuncion = new JButton("Editar Funcion");
         btnEditarFuncion.setBounds(66, 200, 190, 23);
         add(btnEditarFuncion);
+        
+        btnVerFunciones = new JButton("Ver Funciones");
+        btnVerFunciones.setBounds(66, 250, 190, 23);
+        add(btnVerFunciones);
 		
 	}
 

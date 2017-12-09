@@ -10,7 +10,6 @@ public class EventosVerSala extends EventosFactory{
 
 	public EventosVerSala(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -33,9 +32,6 @@ public class EventosVerSala extends EventosFactory{
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setActionCommand(PanelFactory.CANCELAR_BOLETO);
-
-		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setActionCommand(PanelFactory.VER_SALA);
 		
 	}
 

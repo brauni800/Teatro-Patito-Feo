@@ -27,10 +27,6 @@ public class PanelBoletos extends PanelFactory{
         btnCancelarBoleto = new JButton("Cancelar Boleto");
         btnCancelarBoleto.setBounds(66, 150, 190, 23);
         add(btnCancelarBoleto);
-        
-        btnVerSala = new JButton("Ver Sala");
-        btnVerSala.setBounds(66, 200, 190, 23);
-        add(btnVerSala);
 		
 	}
 	

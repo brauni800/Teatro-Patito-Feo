@@ -14,7 +14,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
@@ -52,7 +51,7 @@ public abstract class PanelFactory extends JPanel {
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnInformes,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion, btnIrAFunciones;
 	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto,
-			btnMostrarFunciones, btnVenderAsientos;
+			btnMostrarFunciones, btnVenderAsientos, btnVerFunciones;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion, txtFieldNombreRepre,
 			txtFieldApellidoRepre, txtFieldTelefonoRepre, txtFieldTelefonoAlternativoRepre, txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
@@ -75,7 +74,7 @@ public abstract class PanelFactory extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		initComponents();
-		url = getClass().getResource("25189490_10210088964251533_1202997414_o.jpg");
+		url = getClass().getResource("imagenes/telon.jpg");
 		image = new ImageIcon(url).getImage();
 	}
 
@@ -89,6 +88,15 @@ public abstract class PanelFactory extends JPanel {
         super.paint(g);
     } 
 	
+	
+	public JButton getBtnVerFunciones() {
+		return btnVerFunciones;
+	}
+
+	public void setBtnVerFunciones(JButton btnVerFunciones) {
+		this.btnVerFunciones = btnVerFunciones;
+	}
+
 	public JButton getBtnVenderAsientos() {
 		return btnVenderAsientos;
 	}

@@ -20,7 +20,7 @@ public class PanelVenderBoleto extends PanelFactory{
 	
 	public PanelVenderBoleto() {
 		setBounds(300, 20, 620, 500);
-		url = getClass().getResource("boletos4.jpg");
+		url = getClass().getResource("imagenes/boletos4.jpg");
 		image = new ImageIcon(url).getImage();
 	}
 	
@@ -36,9 +36,8 @@ public class PanelVenderBoleto extends PanelFactory{
 	protected void initComponents() {
 		
 		initComboBox();
-		initTables();
+		initTable();
 		initButtons();
-		initTables();
 		initLables();
 	}
 
@@ -50,7 +49,7 @@ public class PanelVenderBoleto extends PanelFactory{
 
 	}
 
-	protected void initTables() {
+	protected void initTable() {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(60, 150, 500, 200);
 		add(scrollPane);

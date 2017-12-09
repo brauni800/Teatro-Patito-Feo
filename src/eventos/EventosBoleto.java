@@ -43,13 +43,6 @@ public class EventosBoleto extends EventosFactory {
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarBoleto(ventanaPrincipal));
 				break;
-			case PanelFactory.VER_SALA:
-				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(false);
-				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
-				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVerSala(ventanaPrincipal));
-				break;
 			}
 		
 	}catch (NullPointerException ex) {
@@ -59,9 +52,6 @@ public class EventosBoleto extends EventosFactory {
 			break;
 		case PanelFactory.CANCELAR_BOLETO:
 			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarBoleto(ventanaPrincipal));
-			break;
-		case PanelFactory.VER_SALA:
-			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVerSala(ventanaPrincipal));
 			break;
 		}
 	}
@@ -77,9 +67,6 @@ public class EventosBoleto extends EventosFactory {
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setActionCommand(PanelFactory.CANCELAR_BOLETO);
-
-		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setActionCommand(PanelFactory.VER_SALA);
 		
 	}
 
