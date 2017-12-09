@@ -76,6 +76,10 @@ public class AdministradorFunciones {
 		}
 	}
 
+	/**
+	 * Metodo para leer los datos que se evaluarán para actualizar el sistema.
+	 * @throws SQLException
+	 */
 	private void crearEntidadActualizar() throws SQLException {
 		try {
 			this.funcion = new Funcion();
@@ -88,12 +92,33 @@ public class AdministradorFunciones {
 			e.getMessage();
 		}
 	}
+	
+	/**
+	 * Método para inicializar los valores para cancelar todas las funciones para una obra
+	 * en especifico.
+	 * @param idObra Identificador de la obra que se quiere eliminar
+	 * @throws SQLException Error de falta de valores.
+	 */
+	public void cancelarFuncionesObras(Object idObra) throws SQLException {
+		crearEntidadActualizar();
+		cancelarFuncionesObraBD(idObra);
+	}
 
 	/**
-	 * Método para modificar los datos de una función de tal manera que su
-	 * disponibilidad sea cancelado y sus horarios removidos.
-	 * 
-	 * @throws SQLException
+	 * Método para cancelar todas las funciones para una obra en especifico en la base de datos.
+	 * @param idObra Identificador de la obra que se quiere eliminar.
+	 * @throws SQLException Error de falta de valores.
+	 */
+	private void cancelarFuncionesObraBD(Object idObra) throws SQLException {
+		DAO cancelar = new DAO();
+		cancelar.estruturaParaActualizarCondicion(DAO.FUNCION, "disponibilidadFuncion",
+				ESTADO_CANCELADO, "idObra", idObra);
+		cancelar.confirmar();
+	}
+	
+	/**
+	 * Método para cancelar una función en especifico de la base de datos.
+	 * @throws SQLException Error de falta de valores.
 	 */
 	private void cancelarFuncionBD() throws SQLException {
 

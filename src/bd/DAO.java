@@ -183,6 +183,7 @@ public class DAO {
 	
 	public void estruturaParaActualizarCondicion(String from, String set, Object whatSet, String where, Object whatWhere) throws SQLException {
 		String sql = "UPDATE " + from + " SET " + set + " = " + whatSet.toString() + " WHERE " + where + " = " + whatWhere.toString();
+		System.out.println(sql);
 		this.prepareStatement = this.connection.prepareStatement(sql);
 	}
 
