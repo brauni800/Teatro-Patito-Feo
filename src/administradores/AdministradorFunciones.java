@@ -159,17 +159,17 @@ public class AdministradorFunciones {
 		
 		if(columnName.equals("Fecha")) {
 			this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
+			java.sql.Date date = new java.sql.Date(panel.getCalendario().getDate().getTime());
 			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
-					this.funcion.getFechaFuncion(), "idFuncion", id);
+					"\"" + date + "\"", "idFuncion", id);
 		}
 		
 		if(columnName.equals("Inicio")) {
 			this.funcion.setInicioFuncion(inicioFuncion());
 			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
-					this.funcion.getInicioFuncion(), "idFuncion", id);
+					"\"" + this.funcion.getInicioFuncion() + "\"" , "idFuncion", id);
 		}
 		
-
 			if (validarHorarios() == true) {
 				int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea actualizar la funcion?",
 						"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -177,14 +177,25 @@ public class AdministradorFunciones {
 					editar.confirmar();
 					JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "",
 							JOptionPane.INFORMATION_MESSAGE);
+					actualizarFinalFuncion(id);
 				}
 			} else {
-				JOptionPane.showMessageDialog(null, "Ya existe una funci�n a esa hora");
+				JOptionPane.showMessageDialog(null, "Ya existe una funcion a esa hora");
 			
 		}
 		actualizarTabla();
 	}
+	
+	public void actualizarFinalFuncion(Object id) throws SQLException {
+		DAO actualizar = new DAO();
+		this.funcion.setFinalFuncion(finalFuncion());
+		actualizar.estruturaParaActualizarCondicion(DAO.FUNCION, "finalFuncion",
+				"\"" + this.funcion.getFinalFuncion() + "\"" , "idFuncion", id);
+		actualizar.confirmar();
+		
+	}
 
+	
 	/**
 	 * Metodo para crear una funcion
 	 * 
@@ -233,11 +244,18 @@ public class AdministradorFunciones {
 			int horaInicio = Integer.parseInt(tiempo[0]);
 			int minutosInicio = Integer.parseInt(tiempo[1]);
 			Time horario = new Time(((horaInicio * 3600000) + (minutosInicio * 60000)) - 64800000);
+			
+			boolean validarFecha = (date.toString()).equals(buscar[i][0].toString());
+			boolean validarInicio = this.funcion.getInicioFuncion().getTime() <= horario.getTime();
+			boolean validarFinal = this.funcion.getFinalFuncion().getTime() >= horario.getTime();
+			
+			System.out.println("Fecha" + validarFecha);
 
-			if ((date.toString()).equals(buscar[i][0].toString())
-					&& this.funcion.getInicioFuncion().getTime() <= horario.getTime()
-					&& this.funcion.getFinalFuncion().getTime() >= horario.getTime()
-					&& this.funcion.getDisponiblidadFuncion().equals(ESTADO_CANCELADO)) {
+			
+			
+			
+			if (validarFecha && validarInicio && validarFinal && 
+					this.funcion.getDisponiblidadFuncion().equals(ESTADO_ACTIVO)) {
 				return false;
 			}
 		}
