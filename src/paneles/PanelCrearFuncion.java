@@ -1,7 +1,10 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -15,8 +18,12 @@ import tablas.TablaFunciones;
 public class PanelCrearFuncion extends PanelFactory {
 
 	public PanelCrearFuncion() {
+		url = getClass().getResource("funcion2.jpg");
+		image = new ImageIcon(url).getImage();
 		setBounds(300, 20, 620, 500);
 	}
+	
+
 
 	@Override
 	protected void initComponents() {

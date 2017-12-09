@@ -25,20 +25,20 @@ public class PanelObras extends PanelFactory {
         add(btnRegresar);
         
         btnCrear = new JButton("Crear Obra");
-        btnCrear.setBounds(66, 100, 190, 23);
+        btnCrear.setBounds(66, 100, 190, 30);
         add(btnCrear);
         
         btnEliminar = new JButton("Eliminar Obra");
-        btnEliminar.setBounds(66, 150, 190, 23);
+        btnEliminar.setBounds(66, 150, 190, 30);
         add(btnEliminar);
         
         btnEditar = new JButton("Editar Obra");
-        btnEditar.setBounds(66, 200, 190, 23);
+        btnEditar.setBounds(66, 200, 190, 30);
         add(btnEditar);
 
         
         btnAgregarResponsable = new JButton("Agregar Responsable");
-        btnAgregarResponsable.setBounds(66, 300, 190, 23);
+        btnAgregarResponsable.setBounds(66, 300, 190, 30);
         add(btnAgregarResponsable);
 	}
 

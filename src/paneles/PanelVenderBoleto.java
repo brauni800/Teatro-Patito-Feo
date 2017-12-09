@@ -1,5 +1,9 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -16,8 +20,17 @@ public class PanelVenderBoleto extends PanelFactory{
 	
 	public PanelVenderBoleto() {
 		setBounds(300, 20, 620, 500);
+		url = getClass().getResource("boletos4.jpg");
+		image = new ImageIcon(url).getImage();
 	}
-
+	
+	
+    public void paint(Graphics g){
+		Dimension d = getSize();
+		g.drawImage(image, 0, 0, d.width, d.height, this);
+		this.setOpaque(false);
+        super.paint(g);
+    } 
 	
 	@Override
 	protected void initComponents() {

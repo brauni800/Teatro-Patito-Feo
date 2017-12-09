@@ -1,5 +1,11 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -60,18 +66,28 @@ public abstract class PanelFactory extends JPanel {
 	protected JScrollPane scrollPane;
 	protected JCalendar calendarioFunciones;
 	protected JDateChooser calendario;
-
+	protected URL url;
+	Image image;
+	
 	public PanelFactory() {
 		super();
 		setSize(950, 550);
 		setLayout(null);
 		setVisible(true);
 		initComponents();
+		url = getClass().getResource("25189490_10210088964251533_1202997414_o.jpg");
+		image = new ImageIcon(url).getImage();
 	}
 
 	protected abstract void initComponents();
 	
-	
+	@Override
+    public void paint(Graphics g){
+		Dimension d = getSize();
+		g.drawImage(image, 0, 0, d.width, d.height, this);
+		this.setOpaque(false);
+        super.paint(g);
+    } 
 	
 	public JButton getBtnVenderAsientos() {
 		return btnVenderAsientos;
