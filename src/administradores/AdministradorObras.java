@@ -93,4 +93,8 @@ public class AdministradorObras {
 		int minutos = (Integer) this.panel.getCmBoxMinutos().getSelectedItem();
 		return new Time(((horas*3600000) + (minutos*60000)) - 64800000);
 	}
+
+	public void cancelarObra() {
+		
+	}
 }

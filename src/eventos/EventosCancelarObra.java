@@ -1,6 +1,10 @@
 package eventos;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+
+import administradores.AdministradorFunciones;
+import administradores.AdministradorObras;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -20,7 +24,11 @@ public class EventosCancelarObra extends EventosFactory {
 		String comando = e.getActionCommand();
 		switch(comando) {
 		case PanelFactory.ELIMINAR:
-			
+			try {
+				new AdministradorObras(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).cancelarObra();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			break;
 		}
 	}
