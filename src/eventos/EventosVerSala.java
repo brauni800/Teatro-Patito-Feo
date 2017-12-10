@@ -13,6 +13,11 @@ import vista.VentanaPrincipal;
 public class EventosVerSala extends EventosFactory{
 
 	private JLabel jl;
+	
+	/**
+	 * Inicialización de los eventos en la venta.
+	 * @param ventanaPrincipal Ventana en la que se ejecutarán los componentes.
+	 */
 	public EventosVerSala(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
@@ -41,10 +46,19 @@ public class EventosVerSala extends EventosFactory{
 		
 	}
 	
+	/**
+	 * Método para asignar funcionalidades a los Label.
+	 * @param jl Label a lo que se le agregará la funcionalidad.
+	 * @param coordenada Lugar donde está el asiento.
+	 * @return Label con funcionalidad.
+	 */
     private MouseAdapter asientoAdapter(JLabel jl, String coordenada) {
         return new AdministrarAsientos(jl, coordenada);
     }
 	
+    /**
+     * Agregación de eventos a los Labels.
+     */
 	private void agregandoEventos() {
         //Butacas Fila A
         this.jl = this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getA1();

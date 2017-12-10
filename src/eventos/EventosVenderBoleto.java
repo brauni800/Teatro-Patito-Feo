@@ -3,16 +3,15 @@ package eventos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.sql.SQLException;
 
 import administradores.AdministradorBoletos;
-import elementos.ElementoVenderBoletos;
 import elementos.ElementoVerSala;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
 public class EventosVenderBoleto extends EventosFactory {
 
+	
 	public EventosVenderBoleto(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
