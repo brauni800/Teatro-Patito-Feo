@@ -17,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
 import bd.Conexion;
 
 /**
@@ -48,8 +47,9 @@ public class AdministrarAsientos extends MouseAdapter {
     public void mouseExited(MouseEvent me) {
     	System.out.println("Entro");
         super.mouseExited(me);
-        String direccion[] = this.jl.getIcon().toString().split("classes");
-        switch (direccion[-1]) {
+        String direccion[] = this.jl.getIcon().toString().split("/");
+        int i = direccion.length;
+        switch (direccion[i-2]+"/"+direccion[i-1]) {
             case "imagenes/asiento_verde_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_lata.jpg")));
                 break;
@@ -78,8 +78,9 @@ public class AdministrarAsientos extends MouseAdapter {
     public void mouseEntered(MouseEvent me) {
     	System.out.println("Entro");
         super.mouseEntered(me);
-        String direccion = this.jl.getIcon().toString();
-        switch (direccion) {
+        String direccion[] = this.jl.getIcon().toString().split("/");
+        int i = direccion.length;
+        switch (direccion[i-2]+"/"+direccion[i-1]) {
             case "imagenes/asiento_azul_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata.jpg")));
                 System.out.println("Entro");
@@ -109,8 +110,10 @@ public class AdministrarAsientos extends MouseAdapter {
     public void mouseClicked(MouseEvent me) {
     	System.out.println("Entro");
         super.mouseClicked(me);
-        String direccion[] = this.jl.getIcon().toString().split("classes");
-        switch (direccion[-1]) {
+
+        String direccion[] = this.jl.getIcon().toString().split("/");
+        int i = direccion.length;
+        switch (direccion[i-2]+"/"+direccion[i-1]) {
             case "imagenes/asiento_verde_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata_clicked.jpg")));
                 break;
