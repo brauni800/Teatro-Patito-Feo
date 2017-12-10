@@ -20,10 +20,10 @@ import java.util.ArrayList;
 public class DAO {
 
 	public static final String ALL = "*";
-	public static final String ASIENTOS = "asientos";
 	public static final String FUNCION = "funcion";
 	public static final String OBRA = "obra";
 	public static final String REPRESENTANTE = "representante";
+	public static final String BOLETO = "boleto";
 
 	private Conexion conexion;
 	private Connection connection;
@@ -140,6 +140,51 @@ public class DAO {
 		boolean encontrado = false;
 		this.statement = this.connection.createStatement();
 		String sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " = " + what.toString();
+		this.resultStatement = this.statement.executeQuery(sql);
+		while (this.resultStatement.next()) {
+			arreglo = new Object[contarColumnas(this.resultStatement)];
+			for (int i = 0; i < arreglo.length; i++) {
+				arreglo[i] = this.resultStatement.getObject(i + 1);
+			}
+			lista.add(arreglo);
+			encontrado = true;
+		}
+		desconectar();
+		if (encontrado) {
+			resultado = new Object[lista.size()][lista.get(0).length];
+			for (int i = 0; i < lista.size(); i++) {
+				for (int j = 0; j < lista.get(i).length; j++) {
+					resultado[i][j] = lista.get(i)[j];
+				}
+			}
+		} else {
+			resultado = new Object[0][0];
+		}
+		return resultado;
+	}
+	
+	public Double buscarPrecioObraJoinFunciones(String select, String from, String join, String where, int idObra) throws SQLException {
+		//boolean encontrado = false;
+		Double resultado;
+		this.statement = this.connection.createStatement();
+		String sql = "SELECT " + select + " FROM " + from + "f" + " JOIN " + join + "o" + " on f.idObra = o.idObra" + " WHERE " + "o." + where
+				+ " = " + Integer.toString(idObra) + " GROUP BY f.idObra";
+		this.resultStatement = this.statement.executeQuery(sql);
+		if(this.resultStatement.wasNull()) {
+			System.out.println("No existe funciones para esta obra");
+		}// Mejorar este metodo con la excepcion
+		resultado = this.resultStatement.getDouble(1);
+		return resultado;
+	}
+	
+	public Object[][] buscarObrasJoinFunciones(String select, String from, String join, String where, int idObra, int idFuncion) throws SQLException{
+		ArrayList<Object[]> lista = new ArrayList<Object[]>();
+		Object[] arreglo;
+		Object[][] resultado;
+		boolean encontrado = false;
+		this.statement = this.connection.createStatement();
+		String sql = "SELECT " + select + " FROM " + from + " f" + " JOIN "+ join + " b " + " on f.idFuncion = b.idFuncion, obra o" + " WHERE " +  "b" + where + " = "  + Integer.toString(idFuncion) +
+				" AND " + "f.idObra = " + Integer.toString(idObra);
 		this.resultStatement = this.statement.executeQuery(sql);
 		while (this.resultStatement.next()) {
 			arreglo = new Object[contarColumnas(this.resultStatement)];
@@ -320,4 +365,6 @@ public class DAO {
 		this.prepareStatement.executeUpdate();
 		desconectar();
 	}
+
+
 }

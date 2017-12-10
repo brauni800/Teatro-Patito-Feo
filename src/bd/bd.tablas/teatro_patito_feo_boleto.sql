@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: teatro_patito_feo
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.19-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `boleto` (
   `idBoleto` int(11) NOT NULL AUTO_INCREMENT,
   `idFuncion` int(11) NOT NULL,
   `coordenadaAsiento` varchar(5) NOT NULL,
-  `comprado` tinyint(1) NOT NULL,
+  `comprado` varchar(20) NOT NULL,
   `precioBoleto` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`idBoleto`),
   KEY `idFuncion_idx` (`idFuncion`),
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-09 18:16:31
+-- Dump completed on 2017-12-09 23:47:23
