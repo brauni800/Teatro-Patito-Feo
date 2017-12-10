@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 @SuppressWarnings("serial")
 public class PanelVerSala extends PanelFactory {
 
+	/**
+	 * Inicialización del Panel.
+	 */
 	public PanelVerSala() {
 		setBounds(300, 20, 750, 500);
 	}

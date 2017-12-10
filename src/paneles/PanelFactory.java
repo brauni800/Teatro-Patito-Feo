@@ -257,6 +257,9 @@ public abstract class PanelFactory extends JPanel {
     protected javax.swing.JLabel Num8;
     protected javax.swing.JLabel Num9;
 	
+    /**
+     * Inicialización de los paneles.
+     */
 	public PanelFactory() {
 		super();
 		setSize(950, 550);
@@ -267,6 +270,9 @@ public abstract class PanelFactory extends JPanel {
 		image = new ImageIcon(url).getImage();
 	}
 
+	/**
+	 * Inicialización de componentes en el sistema.
+	 */
 	protected abstract void initComponents();
 	
 	@Override

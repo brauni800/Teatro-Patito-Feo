@@ -15,20 +15,28 @@ import administradores.AdministrarTablas;
 @SuppressWarnings("serial")
 public class TablaObras extends JTable {
 
+	/**
+	 * Constructor que inicializa la tabla.
+	 */
 	public TablaObras() {
 		super();
 		setModel(createModel());
 		setSize(500, 340);
 	}
 
+	/**
+	 * Método para la creación de la tabla de Obras.
+	 * 
+	 * @return La tabla creada con las obras.
+	 */
 	public DefaultTableModel createModel() {
-		
+
 		DefaultTableModel modelo = new DefaultTableModel();
 		modelo.addColumn("idObra");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Duración");
 		modelo.addColumn("Descripción");
-		modelo.addColumn("Representante");	
+		modelo.addColumn("Representante");
 		AdministrarTablas ad = new AdministrarTablas();
 		try {
 			ad.cargarBaseDatosObras(modelo);
@@ -36,8 +44,7 @@ public class TablaObras extends JTable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		return modelo;
 	}
 
