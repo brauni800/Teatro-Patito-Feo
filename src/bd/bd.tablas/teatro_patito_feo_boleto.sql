@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `asiento`
+-- Table structure for table `boleto`
 --
 
-DROP TABLE IF EXISTS `asiento`;
+DROP TABLE IF EXISTS `boleto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `asiento` (
-  `idAsiento` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `boleto` (
+  `idBoleto` int(11) NOT NULL AUTO_INCREMENT,
   `idFuncion` int(11) NOT NULL,
   `coordenadaAsiento` varchar(5) NOT NULL,
   `comprado` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idAsiento`),
+  `precioBoleto` double(10,2) DEFAULT NULL,
+  PRIMARY KEY (`idBoleto`),
   KEY `idFuncion_idx` (`idFuncion`),
   CONSTRAINT `idFuncion` FOREIGN KEY (`idFuncion`) REFERENCES `funcion` (`idFuncion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `asiento`
+-- Dumping data for table `boleto`
 --
 
-LOCK TABLES `asiento` WRITE;
-/*!40000 ALTER TABLE `asiento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `asiento` ENABLE KEYS */;
+LOCK TABLES `boleto` WRITE;
+/*!40000 ALTER TABLE `boleto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `boleto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 20:46:56
+-- Dump completed on 2017-12-09 18:16:31

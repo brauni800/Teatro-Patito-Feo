@@ -33,7 +33,7 @@ CREATE TABLE `obra` (
   PRIMARY KEY (`idObra`),
   KEY `idRepresentante_idx` (`idRepresentante`),
   CONSTRAINT `idRepresentante` FOREIGN KEY (`idRepresentante`) REFERENCES `representante` (`idRepresentante`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `obra` (
 
 LOCK TABLES `obra` WRITE;
 /*!40000 ALTER TABLE `obra` DISABLE KEYS */;
-INSERT INTO `obra` VALUES (1,1,'Pepa Pig',500,'01:30:00','La mejor obra del mundo :D','ESTADO_ACTIVO'),(2,1,'Chonicos',800,'01:25:00','woiehuwqhfiwhqf','ESTADO_ACTIVO');
+INSERT INTO `obra` VALUES (1,1,'Pepa Pig',500,'01:30:00','La mejor obra del mundo :D','ESTADO_ACTIVO'),(2,1,'Chonicos',800,'01:25:00','woiehuwqhfiwhqf','CANCELADO'),(3,1,'Nombre Obra Prueba',300,'02:00:00','Texto de Prueba a conexión de Base de Datos','CANCELADO'),(4,1,'Pruebas 2',600,'03:00:00','','CANCELADO'),(5,2,'Pruebas 2',600,'03:00:00','','ESTADO_ACTIVO');
 /*!40000 ALTER TABLE `obra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 20:46:56
+-- Dump completed on 2017-12-09 18:16:31

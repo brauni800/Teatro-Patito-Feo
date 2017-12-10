@@ -30,7 +30,7 @@ CREATE TABLE `representante` (
   `telefonoAlternativo` varchar(15) DEFAULT NULL,
   `correoElectronico` varchar(80) NOT NULL,
   PRIMARY KEY (`idRepresentante`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `representante` (
 
 LOCK TABLES `representante` WRITE;
 /*!40000 ALTER TABLE `representante` DISABLE KEYS */;
-INSERT INTO `representante` VALUES (1,'Rogelio','Campos','123456789','987654321','qweqwe@qweqwe.com'),(2,'Ricardo','Perez','112233445','556677889','asdasd@asdasd.com');
+INSERT INTO `representante` VALUES (1,'Rogelio','Campos','123456789','987654321','qweqwe@qweqwe.com'),(2,'Ricardo','Perez','112233445','556677889','asdasd@asdasd.com'),(3,'Pruebas Nombre','Apellido','999-34-34-34','','pruebas@correo.com');
 /*!40000 ALTER TABLE `representante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 20:46:56
+-- Dump completed on 2017-12-09 18:16:31

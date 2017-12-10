@@ -26,13 +26,13 @@ CREATE TABLE `funcion` (
   `idfuncion` int(11) NOT NULL AUTO_INCREMENT,
   `idObra` int(11) NOT NULL,
   `fechaFuncion` date NOT NULL,
-  `inicioFuncion` time NOT NULL,
-  `finalFuncion` time NOT NULL,
+  `inicioFuncion` time DEFAULT NULL,
+  `finalFuncion` time DEFAULT NULL,
   `disponibilidadFuncion` varchar(45) NOT NULL,
   PRIMARY KEY (`idfuncion`),
   KEY `idObra_idx` (`idObra`),
   CONSTRAINT `idObra` FOREIGN KEY (`idObra`) REFERENCES `obra` (`idObra`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `funcion` (
 
 LOCK TABLES `funcion` WRITE;
 /*!40000 ALTER TABLE `funcion` DISABLE KEYS */;
-INSERT INTO `funcion` VALUES (1,1,'2017-12-16','05:25:00','05:25:00','ACTIVO'),(2,1,'2017-12-22','02:20:00','02:20:00','ACTIVO'),(3,2,'2017-12-21','01:00:00','01:00:00','ACTIVO'),(4,2,'2017-12-29','01:00:00','01:00:00','ACTIVO'),(5,1,'2017-12-17','01:25:00','01:25:00','ACTIVO');
+INSERT INTO `funcion` VALUES (25,1,'2017-12-09','02:45:00','04:15:00','ACTIVO'),(26,1,'2017-12-10','03:45:00','05:15:00','ACTIVO');
 /*!40000 ALTER TABLE `funcion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 20:46:56
+-- Dump completed on 2017-12-09 18:16:31
