@@ -57,6 +57,26 @@ public class AdministradorBoletos {
 		this.boleto.setPrecioboleto(calcularPrecioBoleto());
 	}
 	
+	/**
+	 * Método para cancelar una función en especifico de la base de datos.
+	 * @throws SQLException Error de falta de valores.
+	 */
+	private void cancelarBoletoBD() throws SQLException {
+
+		/*DAO cancelar = new DAO();
+
+		cancelar.estruturaParaActualizarCondicion(DAO.BOLETO, "comprado",
+				this.funcion.getDisponiblidadFuncion(), "idFuncion", id);
+
+		int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea cancelar la funcion?",
+				"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		if (reply == JOptionPane.YES_OPTION) {
+			cancelar.confirmar();
+			JOptionPane.showMessageDialog(null, "Ha cancelado la Funcion", "", JOptionPane.INFORMATION_MESSAGE);
+		}*/
+
+	}
+	
 	private void insertarBoletoBD() throws SQLException {
 		DAO insertar = new DAO();
 		insertar.crearEstructuraParaInsertar(DAO.BOLETO, "idFuncion, coordenadaAsiento, comprado, precioBoleto");
