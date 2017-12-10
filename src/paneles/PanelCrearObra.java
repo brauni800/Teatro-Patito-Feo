@@ -17,7 +17,7 @@ import combobox.ComboBoxRepresentantes;
 public class PanelCrearObra extends PanelCrearEditarObra {
 
 	public PanelCrearObra() {
-		url = getClass().getResource("obra4.jpg");
+		url = getClass().getResource("imagenes/obras5.png");
 		image = new ImageIcon(url).getImage();
 	}
 	

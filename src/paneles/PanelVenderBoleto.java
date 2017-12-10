@@ -20,7 +20,7 @@ public class PanelVenderBoleto extends PanelFactory{
 	
 	public PanelVenderBoleto() {
 		setBounds(300, 20, 620, 500);
-		url = getClass().getResource("imagenes/boletos4.jpg");
+		url = getClass().getResource("imagenes/boleto.png");
 		image = new ImageIcon(url).getImage();
 	}
 	
