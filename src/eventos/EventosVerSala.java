@@ -37,6 +37,7 @@ public class EventosVerSala extends EventosFactory{
 
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setActionCommand(PanelFactory.CANCELAR_BOLETO);
+		agregandoEventos();
 		
 	}
 	
@@ -46,7 +47,7 @@ public class EventosVerSala extends EventosFactory{
 	
 	private void agregandoEventos() {
         //Butacas Fila A
-        this.jl = this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getPanelDinamico().getPanelDinamico().getA1();
+        this.jl = this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getA1();
         this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getA1().addMouseListener(asientoAdapter(jl, "A-1"));
         this.jl = this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getA2();
         this.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getA2().addMouseListener(asientoAdapter(jl, "A-2"));
