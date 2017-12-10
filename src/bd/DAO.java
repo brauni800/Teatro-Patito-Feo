@@ -184,7 +184,7 @@ public class DAO {
 		boolean encontrado = false;
 		this.statement = this.connection.createStatement();
 		String sql = "SELECT " + select + " FROM " + from + " f" + " JOIN "+ join + " b " + " on f.idFuncion = b.idFuncion, obra o" + " WHERE " +  "b" + where + " = "  + Integer.toString(idFuncion) +
-				" AND " + "f.idObra = " + Integer.toString(idObra);
+				" AND " + "f.idObra = " + Integer.toString(idObra) + " GROUP BY idObra" ;
 		this.resultStatement = this.statement.executeQuery(sql);
 		while (this.resultStatement.next()) {
 			arreglo = new Object[contarColumnas(this.resultStatement)];

@@ -29,14 +29,11 @@ public class AdministradorBoletos {
 		this.panel = panel;
 	}
 	
-	public void crearBoleto() throws SQLException {
-		crearEntidadBoleto();
-		
-	}
 
 	public void venderBoleto() throws SQLException {
 		int i = panel.getPanelDinamico().getTableFunciones().getSelectedRow();
 		System.out.println(i);
+		crearEntidadBoleto();
 		insertarBoletoBD();
 		
 	}
