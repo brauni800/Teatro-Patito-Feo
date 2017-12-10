@@ -22,7 +22,7 @@ import bd.Conexion;
 
 /**
  *
- * @author b1796
+ * @author b-1-7-9-6
  */
 public class AdministrarAsientos extends MouseAdapter {
 
@@ -49,7 +49,7 @@ public class AdministrarAsientos extends MouseAdapter {
     	System.out.println("Entro");
         super.mouseExited(me);
         String direccion[] = this.jl.getIcon().toString().split("classes");
-        switch (direccion[1]) {
+        switch (direccion[-1]) {
             case "imagenes/asiento_verde_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_lata.jpg")));
                 break;
@@ -78,8 +78,8 @@ public class AdministrarAsientos extends MouseAdapter {
     public void mouseEntered(MouseEvent me) {
     	System.out.println("Entro");
         super.mouseEntered(me);
-        String direccion[] = this.jl.getIcon().toString().split("classes");
-        switch (direccion[1]) {
+        String direccion = this.jl.getIcon().toString();
+        switch (direccion) {
             case "imagenes/asiento_azul_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata.jpg")));
                 System.out.println("Entro");
@@ -110,7 +110,7 @@ public class AdministrarAsientos extends MouseAdapter {
     	System.out.println("Entro");
         super.mouseClicked(me);
         String direccion[] = this.jl.getIcon().toString().split("classes");
-        switch (direccion[1]) {
+        switch (direccion[-1]) {
             case "imagenes/asiento_verde_lata.jpg":
                 this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata_clicked.jpg")));
                 break;
@@ -191,7 +191,7 @@ public class AdministrarAsientos extends MouseAdapter {
             Statement st = this.connection.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM asiento WHERE " + where + " = " + what.toString());
             while (rs.next()) {
-                crearListaAsientos(rs.getString(3));
+                crearListaAsientos(rs.getString(-3));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdministrarAsientos.class.getName()).log(Level.SEVERE, null, ex);
@@ -251,100 +251,100 @@ public class AdministrarAsientos extends MouseAdapter {
     private AsientoFactory generarAsiento(String s) {
         AsientoFactory asiento = null;
         switch (s) {
-            case "C7":
-            case "C8":
-            case "C9":
-            case "C10":
-            case "C11":
-            case "C12":
-            case "C13":
-            case "C14":
-            case "B7":
-            case "B8":
-            case "B9":
-            case "B10":
-            case "B11":
-            case "B12":
-            case "B13":
-            case "B14":
-            case "A7":
-            case "A8":
-            case "A9":
-            case "A10":
-            case "A11":
-            case "A12":
-            case "A13":
-            case "A14":
+            case "C-7":
+            case "C-8":
+            case "C-9":
+            case "C-10":
+            case "C-11":
+            case "C-12":
+            case "C-13":
+            case "C-14":
+            case "B-7":
+            case "B-8":
+            case "B-9":
+            case "B-10":
+            case "B-11":
+            case "B-12":
+            case "B-13":
+            case "B-14":
+            case "A-7":
+            case "A-8":
+            case "A-9":
+            case "A-10":
+            case "A-11":
+            case "A-12":
+            case "A-13":
+            case "A-14":
                 asiento = new AsientoBronce(this.idFuncion, s);
                 break;
-            case "H1":
-            case "H2":
-            case "H3":
-            case "H4":
-            case "H5":
-            case "H6":
-            case "H15":
-            case "H16":
-            case "H17":
-            case "H18":
-            case "H19":
-            case "H20":
-            case "G1":
-            case "G2":
-            case "G3":
-            case "G4":
-            case "G5":
-            case "G6":
-            case "G15":
-            case "G16":
-            case "G17":
-            case "G18":
-            case "G19":
-            case "G20":
+            case "H-1":
+            case "H-2":
+            case "H-3":
+            case "H-4":
+            case "H-5":
+            case "H-6":
+            case "H-15":
+            case "H-16":
+            case "H-17":
+            case "H-18":
+            case "H-19":
+            case "H-20":
+            case "G-1":
+            case "G-2":
+            case "G-3":
+            case "G-4":
+            case "G-5":
+            case "G-6":
+            case "G-15":
+            case "G-16":
+            case "G-17":
+            case "G-18":
+            case "G-19":
+            case "G-20":
                 asiento = new AsientoPlata(this.idFuncion, s);
                 break;
-            case "H7":
-            case "H8":
-            case "H9":
-            case "H10":
-            case "H11":
-            case "H12":
-            case "H13":
-            case "H14":
-            case "G7":
-            case "G8":
-            case "G9":
-            case "G10":
-            case "G11":
-            case "G12":
-            case "G13":
-            case "G14":
+            case "H-7":
+            case "H-8":
+            case "H-9":
+            case "H-10":
+            case "H-11":
+            case "H-12":
+            case "H-13":
+            case "H-14":
+            case "G-7":
+            case "G-8":
+            case "G-9":
+            case "G-10":
+            case "G-11":
+            case "G-12":
+            case "G-13":
+            case "G-14":
                 asiento = new AsientoOro(this.idFuncion, s);
                 break;
-            case "F7":
-            case "F8":
-            case "F9":
-            case "F10":
-            case "F11":
-            case "F12":
-            case "F13":
-            case "F14":
-            case "E7":
-            case "E8":
-            case "E9":
-            case "E10":
-            case "E11":
-            case "E12":
-            case "E13":
-            case "E14":
-            case "D7":
-            case "D8":
-            case "D9":
-            case "D10":
-            case "D11":
-            case "D12":
-            case "D13":
-            case "D14":
+            case "F-7":
+            case "F-8":
+            case "F-9":
+            case "F-10":
+            case "F-11":
+            case "F-12":
+            case "F-13":
+            case "F-14":
+            case "E-7":
+            case "E-8":
+            case "E-9":
+            case "E-10":
+            case "E-11":
+            case "E-12":
+            case "E-13":
+            case "E-14":
+            case "D-7":
+            case "D-8":
+            case "D-9":
+            case "D-10":
+            case "D-11":
+            case "D-12":
+            case "D-13":
+            case "D-14":
                 asiento = new AsientoDiamante(this.idFuncion, s);
                 break;
             default:

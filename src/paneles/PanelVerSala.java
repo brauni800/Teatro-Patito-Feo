@@ -249,11 +249,11 @@ public class PanelVerSala extends PanelFactory {
 	        H12.setBounds(406, 50, 36, 32);
 	        add(H12);
 	        
-	        H13.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_plata.jpg"))); // NOI18N
+	        H13.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_oro.jpg"))); // NOI18N
 	        H13.setBounds(442, 50, 36, 32);
 	        add(H13);
 	        
-	        H14.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_plata.jpg"))); // NOI18N
+	        H14.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_azul_oro.jpg"))); // NOI18N
 	        H14.setBounds(478, 50, 36, 32);
 	        add(H14);
 	        
