@@ -1,5 +1,7 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -16,11 +18,17 @@ import tablas.TablaFunciones;
 public class PanelCrearFuncion extends PanelFactory {
 
 	public PanelCrearFuncion() {
-		url = getClass().getResource("funcion2.jpg");
+		url = getClass().getResource("imagenes/funciones3.png");
 		image = new ImageIcon(url).getImage();
 		setBounds(300, 20, 620, 500);
 	}
 	
+    public void paint(Graphics g){
+		Dimension d = getSize();
+		g.drawImage(image, 0, 0, d.width, d.height, this);
+		this.setOpaque(false);
+        super.paint(g);
+    } 
 
 
 	@Override
