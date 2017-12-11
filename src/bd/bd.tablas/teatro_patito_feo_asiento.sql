@@ -16,34 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `obra`
+-- Table structure for table `asiento`
 --
 
-DROP TABLE IF EXISTS `obra`;
+DROP TABLE IF EXISTS `asiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `obra` (
-  `idObra` int(11) NOT NULL AUTO_INCREMENT,
-  `idRepresentante` int(11) NOT NULL,
-  `nombreObra` varchar(80) NOT NULL,
-  `precioObra` double NOT NULL,
-  `duracionObra` time NOT NULL,
-  `descripcionObra` varchar(500) NOT NULL,
-  `estado` varchar(45) NOT NULL,
-  PRIMARY KEY (`idObra`),
-  KEY `idRepresentante_idx` (`idRepresentante`),
-  CONSTRAINT `idRepresentante` FOREIGN KEY (`idRepresentante`) REFERENCES `representante` (`idRepresentante`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+CREATE TABLE `asiento` (
+  `idasiento` int(11) NOT NULL AUTO_INCREMENT,
+  `coordenada` varchar(45) NOT NULL,
+  `idBoleto` int(11) NOT NULL,
+  PRIMARY KEY (`idasiento`),
+  KEY `idBoleto_idx` (`idBoleto`),
+  CONSTRAINT `idBoleto` FOREIGN KEY (`idBoleto`) REFERENCES `boleto` (`idBoleto`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `obra`
+-- Dumping data for table `asiento`
 --
 
-LOCK TABLES `obra` WRITE;
-/*!40000 ALTER TABLE `obra` DISABLE KEYS */;
-INSERT INTO `obra` VALUES (1,1,'Pepa Pig',500,'01:30:00','La mejor obra del mundo :D','ESTADO_ACTIVO'),(2,1,'Chonicos',800,'01:25:00','woiehuwqhfiwhqf','CANCELADO'),(3,1,'Nombre Obra Prueba',300,'02:00:00','Texto de Prueba a conexión de Base de Datos','CANCELADO'),(4,1,'Pruebas 2',600,'03:00:00','','CANCELADO'),(5,2,'Pruebas 2',600,'03:00:00','','ESTADO_ACTIVO');
-/*!40000 ALTER TABLE `obra` ENABLE KEYS */;
+LOCK TABLES `asiento` WRITE;
+/*!40000 ALTER TABLE `asiento` DISABLE KEYS */;
+INSERT INTO `asiento` VALUES (7,'F-6',1);
+/*!40000 ALTER TABLE `asiento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
