@@ -24,6 +24,7 @@ public class DAO {
 	public static final String OBRA = "obra";
 	public static final String REPRESENTANTE = "representante";
 	public static final String BOLETO = "boleto";
+	public static final String ASIENTO = "asiento";
 
 	private Conexion conexion;
 	private Connection connection;

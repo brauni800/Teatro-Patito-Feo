@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import bd.Conexion;
+import bd.DAO;
 
 /**
  *
@@ -105,39 +106,111 @@ public class AdministrarAsientos extends MouseAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent me) {
+		DAO insertar = new DAO();
+		DAO eliminar = new DAO();
 		super.mouseClicked(me);
 		String direccion[] = this.jl.getIcon().toString().split("/");
 		int i = direccion.length;
 		switch (direccion[i - 2] + "/" + direccion[i - 1]) {
 		case "imagenes/asiento_verde_lata.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata_clicked.jpg")));
+			try {
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.insertarString(1, this.coordenada);
+				insertar.insertarInt(2, 1);
+				insertar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_bronce.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_bronce_clicked.jpg")));
+			try {
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.insertarString(1, this.coordenada);
+				insertar.insertarInt(2, 1);
+				insertar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_plata.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_plata_clicked.jpg")));
+			try {
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.insertarString(1, this.coordenada);
+				insertar.insertarInt(2, 1);
+				insertar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_oro.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_oro_clicked.jpg")));
+			try {
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.insertarString(1, this.coordenada);
+				insertar.insertarInt(2, 1);
+				insertar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_diamante.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_diamante_clicked.jpg")));
+			try {
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.insertarString(1, this.coordenada);
+				insertar.insertarInt(2, 1);
+				insertar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_lata_clicked.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata.jpg")));
+			try {
+				eliminar.crearEstructuraParaEliminar(DAO.ASIENTO, "coordenada", "\"" + this.coordenada + "\"");
+				eliminar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_bronce_clicked.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_bronce.jpg")));
+			try {
+				eliminar.crearEstructuraParaEliminar(DAO.ASIENTO, "coordenada", "\"" + this.coordenada + "\"");
+				eliminar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_plata_clicked.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_plata.jpg")));
+			try {
+				eliminar.crearEstructuraParaEliminar(DAO.ASIENTO, "coordenada", "\"" + this.coordenada + "\"");
+				eliminar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_oro_clicked.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_oro.jpg")));
+			try {
+				eliminar.crearEstructuraParaEliminar(DAO.ASIENTO, "coordenada", "\"" + this.coordenada + "\"");
+				eliminar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_verde_diamante_clicked.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_diamante.jpg")));
+			try {
+				eliminar.crearEstructuraParaEliminar(DAO.ASIENTO, "coordenada", "\"" + this.coordenada + "\"");
+				eliminar.confirmar();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "imagenes/asiento_rojo_lata.jpg":
 		case "imagenes/asiento_rojo_bronce.jpg":
@@ -218,7 +291,6 @@ public class AdministrarAsientos extends MouseAdapter {
 		switch (s) {
 		case AsientoFactory.LATA:
 			icon = new ImageIcon(getClass().getResource("imagenes/asiento_azul_lata.jpg"));
-
 			break;
 		case AsientoFactory.BRONCE:
 			icon = new ImageIcon(getClass().getResource("imagenes/asiento_azul_bronce.jpg"));
