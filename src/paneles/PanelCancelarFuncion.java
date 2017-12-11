@@ -27,14 +27,13 @@ public class PanelCancelarFuncion extends PanelFactory {
 		add(cmBoxSeleccionarObra);
 	}
 
-
 	protected void initButton() {
 		btnCancelarFuncion = new JButton("Cancelar");
 		btnCancelarFuncion.setBounds(441, 445, 89, 23);
 		add(btnCancelarFuncion);
-		
+
 		btnMostrarFunciones = new JButton("Mostrar Funcionens");
-		btnMostrarFunciones.setBounds( 100, 445, 150 , 23);
+		btnMostrarFunciones.setBounds(100, 445, 150, 23);
 		btnMostrarFunciones.setEnabled(true);
 		add(btnMostrarFunciones);
 	}

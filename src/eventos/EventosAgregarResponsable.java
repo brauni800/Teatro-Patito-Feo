@@ -19,13 +19,14 @@ public class EventosAgregarResponsable extends EventosFactory {
 		switch (comando) {
 		case PanelFactory.AGREGAR_RESPONSABLE:
 			try {
-				new AdministradorResponsables(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).crearResponsable();
+				new AdministradorResponsables(ventanaPrincipal.getPanelDinamico().getPanelDinamico())
+						.crearResponsable();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
 			break;
 		}
-		
+
 	}
 
 	@Override
@@ -33,7 +34,7 @@ public class EventosAgregarResponsable extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAgregarResponsable().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnAgregarResponsable()
 				.setActionCommand(PanelFactory.AGREGAR_RESPONSABLE);
-		
+
 	}
 
 }

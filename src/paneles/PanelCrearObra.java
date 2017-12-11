@@ -20,13 +20,13 @@ public class PanelCrearObra extends PanelCrearEditarObra {
 		url = getClass().getResource("imagenes/obras5.png");
 		image = new ImageIcon(url).getImage();
 	}
-	
-    public void paint(Graphics g){
+
+	public void paint(Graphics g) {
 		Dimension d = getSize();
 		g.drawImage(image, 0, 0, d.width, d.height, this);
 		this.setOpaque(false);
-        super.paint(g);
-    } 
+		super.paint(g);
+	}
 
 	@Override
 	protected void initLabels() {

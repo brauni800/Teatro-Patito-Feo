@@ -11,7 +11,6 @@ import vista.VentanaPrincipal;
 
 public class EventosVenderBoleto extends EventosFactory {
 
-	
 	public EventosVenderBoleto(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
@@ -32,25 +31,25 @@ public class EventosVenderBoleto extends EventosFactory {
 
 	@Override
 	protected void initEvents() {
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnVenderAsientos().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnVenderAsientos()
-			.setActionCommand(PanelFactory.VENDER_BOLETOS);
+				.setActionCommand(PanelFactory.VENDER_BOLETOS);
 
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
 				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getCmBoxSeleccionarObra()
-		.addItemListener(new ItemListener() {
+				.addItemListener(new ItemListener() {
 
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				if (e.getStateChange() == ItemEvent.SELECTED) {
-				}
+					@Override
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+						}
 
-			}
-		});
+					}
+				});
 
 	}
 

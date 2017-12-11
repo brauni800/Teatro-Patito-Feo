@@ -4,7 +4,7 @@ import eventos.EventosCancelarFuncion;
 import paneles.PanelCancelarFuncion;
 import vista.VentanaPrincipal;
 
-public class ElementoCancelarFuncion extends ElementoFactory{
+public class ElementoCancelarFuncion extends ElementoFactory {
 
 	public ElementoCancelarFuncion(VentanaPrincipal ventana) {
 		super(ventana);

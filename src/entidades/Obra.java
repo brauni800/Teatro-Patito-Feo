@@ -8,7 +8,7 @@ public class Obra {
 	private String nombre, descripcion, estado;
 	private double precio;
 	private Time duracion;
-	
+
 	public Obra() {
 		super();
 		this.setIdObra(0);
@@ -69,5 +69,5 @@ public class Obra {
 	public void setIdObra(int idObra) {
 		this.idObra = idObra;
 	}
-	
+
 }

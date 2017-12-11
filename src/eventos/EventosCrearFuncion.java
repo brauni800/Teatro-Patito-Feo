@@ -46,7 +46,7 @@ public class EventosCrearFuncion extends EventosFactory {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						if (e.getStateChange() == ItemEvent.SELECTED) {
-							
+
 						}
 
 					}

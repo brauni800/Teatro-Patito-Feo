@@ -3,13 +3,13 @@ package entidades;
 import java.sql.Time;
 
 public class Funcion {
-	
+
 	private int idFuncion;
-    private int idObra;
-    private long fechaFuncion;
-    private Time inicioFuncion;
-    private Time finalFuncion;
-    private String disponiblidadFuncion;
+	private int idObra;
+	private long fechaFuncion;
+	private Time inicioFuncion;
+	private Time finalFuncion;
+	private String disponiblidadFuncion;
 
 	public Funcion() {
 	}
@@ -61,7 +61,5 @@ public class Funcion {
 	public void setDisponiblidadFuncion(String disponiblidadFuncion) {
 		this.disponiblidadFuncion = disponiblidadFuncion;
 	}
-
-	
 
 }

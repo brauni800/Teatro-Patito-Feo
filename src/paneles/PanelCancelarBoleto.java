@@ -15,7 +15,7 @@ import tablas.TablaFunciones;
 
 @SuppressWarnings("serial")
 public class PanelCancelarBoleto extends PanelFactory {
-	
+
 	public PanelCancelarBoleto() {
 		setBounds(300, 20, 620, 500);
 	}

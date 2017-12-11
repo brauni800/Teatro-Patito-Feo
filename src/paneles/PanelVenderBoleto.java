@@ -16,31 +16,29 @@ import tablas.TablaFunciones;
  *
  */
 @SuppressWarnings("serial")
-public class PanelVenderBoleto extends PanelFactory{
-	
+public class PanelVenderBoleto extends PanelFactory {
+
 	public PanelVenderBoleto() {
 		setBounds(300, 20, 620, 500);
 		url = getClass().getResource("imagenes/boleto.png");
 		image = new ImageIcon(url).getImage();
 	}
-	
-	
-    public void paint(Graphics g){
+
+	public void paint(Graphics g) {
 		Dimension d = getSize();
 		g.drawImage(image, 0, 0, d.width, d.height, this);
 		this.setOpaque(false);
-        super.paint(g);
-    } 
-	
+		super.paint(g);
+	}
+
 	@Override
 	protected void initComponents() {
-		
+
 		initComboBox();
 		initTable();
 		initButtons();
 		initLables();
 	}
-
 
 	protected void initComboBox() {
 		cmBoxSeleccionarObra = new ComboBoxObras();
@@ -59,12 +57,12 @@ public class PanelVenderBoleto extends PanelFactory{
 	}
 
 	protected void initButtons() {
-		
+
 		btnVenderAsientos = new JButton("Comprar Boletos");
 		btnVenderAsientos.setBounds(263, 445, 150, 23);
 		btnVenderAsientos.setEnabled(true);
 		add(btnVenderAsientos);
-		
+
 		btnMostrarFunciones = new JButton("Mostrar Funciones");
 		btnMostrarFunciones.setBounds(100, 445, 150, 23);
 		btnMostrarFunciones.setEnabled(true);

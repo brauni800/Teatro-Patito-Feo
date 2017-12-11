@@ -14,9 +14,9 @@ public class EventosEditarObra extends EventosFactory {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
-		switch(comando) {
+		switch (comando) {
 		case PanelFactory.CREAR_EDITAR:
-			
+
 			break;
 		}
 	}
@@ -24,6 +24,7 @@ public class EventosEditarObra extends EventosFactory {
 	@Override
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar().setActionCommand(PanelFactory.CREAR_EDITAR);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEditar()
+				.setActionCommand(PanelFactory.CREAR_EDITAR);
 	}
 }

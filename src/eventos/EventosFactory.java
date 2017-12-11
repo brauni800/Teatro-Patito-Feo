@@ -15,17 +15,19 @@ public abstract class EventosFactory implements ActionListener {
 
 	/**
 	 * Inicialización de los eventos en la venta.
-	 * @param ventanaPrincipal Ventana en la que se ejecutarán los componentes.
+	 * 
+	 * @param ventanaPrincipal
+	 *            Ventana en la que se ejecutarán los componentes.
 	 */
 	public EventosFactory(VentanaPrincipal ventanaPrincipal) {
 		super();
 		this.ventanaPrincipal = ventanaPrincipal;
 		initEvents();
 	}
-	
+
 	/**
 	 * Asignación de listener a los botones.
 	 */
 	protected abstract void initEvents();
-	
+
 }

@@ -4,7 +4,7 @@ import eventos.EventosCrearFuncion;
 import paneles.PanelCrearFuncion;
 import vista.VentanaPrincipal;
 
-public class ElementoCrearFuncion extends ElementoFactory{
+public class ElementoCrearFuncion extends ElementoFactory {
 
 	public ElementoCrearFuncion(VentanaPrincipal ventana) {
 		super(ventana);

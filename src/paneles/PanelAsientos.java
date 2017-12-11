@@ -3,13 +3,13 @@ package paneles;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class PanelAsientos extends PanelFactory{
+public class PanelAsientos extends PanelFactory {
 
 	@Override
 	protected void initComponents() {
 		initLabels();
 	}
-	
+
 	public void initLabels() {
 		lblMinuto = new JLabel("Minuto");
 		lblMinuto.setBounds(350, 150, 85, 20);

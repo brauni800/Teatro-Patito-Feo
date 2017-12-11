@@ -3,10 +3,10 @@ package entidades;
 public class Boleto {
 	private int idfuncion;
 	private double precioboleto;
-	private String coordenadaAsiento,Comprado;
-	
+	private String coordenadaAsiento, Comprado;
+
 	public Boleto() {
-	
+
 	}
 
 	public int getIdfuncion() {
@@ -40,7 +40,5 @@ public class Boleto {
 	public void setComprado(String comprado) {
 		Comprado = comprado;
 	}
-	
-	
 
 }

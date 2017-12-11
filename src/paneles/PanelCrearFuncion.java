@@ -22,14 +22,13 @@ public class PanelCrearFuncion extends PanelFactory {
 		image = new ImageIcon(url).getImage();
 		setBounds(300, 20, 620, 500);
 	}
-	
-    public void paint(Graphics g){
+
+	public void paint(Graphics g) {
 		Dimension d = getSize();
 		g.drawImage(image, 0, 0, d.width, d.height, this);
 		this.setOpaque(false);
-        super.paint(g);
-    } 
-
+		super.paint(g);
+	}
 
 	@Override
 	protected void initComponents() {

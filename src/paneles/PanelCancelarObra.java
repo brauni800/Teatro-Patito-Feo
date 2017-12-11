@@ -26,19 +26,19 @@ public class PanelCancelarObra extends PanelFactory {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(60, 45, 500, 340);
 		add(scrollPane);
-		
+
 		table = new TablaObras();
 		scrollPane.setViewportView(table);
-		
+
 		lblSeleccion = new JLabel("Seleccion:");
 		lblSeleccion.setBounds(70, 424, 84, 14);
 		add(lblSeleccion);
-		
+
 		txtFieldSeleccion = new JTextField();
 		txtFieldSeleccion.setBounds(164, 421, 202, 20);
 		txtFieldSeleccion.setEnabled(false);
 		add(txtFieldSeleccion);
-		
+
 		btnEliminar = new JButton("Cancelar");
 		btnEliminar.setBounds(441, 420, 89, 23);
 		add(btnEliminar);

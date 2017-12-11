@@ -9,7 +9,7 @@ import vista.VentanaPrincipal;
  * @author ArmandoCarvajal
  *
  */
-public class ElementoBoleto extends ElementoFactory{
+public class ElementoBoleto extends ElementoFactory {
 
 	public ElementoBoleto(VentanaPrincipal ventana) {
 		super(ventana);

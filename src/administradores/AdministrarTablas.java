@@ -4,19 +4,19 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import bd.DAO;
 
-public class AdministrarTablas{
+public class AdministrarTablas {
 
-	
 	public AdministrarTablas() {
 	}
-	
-	
+
 	public void cargarBaseDatosFuncion(DefaultTableModel modeloFuncion, int idObra) throws SQLException {
-		
+
 		String[] datos = new String[6];
-		Object[][] buscar = new DAO().buscarConFiltro("idFuncion, fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION, "idObra", idObra);
-		
-		for(int i = 0; i < buscar.length; i++) {
+		Object[][] buscar = new DAO().buscarConFiltro(
+				"idFuncion, fechaFuncion,inicioFuncion,finalFuncion,disponibilidadFuncion", DAO.FUNCION, "idObra",
+				idObra);
+
+		for (int i = 0; i < buscar.length; i++) {
 			datos[0] = buscar[i][0].toString();
 			datos[1] = buscar[i][1].toString();
 			datos[2] = buscar[i][2].toString();
@@ -25,14 +25,14 @@ public class AdministrarTablas{
 			modeloFuncion.addRow(datos);
 		}
 	}
-	
 
 	public void cargarBaseDatosObras(DefaultTableModel modelo) throws SQLException {
-		
+
 		String[] datos = new String[5];
-		
-		Object[][] buscar = new DAO().buscar("idObra,nombreObra,duracionObra,descripcionObra,idRepresentante", DAO.OBRA);	
-		
+
+		Object[][] buscar = new DAO().buscar("idObra,nombreObra,duracionObra,descripcionObra,idRepresentante",
+				DAO.OBRA);
+
 		for (int i = 0; i < buscar.length; i++) {
 			datos[0] = buscar[i][0].toString();
 			datos[1] = buscar[i][1].toString();
@@ -42,5 +42,5 @@ public class AdministrarTablas{
 			modelo.addRow(datos);
 		}
 	}
-	
+
 }

@@ -22,7 +22,7 @@ public class EventosMenuPrincipal extends EventosFactory {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
-		switch(comando) {
+		switch (comando) {
 		case PanelFactory.OBRAS:
 			super.ventanaPrincipal.setElementoDinamico(new ElementoObras(ventanaPrincipal));
 			break;
@@ -31,7 +31,7 @@ public class EventosMenuPrincipal extends EventosFactory {
 			break;
 		case PanelFactory.BOLETOS:
 			super.ventanaPrincipal.setElementoDinamico(new ElementoBoleto(ventanaPrincipal));
-			break;	
+			break;
 		}
 	}
 
@@ -39,13 +39,13 @@ public class EventosMenuPrincipal extends EventosFactory {
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnObras().setActionCommand(PanelFactory.OBRAS);
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnFuncion().setActionCommand(PanelFactory.FUNCION);
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getBtnBoleto().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getBtnBoleto().setActionCommand(PanelFactory.BOLETOS);
-		
+
 	}
 
 }

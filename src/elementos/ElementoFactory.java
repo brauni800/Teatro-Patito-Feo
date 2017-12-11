@@ -13,7 +13,7 @@ public abstract class ElementoFactory {
 
 	protected PanelFactory panel;
 	protected EventosFactory eventos;
-	
+
 	public ElementoFactory(VentanaPrincipal ventana) {
 		super();
 	}

@@ -162,29 +162,32 @@ public class DAO {
 		}
 		return resultado;
 	}
-	
-	public Double buscarPrecioObraJoinFunciones(String select, String from, String join, String where, int idObra) throws SQLException {
-		//boolean encontrado = false;
+
+	public Double buscarPrecioObraJoinFunciones(String select, String from, String join, String where, int idObra)
+			throws SQLException {
+		// boolean encontrado = false;
 		Double resultado;
 		this.statement = this.connection.createStatement();
-		String sql = "SELECT " + select + " FROM " + from + "f" + " JOIN " + join + "o" + " on f.idObra = o.idObra" + " WHERE " + "o." + where
-				+ " = " + Integer.toString(idObra) + " GROUP BY f.idObra";
+		String sql = "SELECT " + select + " FROM " + from + "f" + " JOIN " + join + "o" + " on f.idObra = o.idObra"
+				+ " WHERE " + "o." + where + " = " + Integer.toString(idObra) + " GROUP BY f.idObra";
 		this.resultStatement = this.statement.executeQuery(sql);
-		if(this.resultStatement.wasNull()) {
+		if (this.resultStatement.wasNull()) {
 			System.out.println("No existe funciones para esta obra");
-		}// Mejorar este metodo con la excepcion
+		} // Mejorar este metodo con la excepcion
 		resultado = this.resultStatement.getDouble(1);
 		return resultado;
 	}
-	
-	public Object[][] buscarObrasJoinFunciones(String select, String from, String join, String where, int idObra, int idFuncion) throws SQLException{
+
+	public Object[][] buscarObrasJoinFunciones(String select, String from, String join, String where, int idObra,
+			int idFuncion) throws SQLException {
 		ArrayList<Object[]> lista = new ArrayList<Object[]>();
 		Object[] arreglo;
 		Object[][] resultado;
 		boolean encontrado = false;
 		this.statement = this.connection.createStatement();
-		String sql = "SELECT " + select + " FROM " + from + " f" + " JOIN "+ join + " b " + " on f.idFuncion = b.idFuncion, obra o" + " WHERE " +  "b" + where + " = "  + Integer.toString(idFuncion) +
-				" AND " + "f.idObra = " + Integer.toString(idObra) + " GROUP BY idObra" ;
+		String sql = "SELECT " + select + " FROM " + from + " f" + " JOIN " + join + " b "
+				+ " on f.idFuncion = b.idFuncion, obra o" + " WHERE " + "b" + where + " = "
+				+ Integer.toString(idFuncion) + " AND " + "f.idObra = " + Integer.toString(idObra) + " GROUP BY idObra";
 		this.resultStatement = this.statement.executeQuery(sql);
 		while (this.resultStatement.next()) {
 			arreglo = new Object[contarColumnas(this.resultStatement)];
@@ -224,10 +227,11 @@ public class DAO {
 		String sql = "UPDATE " + from + " SET " + where + " = " + what.toString();
 		this.prepareStatement = this.connection.prepareStatement(sql);
 	}
-	
-	
-	public void estruturaParaActualizarCondicion(String from, String set, Object whatSet, String where, Object whatWhere) throws SQLException {
-		String sql = "UPDATE " + from + " SET " + set + " = " + whatSet.toString() + " WHERE " + where + " = " + whatWhere.toString();
+
+	public void estruturaParaActualizarCondicion(String from, String set, Object whatSet, String where,
+			Object whatWhere) throws SQLException {
+		String sql = "UPDATE " + from + " SET " + set + " = " + whatSet.toString() + " WHERE " + where + " = "
+				+ whatWhere.toString();
 		System.out.println(sql);
 		this.prepareStatement = this.connection.prepareStatement(sql);
 	}
@@ -365,6 +369,5 @@ public class DAO {
 		this.prepareStatement.executeUpdate();
 		desconectar();
 	}
-
 
 }

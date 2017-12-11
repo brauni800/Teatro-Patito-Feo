@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import elementos.ElementoCancelarBoleto;
 import elementos.ElementoMenuPrincipal;
 import elementos.ElementoVenderBoletos;
-import elementos.ElementoVerSala;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 

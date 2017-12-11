@@ -37,7 +37,7 @@ public class EventosCancelarFuncion extends EventosFactory {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnCancelarFuncion()
 				.setActionCommand(PanelFactory.CANCELAR_FUNCION);
-		
+
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones().addActionListener(this);
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnMostrarFunciones()
 				.setActionCommand(PanelFactory.MOSTRAR_FUNCIONES);

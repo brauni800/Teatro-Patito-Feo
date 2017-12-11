@@ -4,7 +4,7 @@ import eventos.EventosEditarFuncion;
 import paneles.PanelEditarFuncion;
 import vista.VentanaPrincipal;
 
-public class ElementoEditarFuncion extends ElementoFactory{
+public class ElementoEditarFuncion extends ElementoFactory {
 
 	public ElementoEditarFuncion(VentanaPrincipal ventana) {
 		super(ventana);

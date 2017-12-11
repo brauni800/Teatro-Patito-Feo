@@ -9,7 +9,7 @@ import javax.swing.JButton;
  */
 @SuppressWarnings("serial")
 public class PanelObras extends PanelFactory {
-	
+
 	/**
 	 * Create the panel.
 	 */
@@ -22,24 +22,23 @@ public class PanelObras extends PanelFactory {
 		btnRegresar = new JButton("Regresar");
 		btnRegresar.setBounds(5, 5, 100, 23);
 		btnRegresar.setVisible(true);
-        add(btnRegresar);
-        
-        btnCrear = new JButton("Crear Obra");
-        btnCrear.setBounds(66, 100, 190, 30);
-        add(btnCrear);
-        
-        btnEliminar = new JButton("Eliminar Obra");
-        btnEliminar.setBounds(66, 150, 190, 30);
-        add(btnEliminar);
-        
-        btnEditar = new JButton("Editar Obra");
-        btnEditar.setBounds(66, 200, 190, 30);
-        add(btnEditar);
+		add(btnRegresar);
 
-        
-        btnAgregarResponsable = new JButton("Agregar Responsable");
-        btnAgregarResponsable.setBounds(66, 300, 190, 30);
-        add(btnAgregarResponsable);
+		btnCrear = new JButton("Crear Obra");
+		btnCrear.setBounds(66, 100, 190, 30);
+		add(btnCrear);
+
+		btnEliminar = new JButton("Eliminar Obra");
+		btnEliminar.setBounds(66, 150, 190, 30);
+		add(btnEliminar);
+
+		btnEditar = new JButton("Editar Obra");
+		btnEditar.setBounds(66, 200, 190, 30);
+		add(btnEditar);
+
+		btnAgregarResponsable = new JButton("Agregar Responsable");
+		btnAgregarResponsable.setBounds(66, 300, 190, 30);
+		add(btnAgregarResponsable);
 	}
 
 }

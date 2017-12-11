@@ -20,7 +20,7 @@ public class EventosCancelarObra extends EventosFactory {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
-		switch(comando) {
+		switch (comando) {
 		case PanelFactory.ELIMINAR:
 			try {
 				new AdministradorObras(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).cancelarObra();
@@ -34,10 +34,8 @@ public class EventosCancelarObra extends EventosFactory {
 	@Override
 	protected void initEvents() {
 		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEliminar().addActionListener(this);
-		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEliminar().setActionCommand(PanelFactory.ELIMINAR);
+		super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().getBtnEliminar()
+				.setActionCommand(PanelFactory.ELIMINAR);
 	}
-	
-	
-	
 
 }

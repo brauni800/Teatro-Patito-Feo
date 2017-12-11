@@ -15,33 +15,33 @@ import java.sql.SQLException;
  */
 public class Conexion {
 
-    private static Connection conn;
-    private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String user = "root";
-    private static final String password = "12345";
-    private static final String url = "jdbc:mysql://localhost:3306/teatro_patito_feo";
+	private static Connection conn;
+	private static final String driver = "com.mysql.jdbc.Driver";
+	private static final String user = "root";
+	private static final String password = "12345";
+	private static final String url = "jdbc:mysql://localhost:3306/teatro_patito_feo";
 
-    public Conexion() {
-        conn = null;
-        try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url, user, password);
-            if (conn != null) {
+	public Conexion() {
+		conn = null;
+		try {
+			Class.forName(driver);
+			conn = DriverManager.getConnection(url, user, password);
+			if (conn != null) {
 
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Error al conectar " + e);
-        }
-    }
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("Error al conectar " + e);
+		}
+	}
 
-    public Connection getConnection() {
-        return conn;
-    }
+	public Connection getConnection() {
+		return conn;
+	}
 
-    public void desconectar() {
-        conn = null;
-        if (conn == null) {
+	public void desconectar() {
+		conn = null;
+		if (conn == null) {
 
-        }
-    }
+		}
+	}
 }

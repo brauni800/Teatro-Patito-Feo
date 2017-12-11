@@ -78,6 +78,7 @@ public class AdministradorFunciones {
 
 	/**
 	 * Metodo para leer los datos que se evaluarán para actualizar el sistema.
+	 * 
 	 * @throws SQLException
 	 */
 	private void crearEntidadActualizar() throws SQLException {
@@ -92,12 +93,15 @@ public class AdministradorFunciones {
 			e.getMessage();
 		}
 	}
-	
+
 	/**
-	 * Método para inicializar los valores para cancelar todas las funciones para una obra
-	 * en especifico.
-	 * @param idObra Identificador de la obra que se quiere eliminar
-	 * @throws SQLException Error de falta de valores.
+	 * Método para inicializar los valores para cancelar todas las funciones para
+	 * una obra en especifico.
+	 * 
+	 * @param idObra
+	 *            Identificador de la obra que se quiere eliminar
+	 * @throws SQLException
+	 *             Error de falta de valores.
 	 */
 	public void cancelarFuncionesObras(Object idObra) throws SQLException {
 		crearEntidadActualizar();
@@ -105,20 +109,26 @@ public class AdministradorFunciones {
 	}
 
 	/**
-	 * Método para cancelar todas las funciones para una obra en especifico en la base de datos.
-	 * @param idObra Identificador de la obra que se quiere eliminar.
-	 * @throws SQLException Error de falta de valores.
+	 * Método para cancelar todas las funciones para una obra en especifico en la
+	 * base de datos.
+	 * 
+	 * @param idObra
+	 *            Identificador de la obra que se quiere eliminar.
+	 * @throws SQLException
+	 *             Error de falta de valores.
 	 */
 	private void cancelarFuncionesObraBD(Object idObra) throws SQLException {
 		DAO cancelar = new DAO();
-		cancelar.estruturaParaActualizarCondicion(DAO.FUNCION, "disponibilidadFuncion",
-				ESTADO_CANCELADO, "idObra", idObra);
+		cancelar.estruturaParaActualizarCondicion(DAO.FUNCION, "disponibilidadFuncion", ESTADO_CANCELADO, "idObra",
+				idObra);
 		cancelar.confirmar();
 	}
-	
+
 	/**
 	 * Método para cancelar una función en especifico de la base de datos.
-	 * @throws SQLException Error de falta de valores.
+	 * 
+	 * @throws SQLException
+	 *             Error de falta de valores.
 	 */
 	private void cancelarFuncionBD() throws SQLException {
 
@@ -156,46 +166,45 @@ public class AdministradorFunciones {
 
 		Object id = this.panel.getTableFunciones().getValueAt(fila, 0);
 		String columnName = this.panel.getTableFunciones().getColumnName(columna);
-		
-		if(columnName.equals("Fecha")) {
+
+		if (columnName.equals("Fecha")) {
 			this.funcion.setFechaFuncion(panel.getCalendario().getDate().getTime());
 			java.sql.Date date = new java.sql.Date(panel.getCalendario().getDate().getTime());
-			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
-					"\"" + date + "\"", "idFuncion", id);
+			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion", "\"" + date + "\"",
+					"idFuncion", id);
 		}
-		
-		if(columnName.equals("Inicio")) {
+
+		if (columnName.equals("Inicio")) {
 			this.funcion.setInicioFuncion(inicioFuncion());
 			editar.estruturaParaActualizarCondicion(DAO.FUNCION, columnName + "funcion",
-					"\"" + this.funcion.getInicioFuncion() + "\"" , "idFuncion", id);
+					"\"" + this.funcion.getInicioFuncion() + "\"", "idFuncion", id);
 		}
-		
-			if (validarHorarios() == true) {
-				int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea actualizar la funcion?",
-						"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if (reply == JOptionPane.YES_OPTION) {
-					editar.confirmar();
-					JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "",
-							JOptionPane.INFORMATION_MESSAGE);
-					actualizarFinalFuncion(id);
-				}
-			} else {
-				JOptionPane.showMessageDialog(null, "Ya existe una funcion a esa hora");
-			
+
+		if (validarHorarios() == true) {
+			int reply = JOptionPane.showConfirmDialog(null, "Esta seguro de que desea actualizar la funcion?",
+					"Actualizar Funcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if (reply == JOptionPane.YES_OPTION) {
+				editar.confirmar();
+				JOptionPane.showMessageDialog(null, "Se ha guardado correctamente", "",
+						JOptionPane.INFORMATION_MESSAGE);
+				actualizarFinalFuncion(id);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Ya existe una funcion a esa hora");
+
 		}
 		actualizarTabla();
 	}
-	
+
 	public void actualizarFinalFuncion(Object id) throws SQLException {
 		DAO actualizar = new DAO();
 		this.funcion.setFinalFuncion(finalFuncion());
 		actualizar.estruturaParaActualizarCondicion(DAO.FUNCION, "finalFuncion",
-				"\"" + this.funcion.getFinalFuncion() + "\"" , "idFuncion", id);
+				"\"" + this.funcion.getFinalFuncion() + "\"", "idFuncion", id);
 		actualizar.confirmar();
-		
+
 	}
 
-	
 	/**
 	 * Metodo para crear una funcion
 	 * 
@@ -244,18 +253,15 @@ public class AdministradorFunciones {
 			int horaInicio = Integer.parseInt(tiempo[0]);
 			int minutosInicio = Integer.parseInt(tiempo[1]);
 			Time horario = new Time(((horaInicio * 3600000) + (minutosInicio * 60000)) - 64800000);
-			
+
 			boolean validarFecha = (date.toString()).equals(buscar[i][0].toString());
 			boolean validarInicio = this.funcion.getInicioFuncion().getTime() <= horario.getTime();
 			boolean validarFinal = this.funcion.getFinalFuncion().getTime() >= horario.getTime();
-			
+
 			System.out.println("Fecha" + validarFecha);
 
-			
-			
-			
-			if (validarFecha && validarInicio && validarFinal && 
-					this.funcion.getDisponiblidadFuncion().equals(ESTADO_ACTIVO)) {
+			if (validarFecha && validarInicio && validarFinal
+					&& this.funcion.getDisponiblidadFuncion().equals(ESTADO_ACTIVO)) {
 				return false;
 			}
 		}

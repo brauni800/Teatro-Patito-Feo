@@ -4,7 +4,7 @@ import eventos.EventosMenuPrincipal;
 import paneles.PanelMenuPrincipal;
 import vista.VentanaPrincipal;
 
-public class ElementoMenuPrincipal extends ElementoFactory{
+public class ElementoMenuPrincipal extends ElementoFactory {
 
 	public ElementoMenuPrincipal(VentanaPrincipal ventana) {
 		super(ventana);

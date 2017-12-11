@@ -6,15 +6,15 @@ package entidades.asiento;
  *
  */
 public class AsientoPlata extends AsientoFactory {
-    
-    public AsientoPlata(int idFuncion, String coordenada) {
-        super(idFuncion, coordenada);
-        super.rango = AsientoFactory.PLATA;
-    }
 
-    @Override
-    public double getPrecio() {
-        return (super.precio)*(0.75);
-    }
-    
+	public AsientoPlata(int idFuncion, String coordenada) {
+		super(idFuncion, coordenada);
+		super.rango = AsientoFactory.PLATA;
+	}
+
+	@Override
+	public double getPrecio() {
+		return (super.precio) * (0.75);
+	}
+
 }

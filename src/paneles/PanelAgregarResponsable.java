@@ -6,7 +6,6 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class PanelAgregarResponsable extends PanelFactory {
-	
 
 	public PanelAgregarResponsable() {
 		setBounds(300, 20, 620, 500);
@@ -27,26 +26,26 @@ public class PanelAgregarResponsable extends PanelFactory {
 		txtFieldApellidoRepre = new JTextField();
 		txtFieldApellidoRepre.setBounds(304, 143, 200, 20);
 		add(txtFieldApellidoRepre);
-		
+
 		txtFieldTelefonoRepre = new JTextField();
 		txtFieldTelefonoRepre.setBounds(304, 200, 200, 20);
 		add(txtFieldTelefonoRepre);
-		
+
 		txtFieldTelefonoAlternativoRepre = new JTextField();
 		txtFieldTelefonoAlternativoRepre.setBounds(304, 263, 200, 20);
 		add(txtFieldTelefonoAlternativoRepre);
-		
+
 		txtFieldEmailRepre = new JTextField();
 		txtFieldEmailRepre.setBounds(304, 314, 200, 20);
 		add(txtFieldEmailRepre);
-		
+
 	}
 
 	protected void initLabels() {
 		lblNombreRepresentante = new JLabel("Nombre del Representante:");
 		lblNombreRepresentante.setBounds(116, 86, 155, 14);
 		add(lblNombreRepresentante);
-		
+
 		lblApellidoRepresentante = new JLabel("Apellido:");
 		lblApellidoRepresentante.setBounds(116, 146, 153, 14);
 		add(lblApellidoRepresentante);
@@ -68,10 +67,7 @@ public class PanelAgregarResponsable extends PanelFactory {
 		btnAgregarResponsable = new JButton("Agregar Responsable");
 		btnAgregarResponsable.setBounds(263, 445, 165, 23);
 		add(btnAgregarResponsable);
-		
-	}
-	
 
-	
+	}
 
 }

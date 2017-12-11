@@ -45,13 +45,14 @@ public abstract class PanelFactory extends JPanel {
 	public static final String MOSTRAR_FUNCIONES = "MOSTRAR_FUNCIONES";
 	public static final String IR_FUNCIONES = "IR_FUNCIONES";
 	public static final String VENDER_ASIENTOS = "VENDER_ASIENTOS";
+	public static final String ASIENTOS_SELECCIONADOS = "ASIENTOS_SELECCIONADOS";
 
 	protected ElementoFactory elementoDinamico;
 	protected PanelFactory panelDinamico;
 	protected JButton btnCrear, btnEliminar, btnEditar, btnRegresar, btnAgregarResponsable, btnObras, btnInformes,
 			btnCrearFuncion, btnCancelarFuncion, btnFuncion, btnEditarFuncion, btnIrAFunciones;
 	protected JButton btnAceptarCrearFuncion, btnVenderBoleto, btnCancelarBoleto, btnVerSala, btnBoleto,
-			btnMostrarFunciones, btnVenderAsientos, btnVerFunciones;
+			btnMostrarFunciones, btnVenderAsientos, btnVerFunciones, btnAsientosSeleccionados;
 	protected JTextField txtFieldNombreObra, txtFieldPrecio, txtFieldSeleccion, txtFieldNombreRepre,
 			txtFieldApellidoRepre, txtFieldTelefonoRepre, txtFieldTelefonoAlternativoRepre, txtFieldEmailRepre;
 	protected JLabel lblNombreObra, lblPrecio, lblDuracion, lblRepresentante, lblDescripcion, lblSeleccionarObra,
@@ -283,7 +284,14 @@ public abstract class PanelFactory extends JPanel {
         super.paint(g);
     } 
 	
-	
+	public JButton getBtnAsientosSeleccionados() {
+		return btnAsientosSeleccionados;
+	}
+
+	public void setBtnAsientosSeleccionados(JButton btnAsientosSeleccionados) {
+		this.btnAsientosSeleccionados = btnAsientosSeleccionados;
+	}
+
 	public JButton getBtnVerFunciones() {
 		return btnVerFunciones;
 	}

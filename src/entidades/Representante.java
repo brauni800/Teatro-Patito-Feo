@@ -4,7 +4,7 @@ public class Representante {
 
 	private int idRepresentante;
 	private String nombre, apellido, telefono, telefonoAlternativo, email;
-	
+
 	public Representante() {
 		super();
 	}
@@ -56,5 +56,5 @@ public class Representante {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 }

@@ -11,7 +11,6 @@ public class ElementoAgregarResponsable extends ElementoFactory {
 		super.panel = new PanelAgregarResponsable();
 		ventana.getPanelDinamico().setPanelDinamico(super.panel);
 		super.eventos = new EventosAgregarResponsable(ventana);
-		// TODO Auto-generated constructor stub
 	}
 
 }

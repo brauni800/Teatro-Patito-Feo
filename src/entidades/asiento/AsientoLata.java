@@ -6,15 +6,15 @@ package entidades.asiento;
  *
  */
 public class AsientoLata extends AsientoFactory {
-    
-    public AsientoLata(int idFuncion, String coordenada) {
-        super(idFuncion, coordenada);
-        super.rango = AsientoFactory.LATA;
-    }
 
-    @Override
-    public double getPrecio() {
-        return (super.precio)*(0.5);
-    }
-    
+	public AsientoLata(int idFuncion, String coordenada) {
+		super(idFuncion, coordenada);
+		super.rango = AsientoFactory.LATA;
+	}
+
+	@Override
+	public double getPrecio() {
+		return (super.precio) * (0.5);
+	}
+
 }
