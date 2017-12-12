@@ -6,6 +6,7 @@
 package administradores;
 
 import entidades.asiento.*;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -33,19 +34,19 @@ public class AdministrarAsientos extends MouseAdapter {
 	private ArrayList<AsientoFactory> listaAsientos;
 	private AsientoFactory asientoEncontrado;
 	private String coordenada;
-
+	
 	public AdministrarAsientos(JLabel jl, String coordenada) {
 		this.jl = jl;
 		this.coordenada = coordenada;
 	}
 
-	public AdministrarAsientos(int idFuncion) {
-		this.idFuncion = idFuncion;
-		buscarAsientosBD("idFuncion", this.idFuncion);
+	public void crearAsiento() {
+		System.out.println("a");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent me) {
+		obtenerIDFuncion();
 		super.mouseExited(me);
 		String direccion[] = this.jl.getIcon().toString().split("/");
 		int i = direccion.length;
@@ -263,6 +264,7 @@ public class AdministrarAsientos extends MouseAdapter {
 		}
 		this.conexion.desconectar();
 	}
+	
 
 	private ImageIcon asignarImagenRojaPorRango(String s) {
 		ImageIcon icon = null;
@@ -416,5 +418,9 @@ public class AdministrarAsientos extends MouseAdapter {
 			break;
 		}
 		return asiento;
+	}
+	
+	private void obtenerIDFuncion() {
+		
 	}
 }

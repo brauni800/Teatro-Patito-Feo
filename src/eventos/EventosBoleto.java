@@ -2,6 +2,7 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 
+import administradores.AdministradorBoletos;
 import elementos.ElementoCancelarBoleto;
 import elementos.ElementoMenuPrincipal;
 import elementos.ElementoVenderBoletos;
@@ -31,14 +32,13 @@ public class EventosBoleto extends EventosFactory {
 			case PanelFactory.VENDER_BOLETOS:
 				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(false);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(true);
-				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVenderBoletos(ventanaPrincipal));
+				new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).verSala();
 				break;
 			case PanelFactory.CANCELAR_BOLETO:
 				super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(false);
-				super.ventanaPrincipal.getPanelDinamico().getBtnVerSala().setEnabled(true);
 				super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
 				super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoCancelarBoleto(ventanaPrincipal));
 				break;

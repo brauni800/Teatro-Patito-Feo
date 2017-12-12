@@ -5,7 +5,6 @@ import java.awt.event.MouseAdapter;
 
 import javax.swing.JLabel;
 
-import administradores.AdministradorBoletos;
 import administradores.AdministrarAsientos;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
@@ -23,16 +22,13 @@ public class EventosVerSala extends EventosFactory {
 	public EventosVerSala(VentanaPrincipal ventanaPrincipal) {
 		super(ventanaPrincipal);
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		switch (comando) {
-		case PanelFactory.VER_SALA:
-			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).verSala();
-			break;
 		case PanelFactory.ASIENTOS_SELECCIONADOS:
-			System.out.println("Entro");
 			break;
 		}
 	}
