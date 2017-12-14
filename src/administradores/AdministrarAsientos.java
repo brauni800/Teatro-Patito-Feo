@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import bd.Conexion;
 import bd.DAO;
 
@@ -38,15 +39,11 @@ public class AdministrarAsientos extends MouseAdapter {
 	public AdministrarAsientos(JLabel jl, String coordenada) {
 		this.jl = jl;
 		this.coordenada = coordenada;
-	}
-
-	public void crearAsiento() {
-		System.out.println("a");
+		buscarAsientosBD();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent me) {
-		obtenerIDFuncion();
 		super.mouseExited(me);
 		String direccion[] = this.jl.getIcon().toString().split("/");
 		int i = direccion.length;
@@ -116,9 +113,8 @@ public class AdministrarAsientos extends MouseAdapter {
 		case "imagenes/asiento_verde_lata.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_lata_clicked.jpg")));
 			try {
-				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada");
 				insertar.insertarString(1, this.coordenada);
-				insertar.insertarInt(2, 1);
 				insertar.confirmar();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -127,9 +123,8 @@ public class AdministrarAsientos extends MouseAdapter {
 		case "imagenes/asiento_verde_bronce.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_bronce_clicked.jpg")));
 			try {
-				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada");
 				insertar.insertarString(1, this.coordenada);
-				insertar.insertarInt(2, 1);
 				insertar.confirmar();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -138,9 +133,8 @@ public class AdministrarAsientos extends MouseAdapter {
 		case "imagenes/asiento_verde_plata.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_plata_clicked.jpg")));
 			try {
-				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada");
 				insertar.insertarString(1, this.coordenada);
-				insertar.insertarInt(2, 1);
 				insertar.confirmar();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -149,9 +143,8 @@ public class AdministrarAsientos extends MouseAdapter {
 		case "imagenes/asiento_verde_oro.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_oro_clicked.jpg")));
 			try {
-				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada");
 				insertar.insertarString(1, this.coordenada);
-				insertar.insertarInt(2, 1);
 				insertar.confirmar();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -160,9 +153,8 @@ public class AdministrarAsientos extends MouseAdapter {
 		case "imagenes/asiento_verde_diamante.jpg":
 			this.jl.setIcon(new ImageIcon(getClass().getResource("imagenes/asiento_verde_diamante_clicked.jpg")));
 			try {
-				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada, idBoleto");
+				insertar.crearEstructuraParaInsertar(DAO.ASIENTO, "coordenada");
 				insertar.insertarString(1, this.coordenada);
-				insertar.insertarInt(2, 1);
 				insertar.confirmar();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -249,20 +241,18 @@ public class AdministrarAsientos extends MouseAdapter {
 		return icon;
 	}
 
-	private void buscarAsientosBD(String where, Object what) {
-		this.conexion = new Conexion();
-		this.connection = conexion.getConnection();
-		this.listaAsientos = new ArrayList<AsientoFactory>();
+	private void buscarAsientosBD() {
+		DAO buscar = new DAO();
+		
 		try {
-			Statement st = this.connection.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM asiento WHERE " + where + " = " + what.toString());
-			while (rs.next()) {
-				crearListaAsientos(rs.getString(-3));
-			}
-		} catch (SQLException ex) {
-			Logger.getLogger(AdministrarAsientos.class.getName()).log(Level.SEVERE, null, ex);
+			Object[][] a = buscar.buscar("coordenada", "asiento");
+			for(int i = 0; i<a.length; i++)
+					System.out.println(a[i][0]);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		this.conexion.desconectar();
+		
+		
 	}
 	
 
@@ -418,9 +408,5 @@ public class AdministrarAsientos extends MouseAdapter {
 			break;
 		}
 		return asiento;
-	}
-	
-	private void obtenerIDFuncion() {
-		
 	}
 }

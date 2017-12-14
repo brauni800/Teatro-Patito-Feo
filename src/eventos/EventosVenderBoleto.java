@@ -5,6 +5,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import administradores.AdministradorBoletos;
+import administradores.AdministrarAsientos;
 import elementos.ElementoVerSala;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;

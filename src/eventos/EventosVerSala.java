@@ -2,10 +2,13 @@ package eventos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
+import java.sql.SQLException;
 
 import javax.swing.JLabel;
 
+import administradores.AdministradorBoletos;
 import administradores.AdministrarAsientos;
+import elementos.ElementoVenderBoletos;
 import paneles.PanelFactory;
 import vista.VentanaPrincipal;
 
@@ -29,6 +32,11 @@ public class EventosVerSala extends EventosFactory {
 		String comando = e.getActionCommand();
 		switch (comando) {
 		case PanelFactory.ASIENTOS_SELECCIONADOS:
+			super.ventanaPrincipal.getPanelDinamico().getBtnVenderBoleto().setEnabled(false);
+			super.ventanaPrincipal.getPanelDinamico().getBtnCancelarBoleto().setEnabled(true);
+			super.ventanaPrincipal.getPanelDinamico().getPanelDinamico().setVisible(false);
+			super.ventanaPrincipal.getPanelDinamico().setElementoDinamico(new ElementoVenderBoletos(ventanaPrincipal));
+			new AdministradorBoletos(ventanaPrincipal.getPanelDinamico().getPanelDinamico()).verSala();
 			break;
 		}
 	}
@@ -61,8 +69,9 @@ public class EventosVerSala extends EventosFactory {
 	 * @param coordenada
 	 *            Lugar donde está el asiento.
 	 * @return Label con funcionalidad.
+	 * @throws SQLException 
 	 */
-	private MouseAdapter asientoAdapter(JLabel jl, String coordenada) {
+	private MouseAdapter asientoAdapter(JLabel jl, String coordenada){
 		return new AdministrarAsientos(jl, coordenada);
 	}
 
