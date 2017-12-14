@@ -1,10 +1,7 @@
 package paneles;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,16 +14,8 @@ import combobox.ComboBoxRepresentantes;
 public class PanelCrearObra extends PanelCrearEditarObra {
 
 	public PanelCrearObra() {
-		url = getClass().getResource("imagenes/obras5.png");
-		image = new ImageIcon(url).getImage();
 	}
 
-	public void paint(Graphics g) {
-		Dimension d = getSize();
-		g.drawImage(image, 0, 0, d.width, d.height, this);
-		this.setOpaque(false);
-		super.paint(g);
-	}
 
 	@Override
 	protected void initLabels() {

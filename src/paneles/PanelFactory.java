@@ -267,8 +267,6 @@ public abstract class PanelFactory extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		initComponents();
-		url = getClass().getResource("imagenes/telon.jpg");
-		image = new ImageIcon(url).getImage();
 	}
 
 	/**
@@ -276,13 +274,6 @@ public abstract class PanelFactory extends JPanel {
 	 */
 	protected abstract void initComponents();
 	
-	@Override
-    public void paint(Graphics g){
-		Dimension d = getSize();
-		g.drawImage(image, 0, 0, d.width, d.height, this);
-		this.setOpaque(false);
-        super.paint(g);
-    } 
 	
 	public JButton getBtnAsientosSeleccionados() {
 		return btnAsientosSeleccionados;

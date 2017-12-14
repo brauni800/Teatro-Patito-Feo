@@ -1,5 +1,9 @@
 package paneles;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -14,8 +18,18 @@ public class PanelMenuPrincipal extends PanelFactory {
 	 * Create the panel.
 	 */
 	public PanelMenuPrincipal() {
-
+		url = getClass().getResource("imagenes/telon.jpg");
+		image = new ImageIcon(url).getImage();
+		
 	}
+	
+	@Override
+    public void paint(Graphics g){
+		Dimension d = getSize();
+		g.drawImage(image, 0, 0, d.width, d.height, this);
+		this.setOpaque(false);
+        super.paint(g);
+    } 
 
 	@Override
 	protected void initComponents() {
